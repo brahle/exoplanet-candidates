@@ -1,8 +1,10 @@
 # TIC 464547401 / S01
 
-**Unclassified transit-like signal. Local publication draft, analysis dated 2026-10-10.**
+**Unclassified transit-like signal. Public evidence dossier, analysis dated 2026-10-10.**
 The label S01 is local to this catalogue. No official TOI/cTOI or confirmed-planet designation
-is claimed. No public-disclosure timestamp has been assigned.
+is claimed. First disclosure was the GitHub push recorded at **2026-10-10 17:54:43 UTC**;
+the [receipt](publication-receipt.json) identifies the initial public snapshot and timestamp basis.
+No versioned release or DOI has been issued yet.
 
 | Assessment | Status | Interpretation |
 |---|---|---|

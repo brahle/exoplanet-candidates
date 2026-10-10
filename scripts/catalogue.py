@@ -43,8 +43,10 @@ def validate(record, folder):
         if not math.isclose(math.sqrt(variance), s[key]['error'], rel_tol=1e-8):
             raise ValueError(f"{key} uncertainty and chosen covariance disagree")
     p = record['publication']
-    if p['state'] == 'draft' and any(p[k] is not None for k in ('first_public_utc', 'release_url', 'doi')):
+    if p['state'] == 'draft' and any(p.get(k) is not None for k in ('first_public_utc', 'disclosure_url', 'release_url', 'doi')):
         raise ValueError("A draft must not invent publication timestamps, releases or DOIs")
+    if p['state'] == 'disclosed' and not all(p.get(k) for k in ('first_public_utc', 'disclosure_url')):
+        raise ValueError("Disclosed dossiers need an actual public timestamp and disclosure URL")
     if p['state'] == 'published' and not all(p[k] for k in ('first_public_utc', 'release_url')):
         raise ValueError("Published dossiers need an actual public timestamp and release URL")
     references = list(record['evidence']) + record['novelty']['evidence']

@@ -40,5 +40,7 @@ Before a **public numerical rerun** release, publish a capsule containing:
 4. A versioned archive containing the report, code and data, with a resolvable DOI and exact
    version citation. Verify large assets are included rather than assuming integration coverage.
 
-The capsule is an outstanding publication step. No raw-data transfer, candidate submission,
-new scientific analysis or external follow-up is implied by this draft.
+The capsule is an outstanding publication step. This evidence dossier was disclosed through
+GitHub; the [receipt](publication-receipt.json) identifies its first public snapshot. No versioned
+release, DOI deposit, raw-data transfer, candidate submission, new scientific analysis or
+external follow-up was performed by this disclosure.

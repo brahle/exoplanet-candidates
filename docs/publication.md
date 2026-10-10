@@ -89,6 +89,7 @@ when it cites an already peer-reviewed detection/vetting methodology. A GitHub/Z
 alone does not meet this publication requirement. Candidate upload is a separate future action;
 no upload, external follow-up or journal submission is performed by this workflow.
 
-Current draft recommendation: prepare TIC 464547401 as an unclassified signal with source and
-timing both unresolved. Complete the public reproduction capsule before calling its first
-release reproducible. A clearly labelled evidence-only disclosure is a smaller optional milestone.
+TIC 464547401 was first publicly disclosed on 2026-10-10 as an evidence-only unclassified signal,
+with source and timing both unresolved. Complete the public reproduction capsule before calling
+a future release numerically reproducible. The `disclosed` state records a public Git snapshot;
+the `published` state additionally requires a versioned release URL. Neither implies peer review.

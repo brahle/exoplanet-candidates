@@ -30,7 +30,7 @@ def main():
     parser.add_argument('source', type=Path)
     args = parser.parse_args()
     current = DEST / 'candidate.json'
-    if current.exists() and read(current)['publication']['state'] == 'published':
+    if current.exists() and read(current)['publication']['state'] != 'draft':
         raise ValueError('Published dossier: prepare a new reviewed version; do not overwrite disclosure history.')
     source = args.source.resolve()
     p1 = source / 'results/evidence/2026-10-10-tic-464547401-vetting'

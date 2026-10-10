@@ -92,8 +92,9 @@
       "type": "object", "additionalProperties": false,
       "required": ["state", "first_public_utc", "release_url", "doi", "authors"],
       "properties": {
-        "state": {"enum": ["draft", "published"]},
+        "state": {"enum": ["draft", "disclosed", "published"]},
         "first_public_utc": {"type": ["string", "null"], "format": "date-time"},
+        "disclosure_url": {"type": ["string", "null"], "format": "uri"},
         "release_url": {"type": ["string", "null"], "format": "uri"},
         "doi": {"type": ["string", "null"]},
         "authors": {"type": "array", "minItems": 1, "items": {"type": "string"}}

@@ -9,8 +9,10 @@ scientific priority or an official TESS designation.
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
 
-The first dossier is a **local publication draft**. No public disclosure date or DOI has been
-assigned. Its tables and plots can be inspected and hash-verified; a public numerical rerun
+The first dossier was **publicly disclosed on 2026-10-10** as an evidence-only record.
+Its [disclosure receipt](candidates/tic-464547401-s01/publication-receipt.json) identifies the
+initial commit and observed GitHub push timestamp. No versioned release or DOI is assigned yet.
+Its tables and plots can be inspected and hash-verified; a public numerical rerun
 is not yet available. See its [reproducibility statement](candidates/tic-464547401-s01/REPRODUCIBILITY.md).
 
 The [machine catalogue](catalogue.json) is generated from per-signal `candidate.json` files.
