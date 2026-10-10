@@ -1,0 +1,31 @@
+# Exoplanet candidate dossiers
+
+Independent transit detections, dated research and inspectable evidence by Bruno Rahle.
+Each entry identifies a **signal**, records what was checked and retains what remains uncertain.
+An entry is an attributable research record; its presence here does not establish a planet,
+scientific priority or an official TESS designation.
+
+| Signal | Period | Source localisation | Timing consistency | Novelty check |
+|---|---:|---|---|---|
+| [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
+
+The first dossier is a **local publication draft**. No public disclosure date or DOI has been
+assigned. Its tables and plots can be inspected and hash-verified; a public numerical rerun
+is not yet available. See its [reproducibility statement](candidates/tic-464547401-s01/REPRODUCIBILITY.md).
+
+The [machine catalogue](catalogue.json) is generated from per-signal `candidate.json` files.
+Stable IDs such as `tic-464547401-s01` are local identifiers; they are not TOIs, cTOIs or planet names.
+One star can have several signal records. Updated assessments keep the same signal ID.
+
+```bash
+uv sync --frozen
+uv run python scripts/catalogue.py check
+uv run python -m unittest discover -s tests
+```
+
+Read the [publication workflow](docs/publication.md), [new-candidate guide](docs/adding-candidates.md)
+and [credits](docs/credits.md). The workflow uses versioned dossiers, immutable GitHub releases
+and DOI archives. Validation never publishes automatically.
+
+Repository-authored code and documentation use the existing [MIT license](LICENSE).
+Third-party mission/catalogue material retains its original attribution and terms.
