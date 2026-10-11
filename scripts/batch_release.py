@@ -367,8 +367,12 @@ def main():
         result = record_disclosure(args.root, args.batch, args.repo, args.commit, args.previous_public_commit)
     else:
         result = inspect_assets(args.archive, args.manifest, args.expected_sha256, args.certificate)
-    print(json.dumps({'status': result.get('status', 'prepared'),
-                      'selected_records': result.get('new_signal_count', result.get('selected_records_verified'))}))
+    summary = {'status': result.get('status', 'prepared')}
+    if 'updated_records' in result:
+        summary['updated_records'] = result['updated_records']
+    else:
+        summary['selected_records'] = result.get('new_signal_count', result.get('selected_records_verified'))
+    print(json.dumps(summary))
 
 
 if __name__ == '__main__':
