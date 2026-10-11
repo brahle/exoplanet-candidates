@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "verification_kind": "public_evidence_inspection",
+  "checked_utc": "2026-10-11T08:56:20.024340+00:00",
+  "public_input_urls": [
+    "https://github.com/brahle/exoplanet-candidates/releases/download/run5-v0.1.0/release-manifest.json",
+    "https://github.com/brahle/exoplanet-candidates/releases/download/run5-v0.1.0/run5-v0.1.0-evidence.tar.gz"
+  ],
+  "http_authentication": "none",
+  "archive_bytes": 35918838,
+  "archive_sha256": "7ce401a284c6a3477a304b555fcd601d6089392c92dcc9a4adde2bc3d9e78247",
+  "release_manifest_sha256": "55ae15fa4617074b6e6ff03fab00449448e117b9fd94029535de2c139a1f04b7",
+  "source_commit": "3d13cc0099466c87f2c2febd8ae4420b9ff9b1f4",
+  "new_signals_verified": 171,
+  "total_dossiers_validated": 172,
+  "integrity_tests_passed": 17,
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--frozen",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "python",
+        "scripts/catalogue.py",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "limits": [
+    "Verifies public exported evidence, not a numerical light-curve/pixel/search rerun.",
+    "No planet probability, discovery priority or source/timing support certified."
+  ]
+}

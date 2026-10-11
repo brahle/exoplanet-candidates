@@ -208,3 +208,7 @@ that every record is novel, or that all 222 original coarse catalog nonmatches w
 | [7475565 / S01](../../candidates/tic-7475565-s01/README.md) | 0.87847921 | 2863.7 | no recorded flag |
 | [82102762 / S01](../../candidates/tic-82102762-s01/README.md) | 10.03229598 | 17600.7 | flagged |
 | [94012748 / S01](../../candidates/tic-94012748-s01/README.md) | 6.90745441 | 10878.1 | flagged |
+
+The [immutable evidence release](https://github.com/brahle/exoplanet-candidates/releases/tag/run5-v0.1.0) was published on 2026-10-11 at 08:55:04 UTC. Locked dossiers are version 0.1.1; version 0.1.2 in the live catalogue records the release receipt without changing scientific evidence.
+
+The [public evidence inspection certificate](public-evidence-certificate.json) verifies unauthenticated asset retrieval, all 171 manifest entries, 172 dossier validations and 17 tests in a fresh environment. It does not certify a numerical rerun.
