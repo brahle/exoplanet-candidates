@@ -1,5 +1,16 @@
 # TIC 464547401 / S01
 
+## Diagnostic figures
+
+![Five-panel diagnostic](evidence/figures/diagnostic.png)
+
+Historical Phase 1 view. QLP clock assumptions remain unresolved; see later timing evidence. Display-bin error bars are uncalibrated white standard errors.
+
+All event pages: [events-01.png](evidence/figures/events-01.png).
+
+[Plot context](evidence/figures/plot-context.json) · [Saved plot vectors](evidence/figures/plot-data.npz) · [Rendering methods](../../docs/diagnostic-figures.md).
+
+
 **Unclassified transit-like signal. Public evidence dossier, analysis dated 2026-10-10.**
 The label S01 is local to this catalogue. No official TOI/cTOI or confirmed-planet designation
 is claimed. First disclosure was the GitHub push recorded at **2026-10-10 17:54:43 UTC**;

@@ -1,5 +1,14 @@
 # TIC 320176061 / S01
 
+## Diagnostic figures
+
+![Five-panel diagnostic](evidence/figures/diagnostic.png)
+
+Saved signed local profiles; all numeric events, including negative depths. Failures and excluded clock products remain in the context. Display-bin error bars are uncalibrated white standard errors.
+
+[Plot context](evidence/figures/plot-context.json) · [Saved plot vectors](evidence/figures/plot-data.npz) · [Rendering methods](../../docs/diagnostic-figures.md).
+
+
 **Provisional unclassified transit-like signal.** Source attribution and timing consistency are unresolved.
 Binary, blend and instrumental explanations remain open. This is a dated evidence record, not a verified planet.
 

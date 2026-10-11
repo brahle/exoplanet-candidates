@@ -36,3 +36,5 @@ and DOI archives. Validation never publishes automatically.
 
 Repository-authored code and documentation use the existing [MIT license](LICENSE).
 Third-party mission/catalogue material retains its original attribution and terms.
+
+[Browse diagnostic figures for every dossier](gallery/README.md). Five-panel overviews, complete event pages and saved plotting vectors are described in [the rendering methods](docs/diagnostic-figures.md).
