@@ -1,5 +1,15 @@
 # TIC 260569590 / S01
 
+## Current vetting status
+
+Assessed 2026-10-11T20:12:12.430670Z. **Progress: source_vetting; scientific assessment: unclassified**.
+
+Initial screen: **warnings**. Warning flags: binary_catalogue_match, elevated_ruwe, nine_phase_scan_uncorrected, off_target_diagnostic, phase_half_secondary. No initial warning does not establish a planet candidate.
+
+[Dated measurements, catalogue matches and source/physical outcomes](evidence/vetting-findings.json) · [Structured status](vetting.json) · [Category definitions](../../docs/classification.md).
+
+
+
 ## Diagnostic figures
 
 ![Five-panel diagnostic](evidence/figures/diagnostic.png)

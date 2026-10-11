@@ -112,6 +112,8 @@ def validate(record, folder):
                 certificate.get('signal_id') != record['id'] or
                 certificate.get('numeric_comparison', {}).get('status') != 'passed'):
             raise ValueError("Public numerical rerun requires a passed public-input certificate")
+    from vetting import validate as validate_vetting
+    validate_vetting(record, folder, ROOT)
 
 
 def validate_fit_uncertainty(record, context):
@@ -209,6 +211,11 @@ def main():
         target.write_bytes(content)
     elif not target.exists() or target.read_bytes() != content:
         raise ValueError("Generated index is stale: run scripts/catalogue.py build")
+    if (ROOT / 'vetting-catalogue.json').exists() or any(
+            (ROOT / 'candidates').glob('*/vetting.json')):
+        from vetting import refresh
+        summary = refresh(found, ROOT, check=args.command == 'check')
+        print(f'Vetting views: {summary["records"]} signals; independent progress/assessment axes')
     print(f"PASS: {len(found)} dossiers; schema, ephemeris covariance, artifact hashes and index")
 
 

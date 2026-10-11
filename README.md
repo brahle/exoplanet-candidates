@@ -5,6 +5,18 @@ Each entry identifies a **signal**, records what was checked and retains what re
 An entry is an attributable research record; its presence here does not establish a planet,
 scientific priority or an official TESS designation.
 
+**[Browse by vetting progress, scientific assessment and warning flags](browse/README.md).**
+The [classification guide](docs/classification.md) separates work performed from
+confidence in a planetary explanation. Dossiers keep stable paths as findings change.
+
+[Vetting update, 11 October 2026](docs/vetting-findings-2026-10-11.md): among the
+156 signals without prior-report overlaps, 116 have initial warnings, 33 have no
+warnings in those initial checks, and seven have incomplete diagnostics. Later
+pixel warnings are recorded separately. All 172 scientific assessments remain
+unclassified; the shortlist is not a count of likely planets.
+Three initial-shortlist signals now carry off-target warnings, leaving
+[30 without currently published warnings for follow-up](browse/shortlist/README.md).
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |

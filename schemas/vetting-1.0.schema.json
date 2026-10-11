@@ -1,0 +1,218 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/brahle/exoplanet-candidates/blob/main/schemas/vetting-1.0.schema.json",
+  "title": "Independent vetting progress and scientific assessment",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schema_version",
+    "signal_id",
+    "assessed_utc",
+    "progress",
+    "scientific_assessment",
+    "initial_screen",
+    "warnings",
+    "open_requirements",
+    "evidence"
+  ],
+  "properties": {
+    "schema_version": {
+      "const": "1.0"
+    },
+    "signal_id": {
+      "type": "string",
+      "pattern": "^tic-[0-9]+-s[0-9]{2}$"
+    },
+    "assessed_utc": {
+      "type": "string",
+      "format": "date-time"
+    },
+    "progress": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "stage",
+        "stages"
+      ],
+      "properties": {
+        "stage": {
+          "enum": [
+            "queue",
+            "screening",
+            "screened",
+            "source_vetting",
+            "physical_vetting",
+            "followup",
+            "validation",
+            "confirmation"
+          ]
+        },
+        "stages": {
+          "type": "object",
+          "additionalProperties": false,
+          "required": [
+            "screening",
+            "source_vetting",
+            "physical_vetting",
+            "followup",
+            "validation",
+            "confirmation"
+          ],
+          "properties": {
+            "screening": {
+              "enum": [
+                "not_started",
+                "partial",
+                "complete",
+                "blocked"
+              ]
+            },
+            "source_vetting": {
+              "enum": [
+                "not_started",
+                "partial",
+                "complete",
+                "blocked"
+              ]
+            },
+            "physical_vetting": {
+              "enum": [
+                "not_started",
+                "partial",
+                "complete",
+                "blocked"
+              ]
+            },
+            "followup": {
+              "enum": [
+                "not_started",
+                "partial",
+                "complete",
+                "blocked"
+              ]
+            },
+            "validation": {
+              "enum": [
+                "not_started",
+                "partial",
+                "complete",
+                "blocked"
+              ]
+            },
+            "confirmation": {
+              "enum": [
+                "not_started",
+                "partial",
+                "complete",
+                "blocked"
+              ]
+            }
+          }
+        }
+      }
+    },
+    "scientific_assessment": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "status",
+        "planet_probability",
+        "basis",
+        "review_evidence"
+      ],
+      "properties": {
+        "status": {
+          "enum": [
+            "unclassified",
+            "candidate",
+            "likely_planet",
+            "false_positive",
+            "validated_planet",
+            "confirmed_planet",
+            "known_signal"
+          ]
+        },
+        "planet_probability": {
+          "const": null
+        },
+        "basis": {
+          "type": "string",
+          "minLength": 1
+        },
+        "review_evidence": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "minLength": 1
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "initial_screen": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "outcome",
+        "all_checks_available"
+      ],
+      "properties": {
+        "outcome": {
+          "enum": [
+            "warnings",
+            "no_initial_warnings",
+            "incomplete"
+          ]
+        },
+        "all_checks_available": {
+          "type": "boolean"
+        }
+      }
+    },
+    "warnings": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "enum": [
+          "odd_even",
+          "phase_half_secondary",
+          "nine_phase_scan_uncorrected",
+          "binary_catalogue_match",
+          "elevated_ruwe",
+          "external_adverse_report",
+          "off_target_diagnostic"
+        ]
+      }
+    },
+    "open_requirements": {
+      "type": "array",
+      "uniqueItems": true,
+      "items": {
+        "type": "string",
+        "minLength": 1
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "minItems": 1,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "path",
+          "sha256"
+        ],
+        "properties": {
+          "path": {
+            "type": "string",
+            "minLength": 1
+          },
+          "sha256": {
+            "type": "string",
+            "pattern": "^[a-f0-9]{64}$"
+          }
+        }
+      }
+    }
+  }
+}

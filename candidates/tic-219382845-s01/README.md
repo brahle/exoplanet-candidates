@@ -1,5 +1,15 @@
 # TIC 219382845 / S01
 
+## Current vetting status
+
+Assessed 2026-10-11T20:12:12.430670Z. **Progress: screened; scientific assessment: unclassified**.
+
+Initial screen: **warnings**. Warning flags: odd_even. No initial warning does not establish a planet candidate.
+
+[Dated measurements, catalogue matches and source/physical outcomes](evidence/vetting-findings.json) · [Structured status](vetting.json) · [Category definitions](../../docs/classification.md).
+
+
+
 ## Diagnostic figures
 
 ![Five-panel diagnostic](evidence/figures/diagnostic.png)

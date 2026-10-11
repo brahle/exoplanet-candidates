@@ -1,5 +1,15 @@
 # TIC 446959769 / S01
 
+## Current vetting status
+
+Assessed 2026-10-11T20:12:12.430670Z. **Progress: screened; scientific assessment: unclassified**.
+
+Initial screen: **warnings**. Warning flags: external_adverse_report, nine_phase_scan_uncorrected, phase_half_secondary. No initial warning does not establish a planet candidate.
+
+[Dated measurements, catalogue matches and source/physical outcomes](evidence/vetting-findings.json) · [Structured status](vetting.json) · [Category definitions](../../docs/classification.md).
+
+
+
 ## Matching external aperture report
 
 Reviewed 2026-10-11T12:27:23Z. Eumemic reports this TIC at 7.659865000 days as **likely EB** ([pinned table row](https://github.com/eumemic/exoplanets/blob/f3dd74abec5879661d76bcfcae2ce6744ba18aad/results_public/candidates_allsky.csv#L1163)). Reported rationale: Detailed classification rationale not published in the row.
