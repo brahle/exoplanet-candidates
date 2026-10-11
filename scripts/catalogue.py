@@ -8,6 +8,7 @@ import math
 from pathlib import Path
 
 from jsonschema import Draft202012Validator, FormatChecker
+from referencing import Registry, Resource
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -23,9 +24,18 @@ def inside(base, relative):
     return path
 
 
-def validate(record, folder):
+def schema_validator():
+    """Resolve only checked-in versioned contracts; validation never fetches a schema."""
     schema = load(ROOT / "schemas/candidate.schema.json")
-    Draft202012Validator(schema, format_checker=FormatChecker()).validate(record)
+    registry = Registry()
+    for path in sorted((ROOT / 'schemas').glob('candidate-*.schema.json')):
+        contract = load(path)
+        registry = registry.with_resource(contract['$id'], Resource.from_contents(contract))
+    return Draft202012Validator(schema, registry=registry, format_checker=FormatChecker())
+
+
+def validate(record, folder):
+    schema_validator().validate(record)
     if record['id'] != folder.name or not record['id'].startswith(f"tic-{record['target']['tic']}-"):
         raise ValueError("Folder, signal ID and target TIC disagree")
     s = record['signal']
@@ -97,7 +107,7 @@ def records():
 
 
 def index_bytes(found):
-    index = [{k: r[k] for k in ('id', 'version', 'title', 'assessment', 'novelty', 'publication')} | {
+    index = [{k: r[k] for k in ('schema_version', 'id', 'version', 'title', 'assessment', 'novelty', 'publication')} | {
         'period_d': r['signal']['period_d']['value'], 'path': f"candidates/{r['id']}/README.md"
     } for r in found]
     return (json.dumps(index, indent=2, allow_nan=False) + '\n').encode()

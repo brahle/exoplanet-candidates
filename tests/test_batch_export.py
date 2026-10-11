@@ -104,3 +104,5 @@ class BatchExport(unittest.TestCase):
             self.assertIn('/ S02', (folders[1] / 'README.md').read_text())
             with self.assertRaisesRegex(ValueError, 'Refusing to overwrite'):
                 export.dossier(root / 'out', assessment, {'checked_utc': '2026-10-11T00:00:00Z'}, docs, [], '2026-10-11')
+            for folder in folders:
+                self.assertEqual(export.load(folder / 'candidate.json')['schema_version'], '1.1')

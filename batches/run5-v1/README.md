@@ -5,6 +5,11 @@ photometry, covariance, robustness, timing and signed alternative diagnostics. S
 physical scenario, noise coverage and survey reliability remain unresolved. These are
 preliminary evidence records; no planet or discovery-priority claim is made.
 
+The live dossiers now declare [schema 1.1](../../docs/schema.md). The original immutable
+release and commit `180e82d` incorrectly labelled their nullable fields as `1.0`;
+use the correction revision or newer for ingestion. This corrects the data contract,
+without changing the scientific values or the original disclosure/release dates.
+
 Fresh configured Exoplanet MCP checks on 2026-10-11 used the adopted diagnostic ephemerides,
 300-arcsecond cones and recorded period/harmonic criteria. All 229 calls succeeded: 220 indexed
 nonmatches and nine match hypotheses. Earlier dated direct screens cover ExoFOP TOI/CTOI,

@@ -138,7 +138,7 @@ def dossier(destination, assessment, check, documents, prior, date, review=None)
               'Mission clock, host identity, noise coverage and search selection remain unresolved.',
               'All saved event exclusions, failed fits and signed alternative diagnostics are retained.']
     record = {
-        'schema_version': '1.0', 'id': seed['id'], 'version': '0.1.0',
+        'schema_version': '1.1', 'id': seed['id'], 'version': '0.1.0',
         'title': f'TIC {seed["tic"]}: a provisional {fitted["period_d"]:.8f}-day signal',
         'target': {'tic': seed['tic'], 'gaia_dr3': None, 'aliases': ['TIC ' + seed['tic']],
                    'coordinates': {'ra_deg': seed['ra_deg'], 'dec_deg': seed['dec_deg'], 'frame': 'ICRS',

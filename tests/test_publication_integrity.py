@@ -5,6 +5,7 @@ import json
 import tempfile
 import unittest
 from pathlib import Path
+from jsonschema import ValidationError
 
 ROOT = Path(__file__).resolve().parents[1]
 spec = importlib.util.spec_from_file_location('catalogue', ROOT / 'scripts/catalogue.py')
@@ -33,12 +34,13 @@ class PublicationIntegrity(unittest.TestCase):
             catalogue.validate(self.record, FOLDER)
 
     def test_unknown_duration_error_requires_provisional_classification_and_limit(self):
+        self.record['schema_version'] = '1.1'
         self.record['signal']['duration_h']['error'] = None
-        with self.assertRaisesRegex(ValueError, 'explicit scientific limit'):
+        with self.assertRaises(ValidationError):
             catalogue.validate(self.record, FOLDER)
         self.record['signal']['limits'].append('Duration uncertainty unavailable.')
         self.record['assessment']['disposition'] = 'planet_candidate'
-        with self.assertRaisesRegex(ValueError, 'only permitted for provisional'):
+        with self.assertRaises(ValidationError):
             catalogue.validate(self.record, FOLDER)
 
     def test_unresolved_source_and_timing_cannot_be_promoted(self):

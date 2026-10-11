@@ -3,7 +3,8 @@
 1. Match the signal against existing records and known reports; include period aliases and
    epochs. Pick a stable local signal ID. Do not infer novelty from absence of a TIC name online.
 2. Create `candidates/<id>/` with the seven dossier files described in `publication.md`.
-   Use `schemas/candidate.schema.json` as the required specification. Copy the first record
+   Use `schemas/candidate.schema.json` as the required specification and select the appropriate
+   [versioned contract](schema.md). Copy the first record
    as a structural example, replacing **all** identity, scientific, provenance and publication fields.
 3. Export a bounded set of evidence. Prefer one overview plot, separate older/recent folds,
    all-predicted-event table, robustness comparisons, timing and source diagnostics, and
