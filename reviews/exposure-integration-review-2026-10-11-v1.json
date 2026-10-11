@@ -1,0 +1,198 @@
+{
+  "schema_version": "1.0",
+  "supplement_version": "1.0.0",
+  "reviewed_utc": "2026-10-11T21:53:34.800526+00:00",
+  "scope": "Separate circular exposure averaging and conditional point refit; historical dossiers/posteriors unchanged",
+  "reproduction_level": "selected_input_exposure_diagnostic_and_point_refit_only",
+  "replay_package": "../reproductions/exposure-integration-2026-10-11/README.md",
+  "signals": [
+    {
+      "signal_id": "tic-261119502-s01",
+      "scenario": {
+        "name": "catalogue-white",
+        "host_density": "catalogue_aperture",
+        "target_flux_fraction": 1.0,
+        "noise": "white",
+        "eccentricity": 0.0,
+        "omega_deg": 90.0
+      },
+      "point_parameters": {
+        "epoch_btjd": 1632.1379681620938,
+        "period_d": 11.756200551083891,
+        "anchor_btjd": 2372.778602880379,
+        "radius_ratio": 0.045587893232788355,
+        "impact_parameter": 0.6743292405528349,
+        "a_over_rstar": 18.79467713010443,
+        "inclination_deg": 87.94385860851084,
+        "log10_density_cgs": -0.04159144516571918,
+        "limb_q1": 0.026992560467623414,
+        "limb_q2": 0.9998999999999999
+      },
+      "point_parameter_units": {
+        "epoch_btjd": "d, BJD_TDB minus2457000",
+        "period_d": "d",
+        "anchor_btjd": "d, BJD_TDB minus2457000",
+        "radius_ratio": "dimensionless occultor/assumed star",
+        "impact_parameter": "dimensionless",
+        "a_over_rstar": "dimensionless",
+        "inclination_deg": "deg",
+        "log10_density_cgs": "log10 density in g/cm^3",
+        "limb_q1": "dimensionless",
+        "limb_q2": "dimensionless"
+      },
+      "point_density_ratio_to_assumed_prior_center": 1.0409006983562805,
+      "point_uncertainties": null,
+      "uncertainty_reason": "Bounded point refit only; corrected posterior not sampled",
+      "original_density_prior": {
+        "mean_log10_cgs": -0.05900074507687236,
+        "sigma_log10_cgs": 0.1,
+        "scope": "Assumed catalogue aperture star; independent M/R first-order errors plus declared floor; not a host posterior"
+      },
+      "same_point_integration_comparisons": [
+        {
+          "method": "original_endpoint_mean",
+          "log_probability": -1129.3620626736824
+        },
+        {
+          "method": "contact_gauss_16",
+          "log_probability": -1129.3229248249588,
+          "previous_method": "original_endpoint_mean",
+          "maximum_flux_difference_ppm": 73.37775035745067,
+          "log_probability_change": 0.03913784872361248,
+          "refinement_agreement": false
+        },
+        {
+          "method": "contact_gauss_32",
+          "log_probability": -1129.322924831854,
+          "previous_method": "contact_gauss_16",
+          "maximum_flux_difference_ppm": 7.648506936304422e-05,
+          "log_probability_change": -6.895106707816012e-09,
+          "refinement_agreement": true
+        },
+        {
+          "method": "contact_gauss_64",
+          "log_probability": -1129.3229248323719,
+          "previous_method": "contact_gauss_32",
+          "maximum_flux_difference_ppm": 2.5659923404836027e-06,
+          "log_probability_change": -5.179572326596826e-10,
+          "refinement_agreement": true
+        }
+      ],
+      "order32_to64_reviewed_vectors": 10,
+      "all_reviewed_vectors_within_numerical_triggers": true,
+      "maximum_order32_to64_flux_difference_ppm": 3.3249698567355823e-06,
+      "maximum_absolute_order32_to64_log_difference": 5.06588548887521e-09,
+      "optimizer_starts": 4,
+      "optimizer_successes": 4,
+      "classification_promoted": false,
+      "physical_model_qualified": false,
+      "planet_probability": null,
+      "source_case_manifest_sha256": "41709c7fdcc3b5e82250acc1a194951a678da438146f26ac5377a6579cc44420",
+      "source_report_sha256": "e2ecfd6db32d7923c4f5afe4d1ae4bbc2a7d7283eccdf5acc6415c3d0c6dc7d8",
+      "limits": [
+        "Circular orbit and uniform exposure weighting only",
+        "Shares instantaneous quadratic batman kernel; not an independent kernel",
+        "Contact-panel order agreement is empirical, not a rigorous error bound",
+        "Optimizer termination does not prove a global optimum",
+        "Point refits have no corrected posterior or calibrated uncertainty",
+        "Original host/dilution/noise/baseline/priors retained",
+        "No source/timing/reliability/FPP or classification qualification"
+      ]
+    },
+    {
+      "signal_id": "tic-339451799-s01",
+      "scenario": {
+        "name": "catalogue-white",
+        "host_density": "catalogue_aperture",
+        "target_flux_fraction": 1.0,
+        "noise": "white",
+        "eccentricity": 0.0,
+        "omega_deg": 90.0
+      },
+      "point_parameters": {
+        "epoch_btjd": 1654.543801702823,
+        "period_d": 4.5257609334197575,
+        "anchor_btjd": 3143.519148797923,
+        "radius_ratio": 0.18756608291270693,
+        "impact_parameter": 0.00011875767289963262,
+        "a_over_rstar": 45.264472321879886,
+        "inclination_deg": 89.99984967651022,
+        "log10_density_cgs": 1.9327270858947576,
+        "limb_q1": 0.00010000000098093813,
+        "limb_q2": 0.00010000399418974111
+      },
+      "point_parameter_units": {
+        "epoch_btjd": "d, BJD_TDB minus2457000",
+        "period_d": "d",
+        "anchor_btjd": "d, BJD_TDB minus2457000",
+        "radius_ratio": "dimensionless occultor/assumed star",
+        "impact_parameter": "dimensionless",
+        "a_over_rstar": "dimensionless",
+        "inclination_deg": "deg",
+        "log10_density_cgs": "log10 density in g/cm^3",
+        "limb_q1": "dimensionless",
+        "limb_q2": "dimensionless"
+      },
+      "point_density_ratio_to_assumed_prior_center": 42.043644260502255,
+      "point_uncertainties": null,
+      "uncertainty_reason": "Bounded point refit only; corrected posterior not sampled",
+      "original_density_prior": {
+        "mean_log10_cgs": 0.3090267331143649,
+        "sigma_log10_cgs": 0.1,
+        "scope": "Assumed catalogue aperture star; independent M/R first-order errors plus declared floor; not a host posterior"
+      },
+      "same_point_integration_comparisons": [
+        {
+          "method": "original_endpoint_mean",
+          "log_probability": -878.9940399210886
+        },
+        {
+          "method": "contact_gauss_16",
+          "log_probability": -867.7692434705307,
+          "previous_method": "original_endpoint_mean",
+          "maximum_flux_difference_ppm": 969.0901037537415,
+          "log_probability_change": 11.22479645055796,
+          "refinement_agreement": false
+        },
+        {
+          "method": "contact_gauss_32",
+          "log_probability": -867.7692550282468,
+          "previous_method": "contact_gauss_16",
+          "maximum_flux_difference_ppm": 0.0028056963662093093,
+          "log_probability_change": -1.1557716106835869e-05,
+          "refinement_agreement": true
+        },
+        {
+          "method": "contact_gauss_64",
+          "log_probability": -867.7692554157118,
+          "previous_method": "contact_gauss_32",
+          "maximum_flux_difference_ppm": 9.40029235008133e-05,
+          "log_probability_change": -3.874649792123819e-07,
+          "refinement_agreement": true
+        }
+      ],
+      "order32_to64_reviewed_vectors": 10,
+      "all_reviewed_vectors_within_numerical_triggers": true,
+      "maximum_order32_to64_flux_difference_ppm": 9.917623319810609e-05,
+      "maximum_absolute_order32_to64_log_difference": 4.2915530684695113e-07,
+      "optimizer_starts": 4,
+      "optimizer_successes": 4,
+      "classification_promoted": false,
+      "physical_model_qualified": false,
+      "planet_probability": null,
+      "source_case_manifest_sha256": "9e38d74f86b12c9972ce83c4786f7cc0e4e64446d535dd1fbb11565df7a309c0",
+      "source_report_sha256": "55e1d8380a1d701e94a492a0e8f70588c63c8148c3ea45cdad701d4972a7faae",
+      "limits": [
+        "Circular orbit and uniform exposure weighting only",
+        "Shares instantaneous quadratic batman kernel; not an independent kernel",
+        "Contact-panel order agreement is empirical, not a rigorous error bound",
+        "Optimizer termination does not prove a global optimum",
+        "Point refits have no corrected posterior or calibrated uncertainty",
+        "Original host/dilution/noise/baseline/priors retained",
+        "No source/timing/reliability/FPP or classification qualification"
+      ]
+    }
+  ],
+  "scientific_promotions": 0,
+  "nonpublic_control_excluded": true
+}
