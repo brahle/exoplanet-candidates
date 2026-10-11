@@ -1,0 +1,405 @@
+{
+  "control_status_counts": {
+    "diagnostic_fit": 9,
+    "insufficient_coverage_or_baseline": 3
+  },
+  "coverage": "Existing sealed products only; archive completeness unproven",
+  "ephemeris_seed": {
+    "adopted": true,
+    "anchor_cycle": 15,
+    "chosen_hypothesis": "legacy_global",
+    "ephemeris": {
+      "dec_deg": -57.09266964,
+      "depth_ppm": 9102.265191020855,
+      "discovery": {
+        "epoch_offset": 2457000.0,
+        "format": "survey-vet",
+        "source_row": 7574,
+        "time_scale": "TDB"
+      },
+      "duration_h": 4.213448532451415,
+      "epoch_bjd_tdb": 2458659.0013383534,
+      "id": "tic-387220183-s01",
+      "period_d": 13.119999766243385,
+      "ra_deg": 304.875065269,
+      "schema_version": 1,
+      "tic": "387220183"
+    },
+    "epoch_error_d": 0.013638783382922333,
+    "epoch_period_covariance": [
+      [
+        0.00018601641216627835,
+        -6.178922979093355e-06
+      ],
+      [
+        -6.178922979093348e-06,
+        3.4011604054046185e-07
+      ]
+    ],
+    "hypotheses": [
+      {
+        "diagnostic": {
+          "conditional_independent_event_errors": true,
+          "depth_ppm": -428.38429176747906,
+          "error_ppm": 208.81116219632247,
+          "n_events": 4,
+          "snr": -2.051539234117742
+        },
+        "name": "discovery",
+        "signal": {
+          "dec_deg": -57.09266964,
+          "depth_ppm": 9102.265191020855,
+          "discovery": {
+            "epoch_offset": 2457000.0,
+            "format": "survey-vet",
+            "source_row": 7574,
+            "time_scale": "TDB"
+          },
+          "duration_h": 5.990081672502713,
+          "epoch_bjd_tdb": 2461111.8101478615,
+          "id": "tic-387220183-s01",
+          "period_d": 13.117478414847175,
+          "ra_deg": 304.875065269,
+          "schema_version": 1,
+          "tic": "387220183"
+        }
+      },
+      {
+        "diagnostic": {
+          "conditional_independent_event_errors": true,
+          "depth_ppm": 205.11552674906918,
+          "error_ppm": 239.84921538763498,
+          "n_events": 4,
+          "snr": 0.8551853147302126
+        },
+        "name": "legacy_global",
+        "signal": {
+          "dec_deg": -57.09266964,
+          "depth_ppm": 9102.265191020855,
+          "discovery": {
+            "epoch_offset": 2457000.0,
+            "format": "survey-vet",
+            "source_row": 7574,
+            "time_scale": "TDB"
+          },
+          "duration_h": 4.79206533800217,
+          "epoch_bjd_tdb": 2458659.025113826,
+          "id": "tic-387220183-s01",
+          "period_d": 13.116532451954432,
+          "ra_deg": 304.875065269,
+          "schema_version": 1,
+          "tic": "387220183"
+        },
+        "source_sha256": "52d61c71cc2327ff3ec204ccbd9150763835f28095740b4fc19717e1dcd2d8b4"
+      }
+    ],
+    "ingress_fraction": 0.03223804144604516,
+    "jacobian_rank": 4,
+    "limitations": [
+      "Seed selection and covariance are not calibrated",
+      "Free event depths and local linear baselines",
+      "No physical transit/stellar-density fit",
+      "Legacy results supply hypotheses only"
+    ],
+    "n_events": 4,
+    "period_error_d": 0.0005831946849384534,
+    "reduced_chi2": 0.7928326837338302,
+    "reference_epoch_bjd_tdb": 2458855.801334847,
+    "reference_period_covariance": [
+      [
+        7.717483191508172e-05,
+        -1.0771823709864269e-06
+      ],
+      [
+        -1.0771823709864199e-06,
+        3.4011604054046185e-07
+      ]
+    ],
+    "status": "diagnostic_fit"
+  },
+  "failures": [],
+  "limits": [
+    "Fixed trapezoid morphology, no physical limb-darkening/host model",
+    "Conditional profile/bootstrap errors, empirical coverage diagnostic only",
+    "FITS TDB header checked upstream; independent mission clock agreement not established"
+  ],
+  "primary_products": [
+    {
+      "author": "QLP",
+      "bjd_reference": 2457000.0,
+      "filename": "hlsp_qlp_tess_ffi_s0027-0000000387220183_tess_v01_llc.fits",
+      "integration_bin_d": 0.006944444444444444,
+      "sector": 27,
+      "timesys": "TDB"
+    },
+    {
+      "author": "QLP",
+      "bjd_reference": 2457000.0,
+      "filename": "hlsp_qlp_tess_ffi_s0094-0000000387220183_tess_v01_llc.fits",
+      "integration_bin_d": 0.002314814814814814,
+      "sector": 94,
+      "timesys": "TDB"
+    },
+    {
+      "author": "SPOC",
+      "bjd_reference": 2457000.0,
+      "filename": "tess2019169103026-s0013-0000000387220183-0146-s_lc.fits",
+      "integration_bin_d": 0.001388888888888889,
+      "sector": 13,
+      "timesys": "TDB"
+    }
+  ],
+  "rejected_products": [
+    {
+      "filename": "hlsp_qlp_tess_ffi_s0101-0000000387220183_tess_v01_llc.fits",
+      "warnings": [
+        "QLP timestamp correction unverified; withheld from joint analysis"
+      ]
+    },
+    {
+      "filename": "hlsp_qlp_tess_ffi_s0103-0000000387220183_tess_v01_llc.fits",
+      "warnings": [
+        "QLP timestamp correction unverified; withheld from joint analysis"
+      ]
+    },
+    {
+      "filename": "hlsp_qlp_tess_ffi_s0104-0000000387220183_tess_v01_llc.fits",
+      "warnings": [
+        "QLP timestamp correction unverified; withheld from joint analysis"
+      ]
+    }
+  ],
+  "selected_timing_seed": {
+    "dec_deg": -57.09266964,
+    "depth_ppm": 9102.265191020855,
+    "discovery": {
+      "epoch_offset": 2457000.0,
+      "format": "survey-vet",
+      "source_row": 7574,
+      "time_scale": "TDB"
+    },
+    "duration_h": 4.213448532451415,
+    "epoch_bjd_tdb": 2458659.0013383534,
+    "id": "tic-387220183-s01",
+    "period_d": 13.119999766243385,
+    "ra_deg": 304.875065269,
+    "schema_version": 1,
+    "tic": "387220183"
+  },
+  "status_counts": {
+    "diagnostic_fit": 3,
+    "multimodal_profile": 3,
+    "negative_or_weak_dip": 6,
+    "timing_bound_limited": 12
+  },
+  "timing_seed_selection": {
+    "kind": "adopted_refinement",
+    "status": "diagnostic_fit"
+  },
+  "variants": [
+    {
+      "early": {
+        "n_events": 0,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        13
+      ],
+      "joint": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "late": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        27,
+        94
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order1-duration1.0"
+    },
+    {
+      "early": {
+        "n_events": 0,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        13
+      ],
+      "joint": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "late": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        27,
+        94
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order1-duration0.8"
+    },
+    {
+      "early": {
+        "n_events": 0,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        13
+      ],
+      "joint": {
+        "n_events": 0,
+        "status": "insufficient_events"
+      },
+      "late": {
+        "n_events": 0,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "n_events": 0,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 0,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 0,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 0,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 0,
+          "status": "insufficient_events"
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        27,
+        94
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order1-duration1.2"
+    },
+    {
+      "early": {
+        "n_events": 0,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        13
+      ],
+      "joint": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "late": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 1,
+          "status": "insufficient_events"
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        27,
+        94
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order2-duration1.0"
+    }
+  ]
+}

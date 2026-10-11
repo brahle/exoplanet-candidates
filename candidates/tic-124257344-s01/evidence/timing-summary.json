@@ -1,0 +1,1339 @@
+{
+  "control_status_counts": {
+    "diagnostic_fit": 1,
+    "insufficient_coverage_or_baseline": 72,
+    "multimodal_profile": 15,
+    "negative_or_weak_dip": 15,
+    "timing_bound_limited": 60
+  },
+  "coverage": "Existing sealed products only; archive completeness unproven",
+  "ephemeris_seed": {
+    "adopted": true,
+    "anchor_cycle": 1813,
+    "chosen_hypothesis": "legacy_global",
+    "ephemeris": {
+      "dec_deg": -44.2514363298,
+      "depth_ppm": 929.1645948495391,
+      "discovery": {
+        "epoch_offset": 2457000.0,
+        "format": "survey-vet",
+        "source_row": 9225,
+        "time_scale": "TDB"
+      },
+      "duration_h": 1.757221222273014,
+      "epoch_bjd_tdb": 2458630.5456523094,
+      "id": "tic-124257344-s01",
+      "period_d": 1.0179296839881622,
+      "ra_deg": 256.067176167,
+      "schema_version": 1,
+      "tic": "124257344"
+    },
+    "epoch_error_d": 0.005872783302268166,
+    "epoch_period_covariance": [
+      [
+        3.448958371539978e-05,
+        -1.82832728326626e-08
+      ],
+      [
+        -1.8283272832662715e-08,
+        1.0071904392495063e-11
+      ]
+    ],
+    "hypotheses": [
+      {
+        "diagnostic": {
+          "conditional_independent_event_errors": true,
+          "depth_ppm": 7.1626818511885055,
+          "error_ppm": 325.4945495383817,
+          "n_events": 37,
+          "snr": 0.022005535457803097
+        },
+        "name": "discovery",
+        "signal": {
+          "dec_deg": -44.2514363298,
+          "depth_ppm": 929.1645948495391,
+          "discovery": {
+            "epoch_offset": 2457000.0,
+            "format": "survey-vet",
+            "source_row": 9225,
+            "time_scale": "TDB"
+          },
+          "duration_h": 2.55264024979653,
+          "epoch_bjd_tdb": 2461152.972289409,
+          "id": "tic-124257344-s01",
+          "period_d": 1.017755498355927,
+          "ra_deg": 256.067176167,
+          "schema_version": 1,
+          "tic": "124257344"
+        }
+      },
+      {
+        "diagnostic": {
+          "conditional_independent_event_errors": true,
+          "depth_ppm": 1181.2409339318685,
+          "error_ppm": 349.3203312724011,
+          "n_events": 38,
+          "snr": 3.381540746939041
+        },
+        "name": "legacy_global",
+        "signal": {
+          "dec_deg": -44.2514363298,
+          "depth_ppm": 929.1645948495391,
+          "discovery": {
+            "epoch_offset": 2457000.0,
+            "format": "survey-vet",
+            "source_row": 9225,
+            "time_scale": "TDB"
+          },
+          "duration_h": 2.042112199837224,
+          "epoch_bjd_tdb": 2458630.571817097,
+          "id": "tic-124257344-s01",
+          "period_d": 1.0179175061427734,
+          "ra_deg": 256.067176167,
+          "schema_version": 1,
+          "tic": "124257344"
+        },
+        "source_sha256": "6fbb6a37679ef0c7889709aa13a85f3d06cd4d77172aa7bfa6bbf9fa16eda22d"
+      }
+    ],
+    "ingress_fraction": 0.03399515242192742,
+    "jacobian_rank": 4,
+    "limitations": [
+      "Seed selection and covariance are not calibrated",
+      "Free event depths and local linear baselines",
+      "No physical transit/stellar-density fit",
+      "Legacy results supply hypotheses only"
+    ],
+    "n_events": 38,
+    "period_error_d": 3.173626378844092e-06,
+    "reduced_chi2": 0.9150755679890777,
+    "reference_epoch_bjd_tdb": 2460476.05216938,
+    "reference_period_covariance": [
+      [
+        1.3004739332600894e-06,
+        -2.2910169069050335e-11
+      ],
+      [
+        -2.2910169069166473e-11,
+        1.0071904392495063e-11
+      ]
+    ],
+    "status": "diagnostic_fit"
+  },
+  "failures": [],
+  "limits": [
+    "Fixed trapezoid morphology, no physical limb-darkening/host model",
+    "Conditional profile/bootstrap errors, empirical coverage diagnostic only",
+    "FITS TDB header checked upstream; independent mission clock agreement not established"
+  ],
+  "primary_products": [
+    {
+      "author": "QLP",
+      "bjd_reference": 2457000.0,
+      "filename": "hlsp_qlp_tess_ffi_s0012-0000000124257344_tess_v01_llc.fits",
+      "integration_bin_d": 0.02083333333333333,
+      "sector": 12,
+      "timesys": "TDB"
+    },
+    {
+      "author": "QLP",
+      "bjd_reference": 2457000.0,
+      "filename": "hlsp_qlp_tess_ffi_s0066-0000000124257344_tess_v01_llc.fits",
+      "integration_bin_d": 0.002314814814814814,
+      "sector": 66,
+      "timesys": "TDB"
+    },
+    {
+      "author": "QLP",
+      "bjd_reference": 2457000.0,
+      "filename": "hlsp_qlp_tess_ffi_s0093-0000000124257344_tess_v01_llc.fits",
+      "integration_bin_d": 0.002314814814814814,
+      "sector": 93,
+      "timesys": "TDB"
+    }
+  ],
+  "rejected_products": [
+    {
+      "filename": "hlsp_qlp_tess_ffi_s0103-0000000124257344_tess_v01_llc.fits",
+      "warnings": [
+        "QLP timestamp correction unverified; withheld from joint analysis"
+      ]
+    },
+    {
+      "filename": "hlsp_qlp_tess_ffi_s0104-0000000124257344_tess_v01_llc.fits",
+      "warnings": [
+        "QLP timestamp correction unverified; withheld from joint analysis"
+      ]
+    }
+  ],
+  "selected_timing_seed": {
+    "dec_deg": -44.2514363298,
+    "depth_ppm": 929.1645948495391,
+    "discovery": {
+      "epoch_offset": 2457000.0,
+      "format": "survey-vet",
+      "source_row": 9225,
+      "time_scale": "TDB"
+    },
+    "duration_h": 1.757221222273014,
+    "epoch_bjd_tdb": 2458630.5456523094,
+    "id": "tic-124257344-s01",
+    "period_d": 1.0179296839881622,
+    "ra_deg": 256.067176167,
+    "schema_version": 1,
+    "tic": "124257344"
+  },
+  "status_counts": {
+    "diagnostic_fit": 11,
+    "insufficient_coverage_or_baseline": 112,
+    "multimodal_profile": 45,
+    "negative_or_weak_dip": 47,
+    "timing_bound_limited": 109
+  },
+  "timing_seed_selection": {
+    "kind": "adopted_refinement",
+    "status": "diagnostic_fit"
+  },
+  "variants": [
+    {
+      "early": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        12
+      ],
+      "joint": {
+        "n_events": 2,
+        "status": "insufficient_events"
+      },
+      "late": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "n_events": 2,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 2,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 2,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 2,
+          "status": "insufficient_events"
+        },
+        {
+          "n_events": 2,
+          "status": "insufficient_events"
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        66,
+        93
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order1-duration1.0"
+    },
+    {
+      "early": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        12
+      ],
+      "joint": {
+        "chi2_conditional": 2.8529739512578187,
+        "chi2_inflation": 2.8529739512578187,
+        "cycle_shift": 0,
+        "cycles": [
+          4,
+          1457,
+          1459
+        ],
+        "dof": 1,
+        "epoch_bjd_tdb": 2458630.5654509985,
+        "epoch_btjd": 1630.5654509987035,
+        "epoch_error_d": 0.004960418635878356,
+        "epoch_period_covariance": [
+          [
+            2.4605753043169294e-05,
+            -1.6917248678281033e-08
+          ],
+          [
+            -1.6917248678281033e-08,
+            2.373586817960405e-11
+          ]
+        ],
+        "errors_calibrated": false,
+        "n_events": 3,
+        "period_d": 1.0179215761334415,
+        "period_error_d": 4.871947062479646e-06,
+        "reference_btjd": 2356.0679819419165,
+        "reference_cycle": 712.7292985565966,
+        "reference_period_covariance": [
+          [
+            1.2548334259190545e-05,
+            2.0649792044210898e-24
+          ],
+          [
+            2.0649792044210898e-24,
+            2.373586817960405e-11
+          ]
+        ],
+        "residual_minutes": [
+          0.0035724938425119035,
+          -16.2436820174662,
+          3.284824171096261
+        ],
+        "status": "conditional_fit",
+        "uninflated_reference_period_covariance": [
+          [
+            4.398334675876812e-06,
+            7.237988287662711e-25
+          ],
+          [
+            7.237988287662711e-25,
+            8.319693269242568e-12
+          ]
+        ]
+      },
+      "late": {
+        "n_events": 2,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "chi2_conditional": 1.7955290731696796,
+          "chi2_inflation": 1.7955290731696796,
+          "cycle_shift": -2,
+          "cycles": [
+            4,
+            1455,
+            1457
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.5598456888,
+          "epoch_btjd": 1630.5598456887562,
+          "epoch_error_d": 0.003935204373983275,
+          "epoch_period_covariance": [
+            [
+              1.5485833465017104e-05,
+              -1.0661670121560083e-08
+            ],
+            [
+              -1.0661670121560083e-08,
+              1.4979412858641477e-11
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0193230311321406,
+          "period_error_d": 3.870324645122354e-06,
+          "reference_btjd": 2356.0679819419165,
+          "reference_cycle": 711.7548746518105,
+          "reference_period_covariance": [
+            [
+              7.897337784067155e-06,
+              -1.082116481307575e-25
+            ],
+            [
+              -1.0821164813075747e-25,
+              1.4979412858641477e-11
+            ]
+          ],
+          "residual_minutes": [
+            0.0028380254843796138,
+            -12.8864097035148,
+            2.6059060887928354
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              4.398334675876812e-06,
+              -6.026727706487622e-26
+            ],
+            [
+              -6.026727706487621e-26,
+              8.342617829182822e-12
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 2.2941473063560003,
+          "chi2_inflation": 2.2941473063560003,
+          "cycle_shift": -1,
+          "cycles": [
+            4,
+            1456,
+            1458
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.5626502717,
+          "epoch_btjd": 1630.562650271546,
+          "epoch_error_d": 0.0044481651064374,
+          "epoch_period_covariance": [
+            [
+              1.978617281412725e-05,
+              -1.3612991070549084e-08
+            ],
+            [
+              -1.3612991070549084e-08,
+              1.9112870927710133e-11
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0186218215907499,
+          "period_error_d": 4.37182695537119e-06,
+          "reference_btjd": 2356.0679819419165,
+          "reference_cycle": 712.2420866042036,
+          "reference_period_covariance": [
+            [
+              1.009042764911498e-05,
+              1.3602573096456535e-25
+            ],
+            [
+              1.3602573096456535e-25,
+              1.9112870927710133e-11
+            ]
+          ],
+          "residual_minutes": [
+            0.003205766588507686,
+            -14.5662008896943,
+            2.9455983819389076
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              4.398334675876812e-06,
+              5.929250078567413e-26
+            ],
+            [
+              5.929250078567413e-26,
+              8.331143721572447e-12
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 2.8529739512578187,
+          "chi2_inflation": 2.8529739512578187,
+          "cycle_shift": 0,
+          "cycles": [
+            4,
+            1457,
+            1459
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.5654509985,
+          "epoch_btjd": 1630.5654509987035,
+          "epoch_error_d": 0.004960418635878356,
+          "epoch_period_covariance": [
+            [
+              2.4605753043169294e-05,
+              -1.6917248678281033e-08
+            ],
+            [
+              -1.6917248678281033e-08,
+              2.373586817960405e-11
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0179215761334415,
+          "period_error_d": 4.871947062479646e-06,
+          "reference_btjd": 2356.0679819419165,
+          "reference_cycle": 712.7292985565966,
+          "reference_period_covariance": [
+            [
+              1.2548334259190545e-05,
+              2.0649792044210898e-24
+            ],
+            [
+              2.0649792044210898e-24,
+              2.373586817960405e-11
+            ]
+          ],
+          "residual_minutes": [
+            0.0035724938425119035,
+            -16.2436820174662,
+            3.284824171096261
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              4.398334675876812e-06,
+              7.237988287662711e-25
+            ],
+            [
+              7.237988287662711e-25,
+              8.319693269242568e-12
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 3.4717595124689953,
+          "chi2_inflation": 3.4717595124689953,
+          "cycle_shift": 1,
+          "cycles": [
+            4,
+            1458,
+            1460
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.568247878,
+          "epoch_btjd": 1630.568247878174,
+          "epoch_error_d": 0.0054719664238826494,
+          "epoch_period_covariance": [
+            [
+              2.994241654409907e-05,
+              -2.057223308477599e-08
+            ],
+            [
+              -2.057223308477599e-08,
+              2.8844302931370085e-11
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0172222927733223,
+          "period_error_d": 5.370689241742636e-06,
+          "reference_btjd": 2356.0679819419165,
+          "reference_cycle": 713.2165105089895,
+          "reference_period_covariance": [
+            [
+              1.5269960249997555e-05,
+              -2.3293598845991376e-24
+            ],
+            [
+              -2.3293598845991376e-24,
+              2.8844302931370085e-11
+            ]
+          ],
+          "residual_minutes": [
+            0.003938211011700332,
+            -17.91885784945407,
+            3.6235844162547437
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              4.398334675876812e-06,
+              -6.709450571772402e-25
+            ],
+            [
+              -6.709450571772402e-25,
+              8.308266407213504e-12
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 4.150255523708723,
+          "chi2_inflation": 4.150255523708723,
+          "cycle_shift": 2,
+          "cycles": [
+            4,
+            1459,
+            1461
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.5710409177,
+          "epoch_btjd": 1630.571040917881,
+          "epoch_error_d": 0.005982809927876213,
+          "epoch_period_covariance": [
+            [
+              3.579401463309418e-05,
+              -2.45757466262422e-08
+            ],
+            [
+              -2.45757466262422e-08,
+              3.443410178874604e-11
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0165239695289543,
+          "period_error_d": 5.868057752676437e-06,
+          "reference_btjd": 2356.0679819419165,
+          "reference_cycle": 713.7037224613825,
+          "reference_period_covariance": [
+            [
+              1.8254212783677354e-05,
+              2.2266900885322418e-24
+            ],
+            [
+              2.2266900885322418e-24,
+              3.443410178874604e-11
+            ]
+          ],
+          "residual_minutes": [
+            0.004302920224290574,
+            -19.591733133875096,
+            3.9618800756034034
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              4.398334675876812e-06,
+              5.365187940385999e-25
+            ],
+            [
+              5.365187940385999e-25,
+              8.29686307072854e-12
+            ]
+          ]
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        66,
+        93
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order1-duration0.8"
+    },
+    {
+      "early": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        12
+      ],
+      "joint": {
+        "chi2_conditional": 17.349709205701185,
+        "chi2_inflation": 17.349709205701185,
+        "cycle_shift": 0,
+        "cycles": [
+          4,
+          1457,
+          2165
+        ],
+        "dof": 1,
+        "epoch_bjd_tdb": 2458630.5707861995,
+        "epoch_btjd": 1630.5707861994938,
+        "epoch_error_d": 0.028889080639593216,
+        "epoch_period_covariance": [
+          [
+            0.0008345789802009196,
+            -5.192932436495988e-07
+          ],
+          [
+            -5.192932436495988e-07,
+            4.6514031820583624e-10
+          ]
+        ],
+        "errors_calibrated": false,
+        "n_events": 3,
+        "period_d": 1.0179133862226275,
+        "period_error_d": 2.1567111957928817e-05,
+        "reference_btjd": 2766.9924710038163,
+        "reference_cycle": 1116.42277249292,
+        "reference_period_covariance": [
+          [
+            0.00025482817738879297,
+            -2.6219918923003862e-23
+          ],
+          [
+            -2.6219918923003862e-23,
+            4.6514031820583624e-10
+          ]
+        ],
+        "residual_minutes": [
+          10.555296892380284,
+          -15.441528125811601,
+          56.526838293575565
+        ],
+        "status": "conditional_fit",
+        "uninflated_reference_period_covariance": [
+          [
+            1.4687749193228865e-05,
+            -1.5112598494957997e-24
+          ],
+          [
+            -1.5112598494957997e-24,
+            2.680968958563232e-11
+          ]
+        ]
+      },
+      "late": {
+        "n_events": 2,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "chi2_conditional": 4384.867124128434,
+          "chi2_inflation": 4384.867124128434,
+          "cycle_shift": -2,
+          "cycles": [
+            4,
+            1455,
+            2163
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.690012688,
+          "epoch_btjd": 1630.6900126876865,
+          "epoch_error_d": 0.4592341805579582,
+          "epoch_period_covariance": [
+            [
+              0.21089603259273937,
+              -0.00013138323674817393
+            ],
+            [
+              -0.00013138323674817393,
+              1.1783258374035018e-07
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0191060738634306,
+          "period_error_d": 0.00034326751046428815,
+          "reference_btjd": 2766.9924710038163,
+          "reference_cycle": 1114.9992012199552,
+          "reference_period_covariance": [
+            [
+              0.06440382856483318,
+              -4.646902458359296e-21
+            ],
+            [
+              -4.646902458359296e-21,
+              1.1783258374035018e-07
+            ]
+          ],
+          "residual_minutes": [
+            -168.00072691614332,
+            245.54373618731915,
+            -898.4568009447321
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              1.4687749193228865e-05,
+              -1.0597590136287075e-24
+            ],
+            [
+              -1.0597590136287075e-24,
+              2.6872555177774376e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 961.3664534794937,
+          "chi2_inflation": 961.3664534794937,
+          "cycle_shift": -1,
+          "cycles": [
+            4,
+            1456,
+            2164
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.6303281253,
+          "epoch_btjd": 1630.630328125522,
+          "epoch_error_d": 0.2150385384836343,
+          "epoch_period_covariance": [
+            [
+              0.046241573033177476,
+              -2.8789950139497816e-05
+            ],
+            [
+              -2.8789950139497816e-05,
+              2.5804128917484898e-08
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0185094135176012,
+          "period_error_d": 0.00016063663628663574,
+          "reference_btjd": 2766.9924710038163,
+          "reference_cycle": 1115.7109868564376,
+          "reference_period_covariance": [
+            [
+              0.014120309351490728,
+              -3.946061508012587e-21
+            ],
+            [
+              -3.9460615080125864e-21,
+              2.5804128917484898e-08
+            ]
+          ],
+          "residual_minutes": [
+            -78.61819380712404,
+            114.95870682083478,
+            -420.73467453112244
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              1.4687749193228865e-05,
+              -4.1046382404238515e-24
+            ],
+            [
+              -4.104638240423851e-24,
+              2.6841095634335353e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 17.349709205701185,
+          "chi2_inflation": 17.349709205701185,
+          "cycle_shift": 0,
+          "cycles": [
+            4,
+            1457,
+            2165
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.5707861995,
+          "epoch_btjd": 1630.5707861994938,
+          "epoch_error_d": 0.028889080639593216,
+          "epoch_period_covariance": [
+            [
+              0.0008345789802009196,
+              -5.192932436495988e-07
+            ],
+            [
+              -5.192932436495988e-07,
+              4.6514031820583624e-10
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0179133862226275,
+          "period_error_d": 2.1567111957928817e-05,
+          "reference_btjd": 2766.9924710038163,
+          "reference_cycle": 1116.42277249292,
+          "reference_period_covariance": [
+            [
+              0.00025482817738879297,
+              -2.6219918923003862e-23
+            ],
+            [
+              -2.6219918923003862e-23,
+              4.6514031820583624e-10
+            ]
+          ],
+          "residual_minutes": [
+            10.555296892380284,
+            -15.441528125811601,
+            56.526838293575565
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              1.4687749193228865e-05,
+              -1.5112598494957997e-24
+            ],
+            [
+              -1.5112598494957997e-24,
+              2.680968958563232e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 1544.125654516744,
+          "chi2_inflation": 1544.125654516744,
+          "cycle_shift": 1,
+          "cycles": [
+            4,
+            1458,
+            2166
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.511386543,
+          "epoch_btjd": 1630.511386543122,
+          "epoch_error_d": 0.27254907669513556,
+          "epoch_period_covariance": [
+            [
+              0.0742829992073709,
+              -4.619252756570902e-05
+            ],
+            [
+              -4.619252756570902e-05,
+              4.1349117015103864e-08
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0173179910965129,
+          "period_error_d": 0.0002033448229365672,
+          "reference_btjd": 2766.9924710038163,
+          "reference_cycle": 1117.1345581294024,
+          "reference_period_covariance": [
+            [
+              0.022679730336372297,
+              -9.486670989539252e-21
+            ],
+            [
+              -9.486670989539252e-21,
+              4.1349117015103864e-08
+            ]
+          ],
+          "residual_minutes": [
+            99.52027799441566,
+            -145.6573239305544,
+            533.3282814654376
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              1.4687749193228865e-05,
+              -6.143716971342103e-24
+            ],
+            [
+              -6.143716971342103e-24,
+              2.677833691458527e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 5533.032571578787,
+          "chi2_inflation": 5533.032571578787,
+          "cycle_shift": 2,
+          "cycles": [
+            4,
+            1459,
+            2167
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.452128791,
+          "epoch_btjd": 1630.452128791,
+          "epoch_error_d": 0.5159418488792457,
+          "epoch_period_covariance": [
+            [
+              0.26619599142493433,
+              -0.00016543257288172442
+            ],
+            [
+              -0.00016543257288172442,
+              1.47992229705205e-07
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0167232272585458,
+          "period_error_d": 0.0003846975821410956,
+          "reference_btjd": 2766.9924710038163,
+          "reference_cycle": 1117.846343765885,
+          "reference_period_covariance": [
+            [
+              0.08126779468931536,
+              -1.966445098600541e-20
+            ],
+            [
+              -1.966445098600541e-20,
+              1.47992229705205e-07
+            ]
+          ],
+          "residual_minutes": [
+            188.27728075710183,
+            -275.68903503837646,
+            1009.6701984418542
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              1.4687749193228865e-05,
+              -3.554009619790542e-24
+            ],
+            [
+              -3.554009619790542e-24,
+              2.6747037504421766e-11
+            ]
+          ]
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        66,
+        93
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order1-duration1.2"
+    },
+    {
+      "early": {
+        "n_events": 1,
+        "status": "insufficient_events"
+      },
+      "early_sectors": [
+        12
+      ],
+      "joint": {
+        "chi2_conditional": 37.187848832822255,
+        "chi2_inflation": 37.187848832822255,
+        "cycle_shift": 0,
+        "cycles": [
+          4,
+          1457,
+          2168
+        ],
+        "dof": 1,
+        "epoch_bjd_tdb": 2458630.5572559494,
+        "epoch_btjd": 1630.5572559494258,
+        "epoch_error_d": 0.03352825582879271,
+        "epoch_period_covariance": [
+          [
+            0.001124143938920972,
+            -6.522506072904242e-07
+          ],
+          [
+            -6.522506072904242e-07,
+            4.732222149647205e-10
+          ]
+        ],
+        "errors_calibrated": false,
+        "n_events": 3,
+        "period_d": 1.0179251986021502,
+        "period_error_d": 2.1753671298535348e-05,
+        "reference_btjd": 3033.5816871122274,
+        "reference_cycle": 1378.3178106696669,
+        "reference_period_covariance": [
+          [
+            0.0002251353098724739,
+            -6.506519462898777e-23
+          ],
+          [
+            -6.506519462898777e-23,
+            4.732222149647205e-10
+          ]
+        ],
+        "residual_minutes": [
+          20.21823990136909,
+          -17.8418702399199,
+          29.5827146674128
+        ],
+        "status": "conditional_fit",
+        "uninflated_reference_period_covariance": [
+          [
+            6.054001964043908e-06,
+            -1.749635880297566e-24
+          ],
+          [
+            -1.749635880297566e-24,
+            1.2725183892515217e-11
+          ]
+        ]
+      },
+      "late": {
+        "n_events": 2,
+        "status": "insufficient_events"
+      },
+      "late_cycle_aliases": [
+        {
+          "chi2_conditional": 15997.683116120937,
+          "chi2_inflation": 15997.683116120937,
+          "cycle_shift": -2,
+          "cycles": [
+            4,
+            1455,
+            2166
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.85876885,
+          "epoch_btjd": 1630.8587688498815,
+          "epoch_error_d": 0.6952874144427935,
+          "epoch_period_covariance": [
+            [
+              0.48342458868254484,
+              -0.0002808061535856472
+            ],
+            [
+              -0.0002808061535856472,
+              2.0397641029956996e-07
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.018932034994816,
+          "period_error_d": 0.000451637476633162,
+          "reference_btjd": 3033.5816871122274,
+          "reference_cycle": 1376.6599440260825,
+          "reference_period_covariance": [
+            [
+              0.09685000500514823,
+              2.2924624838391703e-20
+            ],
+            [
+              2.2924624838391703e-20,
+              2.0397641029956996e-07
+            ]
+          ],
+          "residual_minutes": [
+            -419.75971437721455,
+            370.080515164218,
+            -613.3342721954614
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              6.054001964043908e-06,
+              1.4329965578134533e-24
+            ],
+            [
+              1.4329965578134533e-24,
+              1.275037196442665e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 3619.1188140966206,
+          "chi2_inflation": 3619.1188140966206,
+          "cycle_shift": -1,
+          "cycles": [
+            4,
+            1456,
+            2167
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.7078621704,
+          "epoch_btjd": 1630.70786217037,
+          "epoch_error_d": 0.33073075151570697,
+          "epoch_period_covariance": [
+            [
+              0.10938282999814429,
+              -6.35015491071762e-05
+            ],
+            [
+              -6.35015491071762e-05,
+              4.609950043984229e-08
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0184284229160943,
+          "period_error_d": 0.00021470794219088005,
+          "reference_btjd": 3033.581687112227,
+          "reference_cycle": 1377.4888773478744,
+          "reference_period_covariance": [
+            [
+              0.0219101524086492,
+              -1.131652551088999e-20
+            ],
+            [
+              -1.1316525510889988e-20,
+              4.609950043984229e-08
+            ]
+          ],
+          "residual_minutes": [
+            -199.5532903071944,
+            176.01723199953994,
+            -291.77936468155167
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              6.054001964043908e-06,
+              -3.1268731678030698e-24
+            ],
+            [
+              -3.1268731678030694e-24,
+              1.2737769276952938e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 37.187848832822255,
+          "chi2_inflation": 37.187848832822255,
+          "cycle_shift": 0,
+          "cycles": [
+            4,
+            1457,
+            2168
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.5572559494,
+          "epoch_btjd": 1630.5572559494258,
+          "epoch_error_d": 0.03352825582879271,
+          "epoch_period_covariance": [
+            [
+              0.001124143938920972,
+              -6.522506072904242e-07
+            ],
+            [
+              -6.522506072904242e-07,
+              4.732222149647205e-10
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0179251986021502,
+          "period_error_d": 2.1753671298535348e-05,
+          "reference_btjd": 3033.5816871122274,
+          "reference_cycle": 1378.3178106696669,
+          "reference_period_covariance": [
+            [
+              0.0002251353098724739,
+              -6.506519462898777e-23
+            ],
+            [
+              -6.506519462898777e-23,
+              4.732222149647205e-10
+            ]
+          ],
+          "residual_minutes": [
+            20.21823990136909,
+            -17.8418702399199,
+            29.5827146674128
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              6.054001964043908e-06,
+              -1.749635880297566e-24
+            ],
+            [
+              -1.749635880297566e-24,
+              1.2725183892515217e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 5225.848180551751,
+          "chi2_inflation": 5225.848180551751,
+          "cycle_shift": 1,
+          "cycles": [
+            4,
+            1458,
+            2169
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.406949566,
+          "epoch_btjd": 1630.4069495664078,
+          "epoch_error_d": 0.39748985201310755,
+          "epoch_period_covariance": [
+            [
+              0.15799818245340214,
+              -9.162251069733088e-05
+            ],
+            [
+              -9.162251069733088e-05,
+              6.643420005630545e-08
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.017422361803806,
+          "period_error_d": 0.0002577483269709145,
+          "reference_btjd": 3033.5816871122274,
+          "reference_cycle": 1379.1467439914593,
+          "reference_period_covariance": [
+            [
+              0.03163729514885559,
+              -6.455160122314507e-21
+            ],
+            [
+              -6.455160122314507e-21,
+              6.643420005630545e-08
+            ]
+          ],
+          "residual_minutes": [
+            239.55577140528476,
+            -211.49704982153253,
+            350.75196270265224
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              6.054001964043908e-06,
+              -1.2352368264998015e-24
+            ],
+            [
+              -1.2352368264998015e-24,
+              1.2712615782361142e-11
+            ]
+          ]
+        },
+        {
+          "chi2_conditional": 19159.129211041647,
+          "chi2_inflation": 19159.129211041647,
+          "cycle_shift": 2,
+          "cycles": [
+            4,
+            1459,
+            2170
+          ],
+          "dof": 1,
+          "epoch_bjd_tdb": 2458630.256942402,
+          "epoch_btjd": 1630.256942402057,
+          "epoch_error_d": 0.7611542815251789,
+          "epoch_period_covariance": [
+            [
+              0.5793558402841114,
+              -0.00033577869670373253
+            ],
+            [
+              -0.00033577869670373253,
+              2.4332218474855877e-07
+            ]
+          ],
+          "errors_calibrated": false,
+          "n_events": 3,
+          "period_d": 1.0169199122714818,
+          "period_error_d": 0.0004932769858290155,
+          "reference_btjd": 3033.5816871122274,
+          "reference_cycle": 1379.9756773132517,
+          "reference_period_covariance": [
+            [
+              0.11598940587301715,
+              2.6328093277813086e-21
+            ],
+            [
+              2.6328093277813086e-21,
+              2.4332218474855877e-07
+            ]
+          ],
+          "residual_minutes": [
+            458.4601973768804,
+            -404.948564721758,
+            671.7283769772075
+          ],
+          "status": "conditional_fit",
+          "uninflated_reference_period_covariance": [
+            [
+              6.054001964043908e-06,
+              1.374180057339969e-25
+            ],
+            [
+              1.374180057339969e-25,
+              1.2700064917790164e-11
+            ]
+          ]
+        }
+      ],
+      "late_predictions_from_early": [],
+      "late_sectors": [
+        66,
+        93
+      ],
+      "limits": [
+        "Retrospective groups; shape/seed selected with all original data",
+        "Alias fits relabel cycles of measured events, not searches for unseen events",
+        "Signed weak/negative/bounded/multimodal events retained but omitted from conditional ephemeris fits",
+        "Clock, shape, selection and inter-event covariance uncalibrated"
+      ],
+      "variant": "order2-duration1.0"
+    }
+  ]
+}

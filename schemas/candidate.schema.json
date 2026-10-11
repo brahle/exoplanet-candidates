@@ -15,7 +15,7 @@
       "required": ["tic", "gaia_dr3", "aliases", "coordinates"],
       "properties": {
         "tic": {"type": "string", "pattern": "^[0-9]+$"},
-        "gaia_dr3": {"type": "string", "pattern": "^[0-9]+$"},
+        "gaia_dr3": {"type": ["string", "null"], "pattern": "^[0-9]+$", "description": "Null when no unambiguous Gaia DR3 association is established."},
         "aliases": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
         "coordinates": {
           "type": "object", "additionalProperties": false,
@@ -109,7 +109,7 @@
   "$defs": {
     "measurement": {
       "type": "object", "additionalProperties": false, "required": ["value", "error"],
-      "properties": {"value": {"type": "number"}, "error": {"type": "number", "exclusiveMinimum": 0}}
+      "properties": {"value": {"type": "number"}, "error": {"type": ["number", "null"], "exclusiveMinimum": 0, "description": "Null denotes an unavailable uncertainty, permitted only for provisional duration/depth measurements with an explicit limit."}}
     },
     "status": {
       "type": "object", "additionalProperties": false, "required": ["status", "reason", "evidence"],

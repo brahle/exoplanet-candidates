@@ -81,6 +81,13 @@ has a change description. Keep earlier releases available. Keep previously repor
 a separate recovery catalogue if they are useful benchmarks; do not mix them into a new-signal
 claim. No wider target search is part of publication.
 
+For a deliberately reviewed batch, one immutable release may contain several independently
+versioned signal dossiers. List every included signal/version in the locked asset manifest,
+retain one directory and evidence manifest per signal, and link each publication receipt to
+that shared release. The release must state its reproduction level and provisional assessments.
+DOI deposits and public numerical capsules can follow as separate versions; they do not prevent
+a correctly labeled evidence-inspection disclosure. See [batch disclosure](batch-publication.md).
+
 ## Community reporting
 
 [ExoFOP's current candidate guidelines](https://exofop.ipac.caltech.edu/tess/candidate_help.php)

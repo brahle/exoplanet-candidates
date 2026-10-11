@@ -15,6 +15,8 @@ initial commit and observed GitHub push timestamp. No versioned release or DOI i
 Its tables and plots can be inspected and hash-verified; a public numerical rerun
 is not yet available. See its [reproducibility statement](candidates/tic-464547401-s01/REPRODUCIBILITY.md).
 
+[Run 5: 171 provisional signal dossiers](batches/run5-v1/README.md) includes the full 229-record outcome ledger, catalog coverage, adverse diagnostics and unresolved checks. These are unclassified evidence records with no planet or discovery-priority claim.
+
 The [machine catalogue](catalogue.json) is generated from per-signal `candidate.json` files.
 Stable IDs such as `tic-464547401-s01` are local identifiers; they are not TOIs, cTOIs or planet names.
 One star can have several signal records. Updated assessments keep the same signal ID.

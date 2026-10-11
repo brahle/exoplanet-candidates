@@ -29,6 +29,16 @@ def validate(record, folder):
     if record['id'] != folder.name or not record['id'].startswith(f"tic-{record['target']['tic']}-"):
         raise ValueError("Folder, signal ID and target TIC disagree")
     s = record['signal']
+    provisional = record['assessment']['disposition'] == 'unclassified_transit_like_signal'
+    for key in ('period_d', 'epoch_btjd', 'duration_h', 'depth_ppm'):
+        if s[key]['error'] is None:
+            if not provisional or key in ('period_d', 'epoch_btjd'):
+                raise ValueError('Unavailable uncertainty is only permitted for provisional duration/depth')
+            if not any('uncertainty unavailable' in limit.lower() for limit in s['limits']):
+                raise ValueError('Unavailable uncertainty needs an explicit scientific limit')
+    if record['assessment']['disposition'] in ('planet_candidate', 'validated_planet', 'confirmed_planet'):
+        if any(record['assessment'][key]['status'] != 'supported' for key in ('source_localisation', 'timing_consistency')):
+            raise ValueError('Stronger classification requires supported source and timing')
     for key in ('period_d', 'duration_h', 'depth_ppm'):
         if s[key]['value'] <= 0:
             raise ValueError(f"Nonpositive {key}")

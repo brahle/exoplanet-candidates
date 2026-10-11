@@ -32,6 +32,20 @@ class PublicationIntegrity(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'BTJD and BJD_TDB'):
             catalogue.validate(self.record, FOLDER)
 
+    def test_unknown_duration_error_requires_provisional_classification_and_limit(self):
+        self.record['signal']['duration_h']['error'] = None
+        with self.assertRaisesRegex(ValueError, 'explicit scientific limit'):
+            catalogue.validate(self.record, FOLDER)
+        self.record['signal']['limits'].append('Duration uncertainty unavailable.')
+        self.record['assessment']['disposition'] = 'planet_candidate'
+        with self.assertRaisesRegex(ValueError, 'only permitted for provisional'):
+            catalogue.validate(self.record, FOLDER)
+
+    def test_unresolved_source_and_timing_cannot_be_promoted(self):
+        self.record['assessment']['disposition'] = 'planet_candidate'
+        with self.assertRaisesRegex(ValueError, 'requires supported source and timing'):
+            catalogue.validate(self.record, FOLDER)
+
     def test_false_publication_claim_rejected(self):
         self.record['publication']['state'] = 'published'
         with self.assertRaisesRegex(ValueError, 'actual public timestamp'):

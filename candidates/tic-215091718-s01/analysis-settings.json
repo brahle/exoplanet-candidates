@@ -1,0 +1,433 @@
+{
+  "disclosure_rule": "Positive under both baseline orders, >=2 usable sectors, positive all sector leaveouts; no indexed or direct-catalogue match hypothesis.",
+  "interpretation": "Record selection only; no calibrated detection or planet-probability threshold.",
+  "immutable_discovery_seed": {
+    "dec_deg": -52.9904062736,
+    "depth_ppm": 3205.548167870189,
+    "discovery": {
+      "epoch_offset": 2457000.0,
+      "format": "survey-vet",
+      "source_row": 8205,
+      "time_scale": "TDB"
+    },
+    "duration_h": 3.079353669135147,
+    "epoch_bjd_tdb": 2461141.8086072835,
+    "id": "tic-215091718-s01",
+    "period_d": 3.7799425194054272,
+    "ra_deg": 241.595237901,
+    "schema_version": 1,
+    "tic": "215091718"
+  },
+  "ephemeris_selection": "legacy_global",
+  "original_assessment_sha256": "d42f72f5b392322406e62063c1f8fb40f0d31e69243005cd4e7f59620721114b",
+  "retained_unresolved_gates": [
+    "novelty",
+    "photometry",
+    "robustness",
+    "source_localisation",
+    "timing_consistency",
+    "astrophysical_alternatives",
+    "search_reliability",
+    "public_reproduction"
+  ],
+  "science_configuration_hashes": {
+    "inputs.json": "95d631dd8c06fe402ce5135eaeea7e963f23022c7932e1b4f37531a6e5eb2a39",
+    "ephemeris.json": "95d631dd8c06fe402ce5135eaeea7e963f23022c7932e1b4f37531a6e5eb2a39",
+    "photometry.json": "95d631dd8c06fe402ce5135eaeea7e963f23022c7932e1b4f37531a6e5eb2a39",
+    "robustness.json": "95d631dd8c06fe402ce5135eaeea7e963f23022c7932e1b4f37531a6e5eb2a39",
+    "timing-summary.json": "570c1611ff6ed50201c76cd53354b88247f7608f91ccfb0d05e35651d36d02a5",
+    "timing-events.json": "570c1611ff6ed50201c76cd53354b88247f7608f91ccfb0d05e35651d36d02a5",
+    "timing-controls.json": "570c1611ff6ed50201c76cd53354b88247f7608f91ccfb0d05e35651d36d02a5",
+    "alternative-summary.json": "e107635f9824ed3c77212a29a8ad11e3ae0cb6e7a06a10ce39d05fe8c83aca15"
+  },
+  "scientific_recipes": {
+    "inputs.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "296ae8655631642145ffefbbfdd0e0bf0c29074bfa5194d088e31dbdbdb0d3f1",
+      "source_revision": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        }
+      }
+    },
+    "ephemeris.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "296ae8655631642145ffefbbfdd0e0bf0c29074bfa5194d088e31dbdbdb0d3f1",
+      "source_revision": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        }
+      }
+    },
+    "photometry.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "296ae8655631642145ffefbbfdd0e0bf0c29074bfa5194d088e31dbdbdb0d3f1",
+      "source_revision": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        }
+      }
+    },
+    "robustness.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "296ae8655631642145ffefbbfdd0e0bf0c29074bfa5194d088e31dbdbdb0d3f1",
+      "source_revision": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        }
+      }
+    },
+    "timing-summary.json": null,
+    "timing-events.json": null,
+    "timing-controls.json": null,
+    "alternative-summary.json": null
+  }
+}

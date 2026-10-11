@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "id": "tic-290342858-s01",
+  "version": "0.1.0",
+  "title": "TIC 290342858: a provisional 1.11379249-day signal",
+  "target": {
+    "tic": "290342858",
+    "gaia_dr3": null,
+    "aliases": [
+      "TIC 290342858"
+    ],
+    "coordinates": {
+      "ra_deg": 234.381465463,
+      "dec_deg": -46.3986554904,
+      "frame": "ICRS",
+      "epoch": "J2000",
+      "provenance": "Saved TIC discovery coordinates; aperture target identity, not a verified eclipsed host."
+    }
+  },
+  "signal": {
+    "period_d": {
+      "value": 1.1137924887042359,
+      "error": 9.337621322226506e-07
+    },
+    "epoch_btjd": {
+      "value": 1630.7890382641926,
+      "error": 0.0009624113916438569
+    },
+    "epoch_bjd_tdb": 2458630.789038264,
+    "bjd_offset": 2457000,
+    "time_scale": "TDB",
+    "covariance_epoch_period_d2": [
+      [
+        9.262356867658654e-07,
+        -8.516243130919412e-10
+      ],
+      [
+        -8.516243130919438e-10,
+        8.719117195729908e-13
+      ]
+    ],
+    "covariance_method": "Saved local integrated-trapezoid diagnostic Jacobian covariance; conditional and not empirically calibrated.",
+    "duration_h": {
+      "value": 2.409475699297845,
+      "error": null
+    },
+    "depth_ppm": {
+      "value": 5845.8913880714945,
+      "error": 78.15793674154186
+    },
+    "model": "Exposure-integrated diagnostic trapezoid; free event depths and local baseline. Separate linear-baseline box-window aggregate depth.",
+    "sectors": [
+      38,
+      65
+    ],
+    "covered_events": 39,
+    "limits": [
+      "Preliminary unclassified signal; binary, blend and instrumental explanations remain open.",
+      "Conditional diagnostic errors; no calibrated false-alarm or planet probability.",
+      "Duration uncertainty unavailable; null is intentional.",
+      "Mission clock, host identity, noise coverage and search selection remain unresolved.",
+      "All saved event exclusions, failed fits and signed alternative diagnostics are retained."
+    ]
+  },
+  "assessment": {
+    "disposition": "unclassified_transit_like_signal",
+    "source_localisation": {
+      "status": "unresolved",
+      "reason": "No calibrated physical-host attribution; FITS target identity identifies the aperture only.",
+      "evidence": [
+        "inputs.json"
+      ]
+    },
+    "timing_consistency": {
+      "status": "unresolved",
+      "reason": "Signed event profiles retain failures, competing clock/shape hypotheses and conditional errors; independent clock/coverage calibration unfinished.",
+      "evidence": [
+        "evidence/timing-summary.json",
+        "evidence/timing-events.json"
+      ]
+    }
+  },
+  "novelty": {
+    "status": "no_match_in_checked_sources",
+    "checked_utc": "2026-10-11T08:40:28.022778+00:00",
+    "evidence": [
+      "evidence/catalogue-check.json",
+      "evidence/direct-catalogue-hypotheses.json",
+      "NOVELTY.md"
+    ],
+    "limits": [
+      "No match in listed snapshots, not established discovery priority.",
+      "Unindexed literature and catalogue completeness remain unresolved.",
+      "Coordinates are static; nearby-source exclusion and proper-motion reconciliation remain incomplete."
+    ]
+  },
+  "provenance": {
+    "analysis_date": "2026-10-11",
+    "source_revisions": {
+      "inputs": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "ephemeris": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "photometry": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "robustness": "3c214981ab79e9a570e25faf5de98448ba6f10b0",
+      "timing-summary": "7290187cc05fb5dc05cf08600c09d9584fc4ee3d",
+      "timing-events": "7290187cc05fb5dc05cf08600c09d9584fc4ee3d",
+      "timing-controls": "7290187cc05fb5dc05cf08600c09d9584fc4ee3d",
+      "alternative-summary": "871aad6a9f2f0cb4989dd8f7e0f42d6922e802b4"
+    },
+    "runs": {
+      "inputs": "20261011T010701Z-vet-acquisition-bd335c",
+      "ephemeris": "20261011T010702Z-vet-photometry-21162a",
+      "photometry": "20261011T010702Z-vet-photometry-21162a",
+      "robustness": "20261011T010706Z-vet-robustness-35692a",
+      "timing-summary": "20261011T054529Z-vet-timing-e31c3a",
+      "timing-events": "20261011T054529Z-vet-timing-e31c3a",
+      "timing-controls": "20261011T054529Z-vet-timing-e31c3a",
+      "alternative-summary": "20261011T061405Z-vet-alternatives-31f3f9"
+    },
+    "input_lock": "inputs.json"
+  },
+  "reproducibility": {
+    "level": "evidence_inspection",
+    "command": "uv sync --frozen && uv run python scripts/catalogue.py check",
+    "limits": [
+      "Saved scientific evidence and hashes can be inspected; this does not rerun numerical fits.",
+      "Exact FITS bytes, complete analysis code/environment and public numerical capsule are not bundled."
+    ],
+    "requirements_for_numerical_release": [
+      "Provide exact inputs, selected source, frozen environment and a verified clean public-input rerun."
+    ]
+  },
+  "publication": {
+    "state": "draft",
+    "first_public_utc": null,
+    "release_url": null,
+    "doi": null,
+    "authors": [
+      "Bruno Rahle"
+    ]
+  },
+  "evidence": [
+    "inputs.json",
+    "analysis-settings.json",
+    "README.md",
+    "NOVELTY.md",
+    "REPRODUCIBILITY.md",
+    "evidence/alternative-summary.json",
+    "evidence/ephemeris.json",
+    "evidence/inputs.json",
+    "evidence/photometry.json",
+    "evidence/robustness.json",
+    "evidence/timing-controls.json",
+    "evidence/timing-events.json",
+    "evidence/timing-summary.json",
+    "evidence/catalogue-check.json",
+    "evidence/direct-catalogue-hypotheses.json",
+    "evidence/event-depths.png"
+  ],
+  "history": [
+    {
+      "date": "2026-10-11",
+      "version": "0.1.0",
+      "change": "Initial evidence-inspection dossier from the reusable batch; all scientific classifications remain provisional."
+    }
+  ]
+}
