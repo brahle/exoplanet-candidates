@@ -17,6 +17,11 @@ unclassified; the shortlist is not a count of likely planets.
 Three initial-shortlist signals now carry off-target warnings, leaving
 [30 without currently published warnings for follow-up](browse/shortlist/README.md).
 
+[Supplementary physical-fit review](docs/physical-fit-review-2026-10-11.md): longer
+chains pass sampling checks for two public signals, while TIC 339451799 retains
+substantial density, limb-darkening and exposure-integration concerns. These
+conditional results do not change the unclassified assessments.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |

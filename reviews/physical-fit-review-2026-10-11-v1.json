@@ -1,0 +1,435 @@
+{
+  "schema_version": "1.0",
+  "supplement_version": "1.0.0",
+  "reviewed_utc": "2026-10-11T21:32:58.706159+00:00",
+  "scope": "Supplementary conditional-model review, separate from unchanged historical dossiers and dated initial-screen census",
+  "public_reproduction_level": "evidence_inspection_only",
+  "method": {
+    "dark_occultor_model": "Exposure-integrated batman2.5.3; circular orbit; catalogue-aperture-star density prior; no dilution; white noise; original primary-product event windows",
+    "sampler": "emcee3.1.6 default StretchMove;2 independent ensembles,32 walkers each; original500 burn steps;2500 initial retained steps; at most10000 additional unthinned steps with original qualification checks",
+    "first_continuation_rng": "New declared seed stream from original final walkers, subsequent exact saved RNG checkpoints",
+    "conditional_summary_method": "Independent geometry for every retained draw;16/50/84 quantiles and epoch-period covariance from the same draws; BTJD offset2457000, BJD_TDB",
+    "integrity_checks": "Full original prefix/checkpoint history preserved;319 fixed-index/final-walker likelihoods and geometry checked per signal",
+    "limits": "Sampling heuristics do not guarantee convergence or calibrated coverage; source, noise, host, timing, reliability and FPP/NFPP are unresolved. Finer-quadrature comparisons are not posterior reweighting or exact references."
+  },
+  "nonpublic_controls_excluded": true,
+  "signals": [
+    {
+      "signal_id": "tic-261119502-s01",
+      "scenario": {
+        "eccentricity": 0.0,
+        "host_density": "catalogue_aperture",
+        "name": "catalogue-white",
+        "noise": "white",
+        "omega_deg": 90.0,
+        "target_flux_fraction": 1.0
+      },
+      "sampling": {
+        "status": "conditional_sampling_checks_passed",
+        "autocorrelation_steps": [
+          [
+            116.54270729795448,
+            119.38758332482227,
+            141.81564967815973,
+            173.22385924955455,
+            139.4810413682718,
+            128.01328642664024,
+            134.0625444290537
+          ],
+          [
+            117.79981416708068,
+            128.99536921209992,
+            148.3591318490348,
+            196.3742141262032,
+            174.16628653932213,
+            135.83966644873763,
+            136.22112154748683
+          ]
+        ],
+        "retained_steps_per_ensemble": [
+          10000,
+          10000
+        ],
+        "acceptance_per_ensemble": [
+          0.3902125,
+          0.388578125
+        ],
+        "independent_ensemble_median_difference_std": [
+          0.013412450396830209,
+          0.007597034237201853,
+          0.041732686964796435,
+          0.004398287282832449,
+          0.00639338678135202,
+          0.0006395185688895947,
+          0.010053167262720772
+        ],
+        "sufficient_tau_length": true,
+        "ensemble_agreement": true,
+        "acceptance_in_range": true,
+        "independent_ensembles": 2,
+        "limits": [
+          "Heuristic sampling checks; no convergence guarantee or calibrated coverage",
+          "No R-hat treating coupled ensemble walkers as independent chains"
+        ]
+      },
+      "retained_draws": 640000,
+      "checkpoint_count": 30,
+      "likelihood_replays": 319,
+      "maximum_replay_difference": 0.0,
+      "conditional_draw_quantiles_16_50_84": {
+        "epoch_btjd": [
+          1632.1253720432248,
+          1632.1328551447498,
+          1632.1399255593533
+        ],
+        "period_d": [
+          11.756213221838445,
+          11.756324226526512,
+          11.756438210167254
+        ],
+        "anchor_btjd": [
+          2372.7778543635695,
+          2372.781124715927,
+          2372.7847512911185
+        ],
+        "radius_ratio": [
+          0.041550038005737776,
+          0.0442855142323278,
+          0.046821549597319725
+        ],
+        "impact_parameter": [
+          0.47060051149459026,
+          0.6091610333565664,
+          0.6975781956945559
+        ],
+        "a_over_rstar": [
+          17.579088342881583,
+          18.991924073505444,
+          20.58554380397388
+        ],
+        "inclination_deg": [
+          87.74702278154565,
+          88.16639185745478,
+          88.67901978648327
+        ],
+        "log10_density_cgs": [
+          -0.12871737449956067,
+          -0.027998354920005353,
+          0.07698096175085316
+        ],
+        "limb_q1": [
+          0.1620150044681864,
+          0.46071686283986424,
+          0.7968113582310623
+        ],
+        "limb_q2": [
+          0.1725462296101954,
+          0.5126118527320485,
+          0.8398562027674268
+        ]
+      },
+      "quantile_status": "conditional_draw_quantiles_sampling_checks_passed",
+      "quantile_units": {
+        "epoch_btjd": "d, BJD_TDB minus2457000",
+        "period_d": "d",
+        "anchor_btjd": "d, BJD_TDB minus2457000",
+        "radius_ratio": "dimensionless occultor/assumed-star radius",
+        "impact_parameter": "dimensionless",
+        "a_over_rstar": "dimensionless",
+        "inclination_deg": "deg",
+        "log10_density_cgs": "log10 of density in g/cm^3",
+        "limb_q1": "dimensionless",
+        "limb_q2": "dimensionless"
+      },
+      "covariance_epoch_period_d2": [
+        [
+          5.493284702147686e-05,
+          -7.253591711226035e-07
+        ],
+        [
+          -7.253591711226035e-07,
+          1.2201127936179638e-08
+        ]
+      ],
+      "covariance_reference": "Original seed reference cycle in BTJD; same retained draws",
+      "assumed_catalogue_host_density_prior": {
+        "mean_log10_cgs": -0.05900074507687236,
+        "scope": "Assumed catalogue aperture star; independent M/R first-order errors plus declared floor; not a host posterior",
+        "sigma_log10_cgs": 0.1
+      },
+      "conditional_median_density_ratio_to_prior_center": 1.0739953231007404,
+      "conditional_median_log_density_difference_in_declared_prior_widths": 0.3100239015686701,
+      "density_comparison_scope": "Conditional host-model tension, not calibrated rejection significance",
+      "prior_boundary_draw_fractions": {
+        "anchor_shift_duration": 0.0,
+        "period_drift_duration": 0.0,
+        "radius_ratio": 0.0,
+        "impact_fraction": 0.002603125,
+        "log10_density_cgs": 0.0,
+        "limb_q1": 0.031078125,
+        "limb_q2": 0.036078125
+      },
+      "quadrature_subset_sensitivity": [
+        {
+          "factors": [
+            7,
+            21
+          ],
+          "vectors": 9,
+          "maximum_absolute_log_probability_change": 0.07533951098184843,
+          "maximum_flux_difference_ppm": 51.49900416900888
+        },
+        {
+          "factors": [
+            21,
+            63
+          ],
+          "vectors": 9,
+          "maximum_absolute_log_probability_change": 0.021244106191716128,
+          "maximum_flux_difference_ppm": 15.668629884890706
+        },
+        {
+          "factors": [
+            63,
+            127
+          ],
+          "vectors": 9,
+          "maximum_absolute_log_probability_change": 0.005107151579522906,
+          "maximum_flux_difference_ppm": 3.839763916047012
+        }
+      ],
+      "existing_dossier_novelty": "previously_reported",
+      "existing_warning_flags": [
+        "external_adverse_report",
+        "nine_phase_scan_uncorrected"
+      ],
+      "scientific_assessment": "unclassified",
+      "derived_planet_radius": null,
+      "planet_probability": null,
+      "classification_promoted": false,
+      "source_localisation": "not established by this supplement",
+      "timing_consistency": "not established by this supplement",
+      "origin_receipt_sha256": {
+        "original_case": "01d12724863e448369bf7048f61e6ef387191facf643776451173115080353f7",
+        "continuation": "98dda251e89d3a685947e6fcf413b8a12c92e6729b53be2cdacb18e4a37ca994",
+        "audit": "4978e68d2ab57d9f8b1abb7b212d72d0ef74ed5d4bb898ea90d41de1a6328eee"
+      },
+      "origin_report_sha256": "d3b7bdbd381ad179dba6cdd10c12f81679913dd7be7395425692f1344ba3c7fd",
+      "limits": [
+        "Integrity audit and conditional quantiles; no convergence guarantee",
+        "Original event/noise/host/dilution assumptions unchanged and uncalibrated",
+        "Fixed-index replay subset is not an independent posterior sample",
+        "Finer quadrature sensitivity is not an exact reference, posterior reweighting or coverage proof",
+        "No FPP/NFPP, false-alarm reliability, source/timing support or classification promotion"
+      ]
+    },
+    {
+      "signal_id": "tic-339451799-s01",
+      "scenario": {
+        "eccentricity": 0.0,
+        "host_density": "catalogue_aperture",
+        "name": "catalogue-white",
+        "noise": "white",
+        "omega_deg": 90.0,
+        "target_flux_fraction": 1.0
+      },
+      "sampling": {
+        "status": "conditional_sampling_checks_passed",
+        "autocorrelation_steps": [
+          [
+            138.15616921291792,
+            129.95140828232266,
+            147.29451541839856,
+            157.98190682507564,
+            157.89551273271235,
+            200.6411476624079,
+            169.1305440541039
+          ],
+          [
+            125.28229767095657,
+            120.20290818444559,
+            148.28345089861924,
+            148.70772865249975,
+            139.7389300614205,
+            194.19628263578463,
+            171.54380682632913
+          ]
+        ],
+        "retained_steps_per_ensemble": [
+          10250,
+          10250
+        ],
+        "acceptance_per_ensemble": [
+          0.359625,
+          0.3641463414634146
+        ],
+        "independent_ensemble_median_difference_std": [
+          0.0031544277356751146,
+          0.0027113952300979794,
+          0.0263581083547429,
+          0.02020222715120515,
+          0.002735575792332319,
+          0.014958937763968404,
+          0.0662403500522756
+        ],
+        "sufficient_tau_length": true,
+        "ensemble_agreement": true,
+        "acceptance_in_range": true,
+        "independent_ensembles": 2,
+        "limits": [
+          "Heuristic sampling checks; no convergence guarantee or calibrated coverage",
+          "No R-hat treating coupled ensemble walkers as independent chains"
+        ]
+      },
+      "retained_draws": 656000,
+      "checkpoint_count": 31,
+      "likelihood_replays": 319,
+      "maximum_replay_difference": 0.0,
+      "conditional_draw_quantiles_16_50_84": {
+        "epoch_btjd": [
+          1654.5436694537327,
+          1654.5437903478442,
+          1654.5439127436866
+        ],
+        "period_d": [
+          4.525760670745271,
+          4.5257609679443505,
+          4.525761263966389
+        ],
+        "anchor_btjd": [
+          3143.5191030545384,
+          3143.519149183114,
+          3143.519194404496
+        ],
+        "radius_ratio": [
+          0.18683239922488828,
+          0.18736989074034038,
+          0.18788298004877838
+        ],
+        "impact_parameter": [
+          0.013770164977569313,
+          0.04424468205313287,
+          0.08908131413809253
+        ],
+        "a_over_rstar": [
+          44.96098262785926,
+          45.14445810861746,
+          45.301030600300564
+        ],
+        "inclination_deg": [
+          89.8867066187864,
+          89.94387996077707,
+          89.98255079434429
+        ],
+        "log10_density_cgs": [
+          1.9239620999969773,
+          1.9292680400901479,
+          1.9337789952707567
+        ],
+        "limb_q1": [
+          0.00021379417081768054,
+          0.000659616898991366,
+          0.0021681621892413044
+        ],
+        "limb_q2": [
+          0.06572125912075205,
+          0.26593822447018745,
+          0.6498573065295828
+        ]
+      },
+      "quantile_status": "conditional_draw_quantiles_sampling_checks_passed",
+      "quantile_units": {
+        "epoch_btjd": "d, BJD_TDB minus2457000",
+        "period_d": "d",
+        "anchor_btjd": "d, BJD_TDB minus2457000",
+        "radius_ratio": "dimensionless occultor/assumed-star radius",
+        "impact_parameter": "dimensionless",
+        "a_over_rstar": "dimensionless",
+        "inclination_deg": "deg",
+        "log10_density_cgs": "log10 of density in g/cm^3",
+        "limb_q1": "dimensionless",
+        "limb_q2": "dimensionless"
+      },
+      "covariance_epoch_period_d2": [
+        [
+          1.4949274377995208e-08,
+          -3.4267965040627224e-11
+        ],
+        [
+          -3.4267965040627224e-11,
+          8.935952960312313e-14
+        ]
+      ],
+      "covariance_reference": "Original seed reference cycle in BTJD; same retained draws",
+      "assumed_catalogue_host_density_prior": {
+        "mean_log10_cgs": 0.3090267331143649,
+        "scope": "Assumed catalogue aperture star; independent M/R first-order errors plus declared floor; not a host posterior",
+        "sigma_log10_cgs": 0.1
+      },
+      "conditional_median_density_ratio_to_prior_center": 41.71010729021932,
+      "conditional_median_log_density_difference_in_declared_prior_widths": 16.202413069757828,
+      "density_comparison_scope": "Conditional host-model tension, not calibrated rejection significance",
+      "prior_boundary_draw_fractions": {
+        "anchor_shift_duration": 0.0,
+        "period_drift_duration": 0.0,
+        "radius_ratio": 0.0,
+        "impact_fraction": 0.2764435975609756,
+        "log10_density_cgs": 0.0,
+        "limb_q1": 0.9996432926829268,
+        "limb_q2": 0.05839939024390244
+      },
+      "quadrature_subset_sensitivity": [
+        {
+          "factors": [
+            7,
+            21
+          ],
+          "vectors": 9,
+          "maximum_absolute_log_probability_change": 8.847965066753432,
+          "maximum_flux_difference_ppm": 688.8475558456397
+        },
+        {
+          "factors": [
+            21,
+            63
+          ],
+          "vectors": 9,
+          "maximum_absolute_log_probability_change": 2.2883335855309497,
+          "maximum_flux_difference_ppm": 204.15687881258916
+        },
+        {
+          "factors": [
+            63,
+            127
+          ],
+          "vectors": 9,
+          "maximum_absolute_log_probability_change": 0.5311398243799204,
+          "maximum_flux_difference_ppm": 50.17683682573271
+        }
+      ],
+      "existing_dossier_novelty": "no_match_in_checked_sources",
+      "existing_warning_flags": [
+        "odd_even"
+      ],
+      "scientific_assessment": "unclassified",
+      "derived_planet_radius": null,
+      "planet_probability": null,
+      "classification_promoted": false,
+      "source_localisation": "not established by this supplement",
+      "timing_consistency": "not established by this supplement",
+      "origin_receipt_sha256": {
+        "original_case": "305ed761a81cec17d3bf64808f73c70c5d17dd1a3fd01e6483c577125d95f8a2",
+        "continuation": "1f099e7a382eb1fcfef2066e90b659a741ceb3f7134355a7645849694977499d",
+        "audit": "de347ae3f81a6e228bc06428a8f61c10ae7fb64c59d2e501a8b56bd21962ab7f"
+      },
+      "origin_report_sha256": "5ac8ec07586b7758f7f34edf32b9cc3eaf8e1f21154a34160ba53ade5252f51a",
+      "limits": [
+        "Integrity audit and conditional quantiles; no convergence guarantee",
+        "Original event/noise/host/dilution assumptions unchanged and uncalibrated",
+        "Fixed-index replay subset is not an independent posterior sample",
+        "Finer quadrature sensitivity is not an exact reference, posterior reweighting or coverage proof",
+        "No FPP/NFPP, false-alarm reliability, source/timing support or classification promotion"
+      ]
+    }
+  ]
+}
