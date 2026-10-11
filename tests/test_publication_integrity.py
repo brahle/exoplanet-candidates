@@ -76,6 +76,24 @@ class PublicationIntegrity(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'public-reproduction-certificate'):
             catalogue.validate(record, FOLDER)
 
+    def test_inspection_certificate_cannot_be_renamed_into_numerical_proof(self):
+        import shutil
+        with tempfile.TemporaryDirectory() as temp:
+            folder = Path(temp) / FOLDER.name
+            shutil.copytree(FOLDER, folder)
+            certificate = {'status': 'passed', 'public_input_urls': ['https://example.invalid/archive'],
+                           'verification_kind': 'public_evidence_inspection'}
+            (folder / 'public-reproduction-certificate.json').write_text(json.dumps(certificate))
+            record = copy.deepcopy(self.record)
+            record['reproducibility']['level'] = 'public_numerical_rerun'
+            # Re-seal this synthetic fixture so the certificate content, not its hash, is tested.
+            import sys
+            sys.path.insert(0, str(ROOT / 'scripts'))
+            from export_batch import seal
+            seal(folder, {})
+            with self.assertRaisesRegex(ValueError, 'passed public-input certificate'):
+                catalogue.validate(record, folder)
+
 
 if __name__ == '__main__':
     unittest.main()

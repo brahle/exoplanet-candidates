@@ -78,7 +78,10 @@ def validate(record, folder):
     if record['reproducibility']['level'] == 'public_numerical_rerun':
         # The receipt must identify a completed, independently checked public reproduction.
         certificate = load(inside(folder, 'public-reproduction-certificate.json'))
-        if certificate.get('status') != 'passed' or not certificate.get('public_input_urls'):
+        if (certificate.get('status') != 'passed' or not certificate.get('public_input_urls') or
+                certificate.get('verification_kind') != 'public_numerical_rerun' or
+                certificate.get('signal_id') != record['id'] or
+                certificate.get('numeric_comparison', {}).get('status') != 'passed'):
             raise ValueError("Public numerical rerun requires a passed public-input certificate")
 
 
