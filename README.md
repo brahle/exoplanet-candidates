@@ -31,6 +31,10 @@ A [source-control quality review](docs/source-control-review-2026-10-11.md) find
 that extra centroid starts help one selected control, while background/source
 modelling remains limiting. Source attribution stays unresolved.
 
+A [joint temporal source/noise pilot](docs/temporal-source-review-2026-10-11.md)
+attempted24 source records and retained missing-event and nominal-interval issues.
+It remains a conditional method experiment, with no stronger scientific assessments.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |

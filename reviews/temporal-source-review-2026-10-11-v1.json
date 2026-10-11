@@ -1,0 +1,74 @@
+{
+  "schema_version": "1.0",
+  "supplement_version": "1.0.0",
+  "reviewed_utc": "2026-10-11T23:54:46.305909+00:00",
+  "scope": "Anonymous aggregate joint temporal source/noise pilot; no target identifiers or individual signal measurements published",
+  "reproduction_level": "evidence_inspection_only",
+  "summary": {
+    "signals": 24,
+    "development_fields": 2,
+    "additional_fields": 22,
+    "signals_with_actual_fit": 21,
+    "signals_without_actual_fit": 3,
+    "case_execution_failures": 0,
+    "experiment_wall_seconds": 29.314315,
+    "strata": [
+      {
+        "cohort": "additional_fields",
+        "noise_model": "white",
+        "shifted_background": 55,
+        "injection": 321,
+        "unique_field_source_phase_contrasts": 107,
+        "unique_nominal_interval_misses": 3
+      },
+      {
+        "cohort": "additional_fields",
+        "noise_model": "oot_ou",
+        "shifted_background": 55,
+        "injection": 321,
+        "unique_field_source_phase_contrasts": 107,
+        "unique_nominal_interval_misses": 3
+      },
+      {
+        "cohort": "development",
+        "noise_model": "white",
+        "shifted_background": 4,
+        "injection": 24,
+        "unique_field_source_phase_contrasts": 8,
+        "unique_nominal_interval_misses": 0
+      },
+      {
+        "cohort": "development",
+        "noise_model": "oot_ou",
+        "shifted_background": 4,
+        "injection": 24,
+        "unique_field_source_phase_contrasts": 8,
+        "unique_nominal_interval_misses": 0
+      },
+      {
+        "cohort": "development",
+        "noise_model": "unavailable",
+        "unavailable": 2
+      },
+      {
+        "cohort": "additional_fields",
+        "noise_model": "unavailable",
+        "unavailable": 14
+      }
+    ],
+    "source_gate": "unresolved",
+    "classification_promoted": false,
+    "limits": [
+      "First eligible sector only; not whole-sector combined source validation",
+      "Object/phase split from paired diagnosis, not an independent astrophysical validation sample",
+      "Three amplitude levels repeat a fixed linear model; deduplicate contrasts and brightness caps",
+      "White/OU models and phases share photons; counts are not confidence bounds or false-positive rates",
+      "Amplitude intervals are not centroid/source-exclusion regions; unmodelled background signals can bias them",
+      "Static positions/PRF, empirical covariance shrinkage/common OU and hyperparameter uncertainty remain",
+      "No complete host footprint exclusion, physical alternatives, timing or reliability qualification"
+    ],
+    "next_action": "Investigate variable-mode temporal correlation and background mean inadequacy before source exclusions; do not widen intervals or declare misses as astrophysical false positives."
+  },
+  "origin_review_manifest_sha256": "9178425ec22fc1b467d5d3e1ac4c73059f59dfbb16db32462f268d455ebb05ab",
+  "scientific_promotions": 0
+}
