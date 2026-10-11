@@ -74,7 +74,7 @@ def gallery(root, records):
         '[Methods and rendering](../docs/diagnostic-figures.md).\n')
 
 
-def stage(root, source, report_path, manifest_path):
+def stage(root, source, report_path, manifest_path, require_complete=False):
     root = root.resolve(); source = source.resolve()
     previous_root = catalogue.ROOT
     try:
@@ -82,7 +82,10 @@ def stage(root, source, report_path, manifest_path):
         records = catalogue.records()
         by_id = {r['id']: r for r in records}
         report, manifest, binding = checked_bundle(source, report_path, manifest_path)
-        if set(by_id) != {r['candidate_id'] for r in report['records']}:
+        selected = {r['candidate_id'] for r in report['records']}
+        if not selected.issubset(by_id):
+            raise ValueError('Figure publication contains unknown dossiers')
+        if require_complete and set(by_id) != selected:
             raise ValueError('Figure publication must cover the whole public catalogue')
         prepared = []
         for row in report['records']:
@@ -138,7 +141,8 @@ def stage(root, source, report_path, manifest_path):
             seal(folder, sources)
         current = catalogue.records()
         (root / 'catalogue.json').write_bytes(catalogue.index_bytes(current))
-        gallery(root, current)
+        gallery(root, [r for r in current if (root / 'candidates' / r['id'] /
+                       'evidence/figures/diagnostic.png').is_file()])
         receipt = {'schema_version': '1.0', 'updated_records': len(prepared),
             'source_run': manifest['run_id'], 'source_revision': manifest['git']['commit'],
             'report_sha256': sha(report_path), 'renderer_sha256': binding['code_sha256']['figure_render.py'],
@@ -156,8 +160,9 @@ def main():
     parser.add_argument('--source', type=Path, required=True)
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--manifest', type=Path, required=True)
+    parser.add_argument('--require-complete', action='store_true')
     args = parser.parse_args()
-    receipt = stage(args.root, args.source, args.report, args.manifest)
+    receipt = stage(args.root, args.source, args.report, args.manifest, args.require_complete)
     print(json.dumps({k: receipt[k] for k in ('updated_records', 'source_run', 'images')}))
 
 

@@ -64,6 +64,16 @@ class FigurePublication(unittest.TestCase):
             self.assertEqual(publish_figures.stage(root, source, report, manifest)['updated_records'], 0)
             self.assertTrue((root / 'gallery/page-01.md').exists())
 
+    def test_subset_batches_supported_and_complete_mode_explicit(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root, source, folder, old, report, manifest = fixture(Path(temporary))
+            other = root / 'candidates/tic-464547401-s01'
+            shutil.copytree(ROOT / 'candidates/tic-464547401-s01', other)
+            with self.assertRaisesRegex(ValueError, 'whole public catalogue'):
+                publish_figures.stage(root, source, report, manifest, require_complete=True)
+            self.assertFalse((folder / 'evidence/figures').exists())
+            self.assertEqual(publish_figures.stage(root, source, report, manifest)['updated_records'], 1)
+
     def test_bad_figure_and_science_refused_before_delivery(self):
         with tempfile.TemporaryDirectory() as temporary:
             root, source, folder, old, report, manifest = fixture(Path(temporary))

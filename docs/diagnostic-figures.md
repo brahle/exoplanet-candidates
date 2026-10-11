@@ -51,8 +51,12 @@ the dossier manifest. Pixel identity requires the recorded rendering environment
 different library/font versions may render differently. Replotting saved evidence
 is not a fresh numerical reproduction of acquisition, searches or fits.
 
-`scripts/publish_figures.py` checks the complete catalogue against the Run report,
+`scripts/publish_figures.py` checks each selected batch record against the Run report,
 exact scientific-record hash, ephemeris and every artifact hash before copying.
 It preserves scientific fields, classifications and disclosure timestamps, adds
 patch versions and dated history, reseals dossiers and builds the gallery. Repeat
 staging is idempotent. Git publication remains a separate explicit action.
+
+Batches can contain any subset of existing dossiers. `--require-complete` additionally
+requires figures for the complete public catalogue. Unknown IDs are refused before
+copying; the gallery lists dossiers with published figures.
