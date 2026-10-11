@@ -212,3 +212,5 @@ that every record is novel, or that all 222 original coarse catalog nonmatches w
 The [immutable evidence release](https://github.com/brahle/exoplanet-candidates/releases/tag/run5-v0.1.0) was published on 2026-10-11 at 08:55:04 UTC. Locked dossiers are version 0.1.1; version 0.1.2 in the live catalogue records the release receipt without changing scientific evidence.
 
 The [public evidence inspection certificate](public-evidence-certificate.json) verifies unauthenticated asset retrieval, all 171 manifest entries, 172 dossier validations and 17 tests in a fresh environment. It does not certify a numerical rerun.
+
+The [assessment-bound automated reviews](reviews.json) were recorded retrospectively on 2026-10-11 after the original release. They bind all 229 decisions to the exact prior assessment hashes, retain every unresolved gate, and make no stronger classification or human-review claim. They are not part of the original immutable asset and do not change its scientific evidence.
