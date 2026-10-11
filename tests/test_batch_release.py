@@ -120,3 +120,14 @@ class BatchRelease(unittest.TestCase):
             self.assertEqual(after['publication']['first_public_utc'], '2026-10-12T01:00:00Z')
             self.assertEqual(after['publication']['state'], 'published')
             self.assertEqual(release.load(folder / 'publication-receipt.json')['release_published_utc'], '2026-10-12T02:00:00Z')
+            batch_receipt = release.load(root / 'batches/fixture/publication-receipt.json')
+            locked_version = manifest['records'][0]['version']
+            self.assertEqual(batch_receipt['locked_dossier_version'], locked_version)
+            self.assertEqual(batch_receipt['locked_dossier_versions'], {after['id']: locked_version})
+            self.assertEqual(batch_receipt['release_source_commit'], manifest['source_commit'])
+            after['title'] = 'Changed interpretation after locking'
+            write(folder / 'candidate.json', after); release.seal(folder, {})
+            write(root / 'catalogue.json', json.loads(release.catalogue.index_bytes([after])))
+            with patch.object(release, 'fetch', release_fetch):
+                with self.assertRaisesRegex(ValueError, 'Current science differs'):
+                    release.record_release(root, 'fixture', 'fixture/repo', 'fixture-v1', cert)

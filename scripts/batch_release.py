@@ -287,8 +287,8 @@ def record_release(root, batch, repo, tag, certificate_path):
         frozen = json.loads(subprocess.check_output(
             ['git', 'show', manifest['source_commit'] + ':candidates/' + record['id'] + '/candidate.json'],
             cwd=root, text=True))
-        for key in ('target', 'signal', 'assessment', 'novelty', 'provenance', 'reproducibility'):
-            if record[key] != frozen[key]:
+        for key in (set(record) | set(frozen)) - {'version', 'history', 'publication'}:
+            if record.get(key) != frozen.get(key):
                 raise ValueError('Current science differs from the locked release')
         frozen_manifest = json.loads(subprocess.check_output(
             ['git', 'show', manifest['source_commit'] + ':candidates/' + record['id'] + '/evidence-manifest.json'],
@@ -319,8 +319,13 @@ def record_release(root, batch, repo, tag, certificate_path):
     write(folder / 'public-evidence-certificate.json', certificate)
     write(folder / 'release-manifest.json', manifest)
     batch_receipt = load(folder / 'publication-receipt.json')
+    versions = {identifier: row['version'] for identifier, row in locked.items()}
+    unique_versions = set(versions.values())
     batch_receipt.update(release_url=metadata['html_url'], release_published_utc=metadata['published_at'],
-                         release_immutable=True, release_id=metadata['id'])
+                         release_immutable=True, release_id=metadata['id'],
+                         release_source_commit=manifest['source_commit'],
+                         locked_dossier_versions=versions,
+                         locked_dossier_version=next(iter(unique_versions)) if len(unique_versions) == 1 else None)
     write(folder / 'publication-receipt.json', batch_receipt)
     write(root / 'catalogue.json', json.loads(catalogue.index_bytes(validate_records(root, False))))
     return {'status': 'recorded', 'updated_records': len(planned)}
