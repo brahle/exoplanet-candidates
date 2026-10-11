@@ -62,6 +62,22 @@ class BatchExport(unittest.TestCase):
             with self.assertRaisesRegex(ValueError, 'Unverified scientific artifact'):
                 export.artifact(stage, 'photometry.json')
 
+    def test_review_identity_and_source_report_must_match(self):
+        with tempfile.TemporaryDirectory() as temp:
+            root = Path(temp); report = root / 'report.json'; export.write(report, {})
+            row = {'signal_id': 'tic-123-s01', 'assessment_sha256': 'a' * 64}
+            import hashlib
+            row['review_id'] = hashlib.sha256(json.dumps(row, sort_keys=True, separators=(',', ':')).encode()).hexdigest()
+            doc = {'report_sha256': export.sha(report), 'reviews': [row]}
+            path = root / 'reviews.json'; export.write(path, doc)
+            self.assertEqual(export.verified_reviews(path, report)['tic-123-s01'], row)
+            row['assessment_sha256'] = 'b' * 64; export.write(path, doc)
+            with self.assertRaisesRegex(ValueError, 'Invalid or duplicate review'):
+                export.verified_reviews(path, report)
+            doc['report_sha256'] = 'c' * 64; export.write(path, doc)
+            with self.assertRaisesRegex(ValueError, 'another report'):
+                export.verified_reviews(path, report)
+
     def test_two_signals_on_one_target_export_without_identity_collapse(self):
         with tempfile.TemporaryDirectory() as temp:
             root = Path(temp)

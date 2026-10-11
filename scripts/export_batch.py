@@ -101,7 +101,7 @@ def seal(folder, sources):
     write(folder / 'evidence-manifest.json', {'schema_version': '1.0', 'candidate': folder.name, 'files': files})
 
 
-def dossier(destination, assessment, check, documents, prior, date):
+def dossier(destination, assessment, check, documents, prior, date, review=None):
     seed = assessment['signal']; ep = documents['ephemeris.json'][0]
     if not re.fullmatch(r'tic-[0-9]+-s[0-9]{2}', seed['id']) or not seed['id'].startswith(f"tic-{seed['tic']}-"):
         raise ValueError('Unsafe or inconsistent signal identity')
@@ -118,6 +118,8 @@ def dossier(destination, assessment, check, documents, prior, date):
         write(folder / relative, public(value)); sources[relative] = sha(path)
     write(folder / 'evidence/catalogue-check.json', public(check))
     write(folder / 'evidence/direct-catalogue-hypotheses.json', public(prior))
+    if review is not None:
+        write(folder / 'review.json', public(review))
     inputs = documents['inputs.json'][0]
     write(folder / 'inputs.json', public(inputs))
     write(folder / 'analysis-settings.json', {
@@ -167,6 +169,9 @@ def dossier(destination, assessment, check, documents, prior, date):
         'history': [{'date': date, 'version': '0.1.0', 'change': 'Initial evidence-inspection dossier from the reusable batch; all scientific classifications remain provisional.'}],
     }
     write(folder / 'candidate.json', record)
+    if review is not None:
+        record['evidence'].append('review.json')
+        write(folder / 'candidate.json', record)
     rb = assessment['stages']['robustness']['metrics']
     odd_even = rb.get('odd_even_tension_sigma')
     odd_even_text = 'unavailable' if odd_even is None else f'{odd_even:.3g} conditional error units'
@@ -224,11 +229,32 @@ and a clean public-input rerun certificate. No planet probability or discovery p
     seal(folder, sources)
 
 
-def prepare(report_path, checks_path, screens, destination, batch):
+def verified_reviews(path, report_path):
+    document = load(path)
+    if document['report_sha256'] != sha(report_path):
+        raise ValueError('Reviews refer to another report')
+    result = {}
+    for row in document['reviews']:
+        identity = {k: v for k, v in row.items() if k not in {'review_id', 'reviewed_utc'}}
+        digest = hashlib.sha256(json.dumps(identity, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest()
+        if row['review_id'] != digest or row['signal_id'] in result:
+            raise ValueError('Invalid or duplicate review identity')
+        result[row['signal_id']] = row
+    return result
+
+
+def prepare(report_path, checks_path, screens, destination, batch, reviews_path):
     report_manifest = load(report_path.parent / 'manifest.json')
     if not report_manifest['ok'] or report_manifest['outputs'][report_path.name] != sha(report_path):
         raise ValueError('Batch report changed or failed')
     report = load(report_path)
+    reviews = verified_reviews(reviews_path, report_path)
+    for assessment in report['assessments']:
+        review = reviews.get(assessment['signal']['id'])
+        if (not review or review['assessment_sha256'] != assessment['assessment_sha256'] or
+                review['disposition'] != 'unclassified_transit_like_signal' or
+                review['publication_tier'] != 'evidence_inspection'):
+            raise ValueError('Provisional export requires a matching unclassified assessment review')
     rows = [json.loads(line) for line in checks_path.read_text().splitlines()]
     checks = {r['signal_id']: r for r in rows}
     if len(checks) != len(rows) or set(checks) != {a['signal']['id'] for a in report['assessments']}:
@@ -265,12 +291,13 @@ def prepare(report_path, checks_path, screens, destination, batch):
                          'assessment_sha256': a['assessment_sha256'], 'catalogue_check': public(check),
                          'direct_catalogue_hypotheses': public(prior)})
         if decision == 'provisional_signal_record':
-            dossier(destination, a, check, docs, prior, date)
+            dossier(destination, a, check, docs, prior, date, reviews[a['signal']['id']])
     counts = dict(Counter(r['route'] for r in outcomes))
     write(destination / 'batches' / batch / 'outcomes.json', {'batch': batch, 'date': date, 'count': len(outcomes), 'routes': counts,
         'report_sha256': sha(report_path), 'fresh_checks_sha256': sha(checks_path),
         'direct_screen_sha256': [sha(p) for p in screens], 'outcomes': outcomes})
     write(destination / 'batches' / batch / 'catalogue-snapshots.json', snapshots)
+    write(destination / 'batches' / batch / 'reviews.json', public(load(reviews_path)))
     print(json.dumps({'count': len(outcomes), 'routes': counts}))
 
 
@@ -281,10 +308,11 @@ def main():
     parser.add_argument('--screen', type=Path, action='append', default=[])
     parser.add_argument('--destination', type=Path, required=True)
     parser.add_argument('--batch', required=True)
+    parser.add_argument('--reviews', type=Path, required=True)
     args = parser.parse_args()
     if not re.fullmatch(r'[a-zA-Z0-9_-]+', args.batch):
         raise ValueError('Unsafe batch identifier')
-    prepare(args.report, args.checks, args.screen, args.destination, args.batch)
+    prepare(args.report, args.checks, args.screen, args.destination, args.batch, args.reviews)
 
 
 if __name__ == '__main__':
