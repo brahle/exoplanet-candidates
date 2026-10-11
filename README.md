@@ -27,6 +27,10 @@ and numerical replay package show that changing the averaging rule leaves
 TIC339451799's point-fit density concern in place. No corrected posterior or
 stronger classification is claimed.
 
+A [source-control quality review](docs/source-control-review-2026-10-11.md) finds
+that extra centroid starts help one selected control, while background/source
+modelling remains limiting. Source attribution stays unresolved.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
