@@ -1,5 +1,10 @@
 # Dossier schema versions
 
+[Schema1.3](../schemas/candidate-1.3.schema.json) adds full conditional trapezoid
+shape covariance after an exact numerical fit replay. Its duration errors have
+explicit model and noise limits; physical transit geometry is marked unfitted.
+See [shape uncertainty](shape-uncertainty.md). Earlier contracts remain unchanged.
+
 `schema_version` describes the data contract. The per-signal `version` describes a
 particular dossier revision. Evidence manifests and other artifacts have their own
 formats; their version numbers do not select the candidate contract.

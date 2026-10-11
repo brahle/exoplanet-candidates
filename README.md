@@ -19,7 +19,7 @@ is not yet available. See its [reproducibility statement](candidates/tic-4645474
 
 The [machine catalogue](catalogue.json) is generated from per-signal `candidate.json` files.
 Consumers must select the declared [schema version](docs/schema.md); run-5 catalogue
-enrichment uses `1.2` (including the nullable 1.1 semantics), while the original
+and shape-covariance enrichment uses `1.3` (including the nullable 1.1 semantics), while the original
 non-null dossier remains on strict `1.0`.
 Stable IDs such as `tic-464547401-s01` are local identifiers; they are not TOIs, cTOIs or planet names.
 One star can have several signal records. Updated assessments keep the same signal ID.

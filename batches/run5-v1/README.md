@@ -5,11 +5,20 @@ photometry, covariance, robustness, timing and signed alternative diagnostics. S
 physical scenario, noise coverage and survey reliability remain unresolved. These are
 preliminary evidence records; no planet or discovery-priority claim is made.
 
-The live dossiers now declare [schema 1.2](../../docs/schema.md), including catalogue
+The live dossiers now declare [schema 1.3](../../docs/schema.md), including catalogue
 enrichment and the corrected 1.1 null semantics. The original immutable
 release and commit `180e82d` incorrectly labelled their nullable fields as `1.0`;
 use the correction revision or newer for ingestion. This corrects the data contract,
 without changing the scientific values or the original disclosure/release dates.
+
+All171 dossiers now retain a conditional duration error and the full duration/ingress
+covariance from the same saved trapezoid fit. [The whole-cohort replay](shape-uncertainty-results.json)
+preserves all229 outcomes:200 available conditional uncertainties and29 unavailable
+fits. Every previous fit replays exactly, and a second independent run gives the same
+report. [The delivery receipt](shape-uncertainty-enrichment.json) and per-dossier
+evidence bind the errors to the original measurements. Point estimates and scientific
+dispositions are unchanged. These local Gaussian errors have uncalibrated coverage;
+physical transit geometry remains unfitted. See [method and limits](../../docs/shape-uncertainty.md).
 
 The [stellar enrichment receipt](stellar-enrichment.json) and complete pinned
 [TIC/Gaia snapshots](stellar-snapshot/) add catalogue values for every published

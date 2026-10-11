@@ -1,7 +1,7 @@
 {
-  "schema_version": "1.2",
+  "schema_version": "1.3",
   "id": "tic-5508653-s01",
-  "version": "0.2.1",
+  "version": "0.3.0",
   "title": "TIC 5508653: a provisional 0.95356498-day signal",
   "target": {
     "tic": "5508653",
@@ -50,7 +50,7 @@
     "covariance_method": "Saved local integrated-trapezoid diagnostic Jacobian covariance; conditional and not empirically calibrated.",
     "duration_h": {
       "value": 1.6946452844037232,
-      "error": null
+      "error": 0.07066750222791879
     },
     "depth_ppm": {
       "value": 2164.1132888295283,
@@ -67,9 +67,9 @@
     "limits": [
       "Preliminary unclassified signal; binary, blend and instrumental explanations remain open.",
       "Conditional diagnostic errors; no calibrated false-alarm or planet probability.",
-      "Duration uncertainty unavailable; null is intentional.",
       "Mission clock, host identity, noise coverage and search selection remain unresolved.",
-      "All saved event exclusions, failed fits and signed alternative diagnostics are retained."
+      "All saved event exclusions, failed fits and signed alternative diagnostics are retained.",
+      "Duration uncertainty is conditional on the saved trapezoid model, selected events and diagonal beta-scaled noise; model/clock/host errors and coverage uncalibrated."
     ]
   },
   "assessment": {
@@ -115,7 +115,8 @@
       "timing-events": "094208e8e96ead0b95dce7832fd86d22845864f0",
       "timing-controls": "094208e8e96ead0b95dce7832fd86d22845864f0",
       "alternative-summary": "871aad6a9f2f0cb4989dd8f7e0f42d6922e802b4",
-      "stellar_catalogue": "acecd40f59fc53882fa14d4a14b32e3ce0ff6d8a"
+      "stellar_catalogue": "acecd40f59fc53882fa14d4a14b32e3ce0ff6d8a",
+      "shape_uncertainty": "bb3cf889cf0e81e5f53635b226fb724db75eeef8"
     },
     "runs": {
       "inputs": "20261011T011259Z-vet-acquisition-7813eb",
@@ -126,7 +127,8 @@
       "timing-events": "20261011T055407Z-vet-timing-e9dc0d",
       "timing-controls": "20261011T055407Z-vet-timing-e9dc0d",
       "alternative-summary": "20261011T062628Z-vet-alternatives-922ca8",
-      "stellar_catalogue": "20261011T100152Z-vet-stellar-a62e56"
+      "stellar_catalogue": "20261011T100152Z-vet-stellar-a62e56",
+      "shape_uncertainty": "20261011T103617Z-vet-fit-uncertainty-ea1ed9"
     },
     "input_lock": "inputs.json"
   },
@@ -169,7 +171,8 @@
     "evidence/direct-catalogue-hypotheses.json",
     "evidence/event-depths.png",
     "publication-receipt.json",
-    "evidence/stellar-catalogue.json"
+    "evidence/stellar-catalogue.json",
+    "evidence/shape-uncertainty.json"
   ],
   "history": [
     {
@@ -201,6 +204,11 @@
       "date": "2026-10-11",
       "version": "0.2.1",
       "change": "Record immutable batch release receipt; scientific evidence unchanged."
+    },
+    {
+      "date": "2026-10-11",
+      "version": "0.3.0",
+      "change": "Retain previously omitted conditional duration/ingress covariance after exact fit replay; point estimates, ephemeris, classification and publication dates preserved."
     }
   ],
   "host": {
@@ -304,6 +312,102 @@
       "Catalogue stellar parameters are not a host/dilution posterior",
       "Unresolved companions and catalogue errors remain possible",
       "No derived planet radius: physical host and dilution remain unresolved"
+    ]
+  },
+  "fit": {
+    "model": "signed_exposure_sampled_trapezoid",
+    "physical_parameters_status": "not_fitted",
+    "shape_uncertainty": {
+      "degrees_of_freedom": 7794,
+      "duration_error_h": 0.07066750222791879,
+      "epoch_covariance": [
+        [
+          3.961087682249938e-06,
+          -2.1057525158497587e-09,
+          5.51884092565191e-08,
+          7.758335336461278e-07
+        ],
+        [
+          -2.1057525158497587e-09,
+          1.275706474689653e-12,
+          -2.597112365817478e-11,
+          -4.6346074403354914e-10
+        ],
+        [
+          5.518840925651839e-08,
+          -2.5971123658173445e-11,
+          8.669958109605742e-06,
+          4.379527659479657e-05
+        ],
+        [
+          7.758335336462014e-07,
+          -4.6346074403357395e-10,
+          4.379527659479875e-05,
+          0.0011814453838739811
+        ]
+      ],
+      "errors_calibrated": false,
+      "fit_at_bound": false,
+      "ingress_fraction_error": 0.034372160011759245,
+      "jacobian_rank": 4,
+      "limits": [
+        "Conditional Gaussian covariance; posterior and coverage calibration unavailable",
+        "Fixed chosen seed/event selection, piecewise-linear exposure-sampled trapezoid",
+        "Free signed event depths/local linear baselines; diagonal noise approximation",
+        "Clock/timing variability, model choice and host/dilution errors not propagated",
+        "Trapezoid duration is not a limb-darkened physical transit duration",
+        "No physical radius ratio, impact parameter or scaled semimajor axis fitted"
+      ],
+      "method": "Existing finite-difference profiled least-squares Jacobian; pseudoinverse scaled by max(1, reduced chi-square), OOT beta per event",
+      "parameter_order": [
+        "epoch_btjd",
+        "period_d",
+        "duration_d",
+        "ingress_fraction"
+      ],
+      "parameter_units": [
+        "d",
+        "d",
+        "d",
+        "dimensionless"
+      ],
+      "reference_covariance": [
+        [
+          5.355594396363334e-07,
+          -2.534267146003825e-10,
+          1.7478337704849316e-08,
+          1.0288853330941445e-07
+        ],
+        [
+          -2.534267146003824e-10,
+          1.275706474689653e-12,
+          -2.597112365817478e-11,
+          -4.6346074403354914e-10
+        ],
+        [
+          1.7478337704850544e-08,
+          -2.5971123658173445e-11,
+          8.669958109605742e-06,
+          4.379527659479657e-05
+        ],
+        [
+          1.0288853330945196e-07,
+          -4.6346074403357395e-10,
+          4.379527659479875e-05,
+          0.0011814453838739811
+        ]
+      ],
+      "reference_parameter_order": [
+        "reference_epoch_btjd",
+        "period_d",
+        "duration_d",
+        "ingress_fraction"
+      ],
+      "status": "conditional_local_covariance",
+      "variance_inflation": 1
+    },
+    "evidence": [
+      "evidence/shape-uncertainty.json"
     ]
   }
 }

@@ -20,6 +20,9 @@ class SchemaVersions(unittest.TestCase):
         self.provisional['schema_version'] = '1.1'
         self.provisional.pop('host', None)
         self.provisional['target'].pop('catalogue_association', None)
+        self.provisional.pop('fit', None)
+        self.provisional['signal']['duration_h']['error'] = None
+        self.provisional['signal']['limits'].append('Duration uncertainty unavailable.')
         self.dispatch = catalogue.schema_validator()
 
     def test_original_contract_remains_strict_and_original_record_valid(self):

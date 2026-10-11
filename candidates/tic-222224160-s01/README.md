@@ -29,3 +29,7 @@ Read [novelty limits](NOVELTY.md) and [reproduction coverage](REPRODUCIBILITY.md
 ## Catalogue stellar context
 
 The [pinned TIC/Gaia context](evidence/stellar-catalogue.json) supplies aperture-star Teff, radius, mass, TESS magnitude and distance with catalogue uncertainties. The structured host block marks the physical host and dilution unresolved; these are catalogue values, not a planet-radius inference. Gaia association: associated.
+
+## Conditional duration uncertainty
+
+The saved trapezoid duration now has a conditional error of 0.25464 hours. [Full shape covariance and exact replay](evidence/shape-uncertainty.json) retain the model, rank/bound checks and uncertainty limitations. This is a local Gaussian fit error with uncalibrated coverage. Physical transit geometry remains unfitted.
