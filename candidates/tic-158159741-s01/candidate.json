@@ -1,11 +1,11 @@
 {
-  "schema_version": "1.1",
+  "schema_version": "1.2",
   "id": "tic-158159741-s01",
-  "version": "0.1.3",
+  "version": "0.2.0",
   "title": "TIC 158159741: a provisional 1.80689752-day signal",
   "target": {
     "tic": "158159741",
-    "gaia_dr3": null,
+    "gaia_dr3": "6656254072398311680",
     "aliases": [
       "TIC 158159741"
     ],
@@ -15,6 +15,14 @@
       "frame": "ICRS",
       "epoch": "J2000",
       "provenance": "Saved TIC discovery coordinates; aperture target identity, not a verified eclipsed host."
+    },
+    "catalogue_association": {
+      "status": "associated",
+      "gaia_dr2": "6656254072398311680",
+      "method": "Exact TIC ID; official Gaia DR2 neighbourhood, uniqueness plus declared separation/Delta-G limits",
+      "evidence": [
+        "evidence/stellar-catalogue.json"
+      ]
     }
   },
   "signal": {
@@ -105,7 +113,8 @@
       "timing-summary": "7290187cc05fb5dc05cf08600c09d9584fc4ee3d",
       "timing-events": "7290187cc05fb5dc05cf08600c09d9584fc4ee3d",
       "timing-controls": "7290187cc05fb5dc05cf08600c09d9584fc4ee3d",
-      "alternative-summary": "871aad6a9f2f0cb4989dd8f7e0f42d6922e802b4"
+      "alternative-summary": "871aad6a9f2f0cb4989dd8f7e0f42d6922e802b4",
+      "stellar_catalogue": "acecd40f59fc53882fa14d4a14b32e3ce0ff6d8a"
     },
     "runs": {
       "inputs": "20261011T010711Z-vet-acquisition-8334d4",
@@ -115,7 +124,8 @@
       "timing-summary": "20261011T054548Z-vet-timing-a1085f",
       "timing-events": "20261011T054548Z-vet-timing-a1085f",
       "timing-controls": "20261011T054548Z-vet-timing-a1085f",
-      "alternative-summary": "20261011T061421Z-vet-alternatives-31c670"
+      "alternative-summary": "20261011T061421Z-vet-alternatives-31c670",
+      "stellar_catalogue": "20261011T100152Z-vet-stellar-a62e56"
     },
     "input_lock": "inputs.json"
   },
@@ -157,7 +167,8 @@
     "evidence/catalogue-check.json",
     "evidence/direct-catalogue-hypotheses.json",
     "evidence/event-depths.png",
-    "publication-receipt.json"
+    "publication-receipt.json",
+    "evidence/stellar-catalogue.json"
   ],
   "history": [
     {
@@ -179,6 +190,114 @@
       "date": "2026-10-11",
       "version": "0.1.3",
       "change": "Correct schema label to 1.1 for missing Gaia association and provisional duration uncertainty; scientific values and assessments unchanged. Original immutable release retained."
+    },
+    {
+      "date": "2026-10-11",
+      "version": "0.2.0",
+      "change": "Add pinned catalogue aperture association and stellar values (report 86ec145fbbad8d49525e0a031166fe38ccf6c153805dc1ab0627e9ccac42f8fe); source, timing and disposition unchanged."
     }
-  ]
+  ],
+  "host": {
+    "status": "unresolved",
+    "parameter_scope": "catalogue_aperture_target",
+    "catalogue_target": {
+      "tic": "158159741",
+      "gaia_dr3": "6656254072398311680"
+    },
+    "parameters": {
+      "distance_pc": {
+        "error": 3.4145,
+        "error_fields": {
+          "error": "e_d",
+          "error_minus": "eneg_dist",
+          "error_plus": "epos_dist"
+        },
+        "error_minus": 3.377,
+        "error_plus": 3.452,
+        "field": "d",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "pc",
+        "value": 303.714
+      },
+      "mass_Msun": {
+        "error": 0.137355,
+        "error_fields": {
+          "error": "e_mass",
+          "error_minus": "eneg_Mass",
+          "error_plus": "epos_Mass"
+        },
+        "error_minus": 0.108264,
+        "error_plus": 0.166446,
+        "field": "mass",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "M_sun",
+        "value": 1.06
+      },
+      "radius_Rsun": {
+        "error": 0.0622387,
+        "error_fields": {
+          "error": "e_rad",
+          "error_minus": "eneg_Rad",
+          "error_plus": "epos_Rad"
+        },
+        "error_minus": 0.055895,
+        "error_plus": 0.0685824,
+        "field": "rad",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "R_sun",
+        "value": 1.28129
+      },
+      "teff_K": {
+        "error": 130.933,
+        "error_fields": {
+          "error": "e_Teff",
+          "error_minus": "eneg_Teff",
+          "error_plus": "epos_Teff"
+        },
+        "error_minus": 142.47,
+        "error_plus": 119.396,
+        "field": "Teff",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "K",
+        "value": 5850.0
+      },
+      "tmag": {
+        "error": 0.006,
+        "error_fields": {
+          "error": "e_Tmag",
+          "error_minus": null,
+          "error_plus": null
+        },
+        "error_minus": null,
+        "error_plus": null,
+        "field": "Tmag",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "mag",
+        "value": 11.1341
+      }
+    },
+    "dilution": {
+      "status": "unresolved",
+      "target_flux_fraction": null
+    },
+    "evidence": [
+      "evidence/stellar-catalogue.json"
+    ],
+    "limits": [
+      "Catalogue association is not source localisation",
+      "Catalogue stellar parameters are not a host/dilution posterior",
+      "Unresolved companions and catalogue errors remain possible",
+      "No derived planet radius: physical host and dilution remain unresolved"
+    ]
+  }
 }

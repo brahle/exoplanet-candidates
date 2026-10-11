@@ -70,6 +70,21 @@ def validate(record, folder):
     if p['state'] == 'published' and not all(p[k] for k in ('first_public_utc', 'release_url')):
         raise ValueError("Published dossiers need an actual public timestamp and release URL")
     references = list(record['evidence']) + record['novelty']['evidence']
+    if record['schema_version'] == '1.2':
+        references.extend(record['target']['catalogue_association']['evidence'])
+        references.extend(record['host']['evidence'])
+        context = load(inside(folder, 'evidence/stellar-catalogue.json'))
+        target = context['target']; association = target['association']
+        if (target['tic'] != record['target']['tic'] or
+                association['gaia_dr3_source_id'] != record['target']['gaia_dr3'] or
+                association['status'] != record['target']['catalogue_association']['status'] or
+                association['gaia_dr2_source_id'] != record['target']['catalogue_association']['gaia_dr2'] or
+                target['parameters'] != record['host']['parameters'] or
+                record['host']['catalogue_target'] != {
+                    'tic': target['tic'], 'gaia_dr3': association['gaia_dr3_source_id']} or
+                context['source_revision'] != record['provenance']['source_revisions']['stellar_catalogue'] or
+                context['source_run'] != record['provenance']['runs']['stellar_catalogue']):
+            raise ValueError('Catalogue context and structured association/stellar values disagree')
     references.append(record['provenance']['input_lock'])
     for key in ('source_localisation', 'timing_consistency'):
         references.extend(record['assessment'][key]['evidence'])

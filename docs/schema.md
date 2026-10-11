@@ -8,16 +8,18 @@ formats; their version numbers do not select the candidate contract.
 |---|---|
 | [1.0](../schemas/candidate-1.0.schema.json) | Gaia DR3 ID is a decimal string; every measurement has a positive numerical error. Preserves the pre-run-5 contract. |
 | [1.1](../schemas/candidate-1.1.schema.json) | Gaia DR3 ID may be null when an association has not been established. Duration/depth errors may be null only for unclassified signals with an explicit unavailable-uncertainty limit. Epoch and period errors remain positive and numerical. |
+| [1.2](../schemas/candidate-1.2.schema.json) | Adds a pinned target catalogue association and host context. Stellar parameters explicitly belong to the catalogue aperture target; the physical host and dilution remain unresolved. Preserves the 1.1 shape/ephemeris semantics. |
 
 [candidate.schema.json](../schemas/candidate.schema.json) dispatches to either known
 version. The repository validator resolves these references from checked-in files
 without network requests. Consumers can validate against the single versioned file
-matching a record's `schema_version`, or download all three files together and use
-the dispatcher. Reject unknown versions rather than substituting a current schema.
+matching a record's `schema_version`, or download the dispatcher and every versioned
+file together. Reject unknown versions rather than substituting a current schema.
 
 The 171 run-5 records originally changed null semantics while incorrectly claiming
 `1.0`. This was a publication compatibility error. Their corrected live dossiers use
-`1.1`, with a patch revision and history entry; the original TIC 464547401 dossier
+`1.1`, with a patch revision and history entry; subsequent catalogue enrichment uses
+`1.2` with a minor dossier revision. The original TIC 464547401 dossier
 continues using strict `1.0`. No scientific values, uncertainties, assessments or
 first-disclosure timestamps change in this correction. The machine catalogue now
 also carries each record's `schema_version` for ingestion routing.
@@ -32,3 +34,13 @@ Git revision, not a replacement of its locked asset.
 Any future change to field meanings or allowed values must introduce a new versioned
 contract, document its migration and update the exporter and affected dossiers in
 the same change. Regression tests keep both previously published versions usable.
+
+In 1.2, `host.parameters` contains `teff_K`, `radius_Rsun`, `mass_Msun`, `tmag`
+and `distance_pc`. Each value has units, catalogue field names, symmetric and
+asymmetric errors, uncertainty method and missing/invalid status. Null errors do
+not mean zero error. `host.parameter_scope = catalogue_aperture_target` and
+`host.status = unresolved` prohibit treating these values as a verified-host
+posterior. `host.dilution.target_flux_fraction` is null. No planet radius is
+computed. `evidence/stellar-catalogue.json` records the raw selected TIC row,
+all Gaia neighbourhood alternatives, queries, UTC retrieval, configuration and
+response hashes. The complete raw batch responses accompany the batch.

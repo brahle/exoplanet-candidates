@@ -25,3 +25,7 @@ The aperture TIC is not an established physical host; Gaia DR3 association is de
 Read [novelty limits](NOVELTY.md) and [reproduction coverage](REPRODUCIBILITY.md).
 
 ![Saved event-depth diagnostics](evidence/event-depths.png)
+
+## Catalogue stellar context
+
+The [pinned TIC/Gaia context](evidence/stellar-catalogue.json) supplies aperture-star Teff, radius, mass, TESS magnitude and distance with catalogue uncertainties. The structured host block marks the physical host and dilution unresolved; these are catalogue values, not a planet-radius inference. Gaia association: associated.

@@ -5,10 +5,20 @@ photometry, covariance, robustness, timing and signed alternative diagnostics. S
 physical scenario, noise coverage and survey reliability remain unresolved. These are
 preliminary evidence records; no planet or discovery-priority claim is made.
 
-The live dossiers now declare [schema 1.1](../../docs/schema.md). The original immutable
+The live dossiers now declare [schema 1.2](../../docs/schema.md), including catalogue
+enrichment and the corrected 1.1 null semantics. The original immutable
 release and commit `180e82d` incorrectly labelled their nullable fields as `1.0`;
 use the correction revision or newer for ingestion. This corrects the data contract,
 without changing the scientific values or the original disclosure/release dates.
+
+The [stellar enrichment receipt](stellar-enrichment.json) and complete pinned
+[TIC/Gaia snapshots](stellar-snapshot/) add catalogue values for every published
+aperture target. All 171 have Teff, radius, mass, Tmag and distance with the available
+catalogue uncertainties. All 171 have a uniquely qualifying Gaia DR3 catalogue
+association under the declared separation/magnitude policy. Seven have additional
+official neighbourhood rows outside these limits; all alternatives and quality
+decisions are retained. The host block explicitly marks physical host and
+dilution unresolved. Signal measurements and scientific dispositions are unchanged.
 
 Fresh configured Exoplanet MCP checks on 2026-10-11 used the adopted diagnostic ephemerides,
 300-arcsecond cones and recorded period/harmonic criteria. All 229 calls succeeded: 220 indexed

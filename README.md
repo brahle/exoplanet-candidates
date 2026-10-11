@@ -18,8 +18,9 @@ is not yet available. See its [reproducibility statement](candidates/tic-4645474
 [Run 5: 171 provisional signal dossiers](batches/run5-v1/README.md) includes the full 229-record outcome ledger, catalog coverage, adverse diagnostics and unresolved checks. These are unclassified evidence records with no planet or discovery-priority claim.
 
 The [machine catalogue](catalogue.json) is generated from per-signal `candidate.json` files.
-Consumers must select the declared [schema version](docs/schema.md); run-5 null semantics
-use `1.1`, while the original non-null dossier remains on strict `1.0`.
+Consumers must select the declared [schema version](docs/schema.md); run-5 catalogue
+enrichment uses `1.2` (including the nullable 1.1 semantics), while the original
+non-null dossier remains on strict `1.0`.
 Stable IDs such as `tic-464547401-s01` are local identifiers; they are not TOIs, cTOIs or planet names.
 One star can have several signal records. Updated assessments keep the same signal ID.
 

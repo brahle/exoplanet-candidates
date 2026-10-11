@@ -16,6 +16,10 @@ class SchemaVersions(unittest.TestCase):
     def setUp(self):
         self.original = catalogue.load(ROOT / 'candidates/tic-464547401-s01/candidate.json')
         self.provisional = catalogue.load(ROOT / 'candidates/tic-101909456-s01/candidate.json')
+        # Exercise the frozen 1.1 semantics even after live dossiers gain 1.2 context.
+        self.provisional['schema_version'] = '1.1'
+        self.provisional.pop('host', None)
+        self.provisional['target'].pop('catalogue_association', None)
         self.dispatch = catalogue.schema_validator()
 
     def test_original_contract_remains_strict_and_original_record_valid(self):
@@ -24,7 +28,7 @@ class SchemaVersions(unittest.TestCase):
         for path in (ROOT / 'candidates').glob('*/candidate.json'):
             record = catalogue.load(path)
             self.dispatch.validate(record)
-            if record['schema_version'] == '1.1':
+            if record['schema_version'] != '1.0':
                 record['schema_version'] = '1.0'
                 with self.assertRaises(ValidationError):
                     strict.validate(record)
