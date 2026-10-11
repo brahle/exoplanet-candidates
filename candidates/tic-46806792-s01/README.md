@@ -1,5 +1,17 @@
 # TIC 46806792 / S01
 
+## Matching external aperture report
+
+Reviewed 2026-10-11T12:27:23Z. Eumemic reports this TIC at 1.967763000 days as **likely nearby FP** ([pinned table row](https://github.com/eumemic/exoplanets/blob/f3dd74abec5879661d76bcfcae2ce6744ba18aad/results_public/candidates_allsky.csv#L1856)). Reported rationale: Detailed classification rationale not published in the row.
+
+All 34 tested saved nominal centres agree within 0.085 transit durations. The external epoch uncertainty/covariance is absent, so timing agreement is not uncertainty-qualified. The aperture report is recorded as previously reported; source identity, astrophysical disposition and discovery priority remain independent and unresolved.
+
+[Raw report, probabilities, event residuals and limits](evidence/external-report.json). External FPP/NFPP values are their conditional model results, not our measurements. Supplementary status: no_per_signal_files_in_snapshot.
+
+Attribution: Eumemic, exoplanets; source results/tables/figures CC BY 4.0. Copied source files are unmodified.
+
+
+
 ## Diagnostic figures
 
 ![Five-panel diagnostic](evidence/figures/diagnostic.png)
@@ -16,7 +28,7 @@ Binary, blend and instrumental explanations remain open. This is a dated evidenc
 
 Diagnostic period: 1.9678069799 ± 1.47e-05 d.
 Epoch: BJD_TDB 2458625.82557278 ± 0.00723 d.
-Duration: 3.2769 h (uncertainty unavailable).
+Duration: 3.2769 ± 0.241 h (conditional error).
 Linear-baseline depth: 938.1 ± 96.7 ppm,
 from 34 usable events in 3 sectors.
 Errors are conditional diagnostic estimates.
@@ -32,7 +44,7 @@ secondary or odd/even differences can favour a binary explanation; those probes 
 been calibrated into a definitive classification.
 
 The immutable discovery seed and adopted diagnostic hypothesis are in [settings](analysis-settings.json).
-The aperture TIC is not an established physical host; Gaia DR3 association is deliberately null.
+The aperture TIC is not an established physical host; The catalogue Gaia association is recorded below; the physical host remains unresolved.
 Read [novelty limits](NOVELTY.md) and [reproduction coverage](REPRODUCIBILITY.md).
 
 ![Saved event-depth diagnostics](evidence/event-depths.png)

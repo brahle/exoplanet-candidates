@@ -17,6 +17,11 @@ is not yet available. See its [reproducibility statement](candidates/tic-4645474
 
 [Run 5: 171 provisional signal dossiers](batches/run5-v1/README.md) includes the full 229-record outcome ledger, catalog coverage, adverse diagnostics and unresolved checks. These are unclassified evidence records with no planet or discovery-priority claim.
 
+[Later source review](docs/external-reports.md) records matching independent aperture reports for
+16 run-5 dossiers, including Eumemic's binary/blend warnings and downgraded records.
+Their novelty status is now `previously_reported`; their physical classifications remain unresolved.
+Earlier versions and dated no-match queries remain available.
+
 The [machine catalogue](catalogue.json) is generated from per-signal `candidate.json` files.
 Consumers must select the declared [schema version](docs/schema.md); run-5 catalogue
 and shape-covariance enrichment uses `1.3` (including the nullable 1.1 semantics), while the original

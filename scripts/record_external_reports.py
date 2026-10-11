@@ -59,6 +59,10 @@ def record_reports(root, batch, path):
                 raise ValueError('Scientific dossier differs from reviewed input')
             if sha(folder / 'evidence/photometry.json') != review['photometry_sha256']:
                 raise ValueError('Photometry differs from reviewed input')
+            old_publication = review['input_scientific_blocks']['publication']
+            if any(record['publication'].get(k) != old_publication.get(k)
+                   for k in ('first_public_utc','authors','disclosure_url')):
+                raise ValueError('Original disclosure metadata differs from reviewed input')
             payload = {k: v for k, v in review.items() if k != 'input_scientific_blocks'}
             evidence = folder / 'evidence/external-report.json'
             extras = []
@@ -81,7 +85,6 @@ def record_reports(root, batch, path):
                 continue
             if sha(folder / 'candidate.json') != review['source_candidate_sha256']:
                 raise ValueError('Candidate changed before review delivery')
-            old_publication = review['input_scientific_blocks']['publication']
             if record['publication'] != old_publication:
                 raise ValueError('Publication metadata changed before initial review delivery')
             payload['previous_novelty'] = copy.deepcopy(record['novelty'])

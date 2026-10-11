@@ -1,5 +1,17 @@
 # Run 5 provisional signal records
 
+## Later external-source review
+
+Sixteen of these originally disclosed provisional records have matching independent
+aperture reports in Eumemic's full all-sky table: 12 labelled likely nearby FP,
+two likely EB and two tier C. Their novelty is now previously_reported, with the
+reported adverse evidence and nominal event comparisons recorded in each dossier.
+Physical classifications remain unresolved; no external FPP is adopted as our
+probability. The original 229-record outcome/review ledger and first-disclosure
+dates are retained. See [methods and limits](../../docs/external-reports.md) and
+[the amendment receipt](external-report-review.json).
+
+
 171 unclassified transit-like signal dossiers from 229 imported records. Each contains saved
 photometry, covariance, robustness, timing and signed alternative diagnostics. Source, timing,
 physical scenario, noise coverage and survey reliability remain unresolved. These are
