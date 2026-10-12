@@ -21,6 +21,14 @@ ASSESSMENTS = {
 }
 PROCESS = ('queue', 'screening', 'screened', *STAGES[1:])
 INITIAL = ('warnings', 'no_initial_warnings', 'incomplete')
+NEEDS = {
+    'source-attribution': ('Source attribution', {'calibrated_source_attribution'}),
+    'timing': ('Transit timing', {'timing_consistency'}),
+    'physical-alternatives': ('Physical alternatives and blends',
+                              {'qualified_physical_scenarios', 'astrophysical_FPP_NFPP'}),
+    'reliability': ('Search reliability', {'full_search_reliability'}),
+    'review': ('Scientific classification review', {'scientific_classification_review'}),
+}
 
 
 def load(path):
@@ -126,15 +134,17 @@ def index_rows(records, root):
     return rows
 
 
-def table(rows, prefix):
+def table(rows, prefix, show_requirements=False):
     if not rows:
         return 'No records currently meet this category.\n'
-    lines = ['| Signal | Period (d) | Progress | Assessment | Warning flags |',
-             '|---|---:|---|---|---|']
+    lines = ['| Signal | Period (d) | Progress | Assessment | Warning flags |' +
+             (' Open requirements |' if show_requirements else ''),
+             '|---|---:|---|---|---|' + ('---|' if show_requirements else '')]
     for row in rows:
         lines.append(f'| [{row["signal_id"]}]({prefix}{row["path"]}) | {row["period_d"]:.8f} | '
                      f'{row["progress"]["stage"]} | {row["scientific_assessment"]["status"]} | '
-                     f'{", ".join(row["warnings"]) or "none in published screening"} |')
+                     f'{", ".join(row["warnings"]) or "none in published screening"} |' +
+                     (f' {", ".join(row["open_requirements"])} |' if show_requirements else ''))
     return '\n'.join(lines) + '\n'
 
 
@@ -184,6 +194,12 @@ def generated_files(records, root):
     groups += [('shortlist', 'Follow-up shortlist without published warnings', shortlist),
                ('warnings', 'Current warning flags', [x for x in rows if x['warnings']]),
                ('previously-reported', 'Previously reported', [x for x in rows if x['novelty'] == 'previously_reported'])]
+    known_requirements = set().union(*(codes for _, codes in NEEDS.values()))
+    need_groups = [(f'needs/{slug}', title,
+                    [x for x in rows if codes.intersection(x['open_requirements'])])
+                   for slug, (title, codes) in NEEDS.items()]
+    need_groups.append(('needs/other', 'Other recorded requirements',
+                        [x for x in rows if set(x['open_requirements']) - known_requirements]))
     lines = ['# Browse signals\n',
              'Dossiers keep stable paths. These folders are generated views of two independent axes: '
              '**work performed** and **scientific assessment**. Warnings and novelty are separate.\n',
@@ -206,6 +222,19 @@ def generated_files(records, root):
                    f'[Classification definitions]({prefix}docs/classification.md).\n\n' + table(selected, prefix))
         files[f'browse/{path}/README.md'] = content.encode()
         lines.append(f'| [{title.replace("_", " ")}]({path}/README.md) | {len(selected)} |')
+    lines += ['\n## Outstanding work\n',
+              'These overlapping views come directly from each record’s `open_requirements`. '
+              'A signal can appear in several folders. The counts must not be added. '
+              'An empty folder means no recorded requirement in that category; '
+              'it does not establish a scientific pass or an observing programme.\n',
+              '| Work needed | Records |\n|---|---:|']
+    for path, title, selected in need_groups:
+        content = (f'# {title}\n\n{len(selected)} records have an explicit open requirement '
+                   'in this category. These folders overlap and do not rank planet likelihood. '
+                   '[Classification definitions](../../../docs/classification.md).\n\n' +
+                   table(selected, '../../../', show_requirements=True))
+        files[f'browse/{path}/README.md'] = content.encode()
+        lines.append(f'| [{title}]({path}/README.md) | {len(selected)} |')
     files['browse/README.md'] = ('\n'.join(lines) + '\n').encode()
     return files
 

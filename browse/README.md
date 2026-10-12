@@ -49,3 +49,16 @@ Each signal appears in exactly one cell. A stage records work started, not tests
 | [Follow-up shortlist without published warnings](shortlist/README.md) | 30 |
 | [Current warning flags](warnings/README.md) | 135 |
 | [Previously reported](previously-reported/README.md) | 16 |
+
+## Outstanding work
+
+These overlapping views come directly from each record’s `open_requirements`. A signal can appear in several folders. The counts must not be added. An empty folder means no recorded requirement in that category; it does not establish a scientific pass or an observing programme.
+
+| Work needed | Records |
+|---|---:|
+| [Source attribution](needs/source-attribution/README.md) | 172 |
+| [Transit timing](needs/timing/README.md) | 172 |
+| [Physical alternatives and blends](needs/physical-alternatives/README.md) | 172 |
+| [Search reliability](needs/reliability/README.md) | 172 |
+| [Scientific classification review](needs/review/README.md) | 172 |
+| [Other recorded requirements](needs/other/README.md) | 0 |

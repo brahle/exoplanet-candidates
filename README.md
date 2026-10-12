@@ -8,6 +8,9 @@ scientific priority or an official TESS designation.
 **[Browse by vetting progress, scientific assessment and warning flags](browse/README.md).**
 The [classification guide](docs/classification.md) separates work performed from
 confidence in a planetary explanation. Dossiers keep stable paths as findings change.
+The [outstanding-work folders](browse/README.md#outstanding-work) group records by
+source attribution, timing, physical alternatives, search reliability and review.
+These overlapping groups describe the work still needed, not planet likelihood.
 
 [Vetting update, 11 October 2026](docs/vetting-findings-2026-10-11.md): among the
 156 signals without prior-report overlaps, 116 have initial warnings, 33 have no

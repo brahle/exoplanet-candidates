@@ -65,6 +65,16 @@ For candidates and likely planets, the most actionable subdivisions are their
 - **Reliability and validation:** qualify the detection and the assumptions needed
   for a statistical validation.
 
+Browse these overlapping folders: [source attribution](../browse/needs/source-attribution/README.md),
+[transit timing](../browse/needs/timing/README.md),
+[physical alternatives and blends](../browse/needs/physical-alternatives/README.md),
+[search reliability](../browse/needs/reliability/README.md), and
+[classification review](../browse/needs/review/README.md).
+Each folder is generated from explicit `open_requirements`, with all remaining
+requirements visible beside each signal. Unrecognised requirements remain visible
+in [other recorded requirements](../browse/needs/other/README.md); they are not dropped.
+These views include unclassified detections as well as any future candidates.
+
 These needs can overlap. Existing `open_requirements`, warning tags and the review
 evidence carry them; this recommendation introduces no new grades or probability
 thresholds. “Needs observatory follow-up” is a work requirement, not a likelihood tier.
