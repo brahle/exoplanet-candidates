@@ -72,6 +72,12 @@ transit contributions. Within-family scatter is small for TIC 21694454 compared
 with the persistent structural difference between families; the bootstrap cannot
 qualify that host assignment. Missing windows and rejected baseline controls remain.
 
+A [background-search fitting repair](docs/contact-faces-review-2026-10-12.md)
+addresses a numerical repeatability failure in the independent search-control pilot.
+The contact-face experiment is stable on its saved inputs and finds better objectives;
+the failed first version is retained. The repair is not adopted and the full campaign
+remains held. The separate source wave has finished all 42 executions, still unresolved.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
