@@ -81,6 +81,11 @@ The contact-face experiment is stable on its saved inputs and finds better objec
 the failed first version is retained. The repair is not adopted and the full campaign
 remains held. The separate source wave has finished all 42 executions, still unresolved.
 
+A [full diagnostic replay](docs/trapezoid-interface-review-2026-10-12.md) now connects
+that experimental fit to all original light-curve diagnostics. All 36 saved-input
+replays are stable, including conditional covariance; native-input repeatability
+and interval qualification remain open. No dossier assessment changes.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
