@@ -98,11 +98,13 @@ class BatchExport(unittest.TestCase):
                 assessment = {'signal': {'tic': '123', 'id': f'tic-123-s{number:02d}', 'ra_deg': 30, 'dec_deg': -40},
                               'assessment_sha256': 'b' * 64, 'blocking_gates': ['source_localisation'],
                               'stages': {'robustness': {'metrics': {'minimum_leave_sector_snr': 1}}}}
-                export.dossier(root / 'out', assessment, {'checked_utc': '2026-10-11T00:00:00Z'}, docs, [], '2026-10-11')
+                export.dossier(root / 'out', assessment, {'checked_utc': '2026-10-11T00:00:00Z',
+                    'arguments': {'cone_radius_arcsec': 120}}, docs, [], '2026-10-11')
             folders = sorted((root / 'out/candidates').iterdir())
             self.assertEqual([p.name for p in folders], ['tic-123-s01', 'tic-123-s02'])
             self.assertIn('/ S02', (folders[1] / 'README.md').read_text())
             with self.assertRaisesRegex(ValueError, 'Refusing to overwrite'):
-                export.dossier(root / 'out', assessment, {'checked_utc': '2026-10-11T00:00:00Z'}, docs, [], '2026-10-11')
+                export.dossier(root / 'out', assessment, {'checked_utc': '2026-10-11T00:00:00Z',
+                    'arguments': {'cone_radius_arcsec': 120}}, docs, [], '2026-10-11')
             for folder in folders:
                 self.assertEqual(export.load(folder / 'candidate.json')['schema_version'], '1.1')

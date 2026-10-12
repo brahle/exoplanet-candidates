@@ -88,6 +88,25 @@ def route(ephemeris, photometry, robustness, check, prior):
     return 'provisional_signal_record'
 
 
+def novelty_text(check):
+    radius = check['arguments']['cone_radius_arcsec']
+    return f'''# Dated catalogue check
+
+MCP checked {check['checked_utc']} at the adopted diagnostic period, using the recorded
+{radius:g}-arcsecond cone and period/harmonic matching arguments. The [receipt](evidence/catalogue-check.json)
+lists checked snapshots, source timestamps and declared unindexed sources. No matching record
+was returned in those indexed checks.
+
+[Additional saved hypotheses](evidence/direct-catalogue-hypotheses.json) retain any direct-source
+matches supplied to this export. An empty list does not attest that a direct catalogue query
+succeeded or was performed. The batch catalogue-snapshots.json lists direct-screen coverage;
+an empty snapshot list means no direct-screen receipt was supplied.
+
+Literature completeness, catalogue gaps, proper-motion/epoch reconciliation,
+physical-host attribution and discovery priority remain unresolved.
+'''
+
+
 def seal(folder, sources):
     files = []
     for p in sorted(folder.rglob('*')):
@@ -102,6 +121,7 @@ def seal(folder, sources):
 
 
 def dossier(destination, assessment, check, documents, prior, date, review=None):
+    novelty_note = novelty_text(check)
     seed = assessment['signal']; ep = documents['ephemeris.json'][0]
     if not re.fullmatch(r'tic-[0-9]+-s[0-9]{2}', seed['id']) or not seed['id'].startswith(f"tic-{seed['tic']}-"):
         raise ValueError('Unsafe or inconsistent signal identity')
@@ -202,20 +222,11 @@ secondary or odd/even differences can favour a binary explanation; those probes 
 been calibrated into a definitive classification.
 
 The immutable discovery seed and adopted diagnostic hypothesis are in [settings](analysis-settings.json).
-The aperture TIC is not an established physical host; Gaia DR3 association is deliberately null.
+The aperture TIC is not an established physical host; any Gaia DR3 catalogue association
+is separate from attribution of the dip.
 Read [novelty limits](NOVELTY.md) and [reproduction coverage](REPRODUCIBILITY.md).
 ''')
-    (folder / 'NOVELTY.md').write_text(f'''# Dated catalogue check
-
-MCP checked {check['checked_utc']} at the adopted diagnostic period, using the recorded
-300-arcsecond cone and period/harmonic matching arguments. The [receipt](evidence/catalogue-check.json)
-lists checked snapshots, source timestamps and declared unindexed sources. No matching record
-was returned. Earlier direct ExoFOP TOI/CTOI, MAST EB and TESS Ten Thousand EB screens found
-no positional/period hypothesis for this selected record in their dated snapshots.
-
-This establishes no match in those checks. Literature completeness, proper-motion/epoch
-reconciliation, physical-host attribution and discovery priority remain unresolved.
-''')
+    (folder / 'NOVELTY.md').write_text(novelty_note)
     (folder / 'REPRODUCIBILITY.md').write_text('''# Evidence inspection only
 
 Run `uv sync --frozen`, then `uv run python scripts/catalogue.py check`.

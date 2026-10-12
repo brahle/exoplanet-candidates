@@ -32,7 +32,7 @@ secondary or odd/even differences can favour a binary explanation; those probes 
 been calibrated into a definitive classification.
 
 The immutable discovery seed and adopted diagnostic hypothesis are in [settings](analysis-settings.json).
-The aperture TIC is not an established physical host; Gaia DR3 association is deliberately null.
+The aperture TIC is not an established physical host; the Gaia DR3 catalogue association is separate from attribution of the dip.
 Read [novelty limits](NOVELTY.md) and [reproduction coverage](REPRODUCIBILITY.md).
 
 ## Catalogue stellar context
