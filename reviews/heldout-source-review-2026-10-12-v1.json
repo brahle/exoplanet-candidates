@@ -1,0 +1,117 @@
+{
+  "schema_version": "1.0",
+  "supplement_version": "1.0.0",
+  "scope": "Anonymous aggregate train-only transit-duration OOT block predictive review; largest three variance modes, no individual signal data published",
+  "reproduction_level": "evidence_inspection_only",
+  "signals": 24,
+  "execution_failures": 0,
+  "windows_with_predictive_checks": 74,
+  "actual_ephemeris_windows_with_predictive_checks": 19,
+  "original_unavailable_rows_preserved": 16,
+  "additional_heldout_unavailable_windows": 6,
+  "paired_mode_comparisons": 222,
+  "conditional_prediction_rows": 666,
+  "strata": [
+    {
+      "cohort": "development",
+      "fields": 2,
+      "complete_paired_modes": 18,
+      "incomplete_mode_groups": 0,
+      "model_counts": [
+        {
+          "noise_model": "white",
+          "paired_modes": 18,
+          "heldout_points": 984,
+          "nominal_marginal_misses": 26,
+          "upper_bound_timescales": 0,
+          "lower_bound_timescales": 0,
+          "continuous_rho_above_old_cap": 0
+        },
+        {
+          "noise_model": "clipped_lag_ou",
+          "paired_modes": 18,
+          "heldout_points": 984,
+          "nominal_marginal_misses": 33,
+          "upper_bound_timescales": 0,
+          "lower_bound_timescales": 0,
+          "continuous_rho_above_old_cap": 0
+        },
+        {
+          "noise_model": "profile_reml_ou",
+          "paired_modes": 18,
+          "heldout_points": 984,
+          "nominal_marginal_misses": 27,
+          "upper_bound_timescales": 6,
+          "lower_bound_timescales": 0,
+          "continuous_rho_above_old_cap": 6
+        }
+      ],
+      "profile_vs_clipped_log_score_median": 0.0518064527899611,
+      "profile_vs_clipped_positive_score_pairs": 9
+    },
+    {
+      "cohort": "additional_fields",
+      "fields": 22,
+      "complete_paired_modes": 204,
+      "incomplete_mode_groups": 0,
+      "model_counts": [
+        {
+          "noise_model": "white",
+          "paired_modes": 204,
+          "heldout_points": 34230,
+          "nominal_marginal_misses": 1012,
+          "upper_bound_timescales": 0,
+          "lower_bound_timescales": 0,
+          "continuous_rho_above_old_cap": 0
+        },
+        {
+          "noise_model": "clipped_lag_ou",
+          "paired_modes": 204,
+          "heldout_points": 34230,
+          "nominal_marginal_misses": 892,
+          "upper_bound_timescales": 0,
+          "lower_bound_timescales": 0,
+          "continuous_rho_above_old_cap": 0
+        },
+        {
+          "noise_model": "profile_reml_ou",
+          "paired_modes": 204,
+          "heldout_points": 34230,
+          "nominal_marginal_misses": 766,
+          "upper_bound_timescales": 66,
+          "lower_bound_timescales": 0,
+          "continuous_rho_above_old_cap": 67
+        }
+      ],
+      "profile_vs_clipped_log_score_median": 0.2494055984001875,
+      "profile_vs_clipped_positive_score_pairs": 104
+    }
+  ],
+  "scientific_promotions": 0,
+  "source_gate": "unresolved",
+  "method": {
+    "holdout_duration_factor": 1.0,
+    "hold_every_blocks": 2,
+    "buffer_rows": 1,
+    "maximum_modes": 3,
+    "tau_bounds_exposures": [
+      0.1,
+      10000.0
+    ],
+    "tau_grid_points": 25,
+    "nominal_interval_probability": 0.99
+  },
+  "limits": [
+    "Conditional spatial basis and fitted timescale; hyperparameter uncertainty omitted",
+    "Mean and scale uncertainty integrated conditionally; not calibrated coverage",
+    "Modes/blocks/phases share correlated data; counts not independent FPR estimates",
+    "Not an independent field/sector astrophysical validation population",
+    "No source hypotheses, planet disposition or new interval policy adopted"
+  ],
+  "private_selected_window_replay": {
+    "predictions": 666,
+    "maximum_absolute_difference": 0.0,
+    "scope": "Conditional selected-window fit/prediction replay, not full raw-input or public vetting reproduction"
+  },
+  "origin_batch_manifest_sha256": "0470b5d1a1ca15ae80fa7374379731995003a2b72f8859cc1382c83083d88e83"
+}

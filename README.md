@@ -40,6 +40,11 @@ replays the same 24-record cohort. It reduces three selected nominal interval
 mismatches to two; remaining mismatches and correlation-bound clipping leave
 source attribution unresolved.
 
+A [held-out prediction review](docs/heldout-source-review-2026-10-12.md) tests
+training-only noise models against unseen transit-duration OOT blocks. Prediction
+improvements are mixed, and many timescales remain at a bound; this does not qualify
+source attribution or promote any signal.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
