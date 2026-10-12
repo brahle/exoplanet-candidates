@@ -87,7 +87,7 @@ replays are stable, including conditional covariance; native-input repeatability
 and interval qualification remain open. No dossier assessment changes.
 
 A [native-input repeatability review](docs/native-fit-repeatability-2026-10-12.md)
-expands the experiment to32 presampled targets and480 complete searches. Available
+expands the experiment to 32 presampled targets and 480 complete searches. Available
 measurements repeat within the declared tolerances, while nine trial groups retain
 undefined diagnostics. The method remains experimental and all assessments unchanged.
 
