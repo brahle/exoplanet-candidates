@@ -1,0 +1,97 @@
+{
+  "schema_version": "1.0",
+  "supplement_version": "1.0.0",
+  "scope": "Anonymous aggregate known-contributor forward controls; conditional synthetic truth and deterministic position mismatch, not empirical host validation",
+  "reproduction_level": "evidence_inspection_only",
+  "signals": 24,
+  "execution_failures": 0,
+  "eligible_geometries": 22,
+  "unavailable_geometries": 2,
+  "scenes": 330,
+  "draws": 42240,
+  "strata": [
+    {
+      "matching_profile": true,
+      "sole_source_coefficients": true,
+      "scenes": 22,
+      "draws": 2816,
+      "joint_component_nominal_misses": 37,
+      "single_target_amplitude_nominal_misses": 35,
+      "single_winner_not_injected": 620
+    },
+    {
+      "matching_profile": true,
+      "sole_source_coefficients": false,
+      "scenes": 88,
+      "draws": 11264,
+      "joint_component_nominal_misses": 109,
+      "single_target_amplitude_nominal_misses": 9987,
+      "single_winner_not_injected": 7181
+    },
+    {
+      "matching_profile": false,
+      "sole_source_coefficients": true,
+      "scenes": 44,
+      "draws": 5632,
+      "joint_component_nominal_misses": 1016,
+      "single_target_amplitude_nominal_misses": 617,
+      "single_winner_not_injected": 2567
+    },
+    {
+      "matching_profile": false,
+      "sole_source_coefficients": false,
+      "scenes": 176,
+      "draws": 22528,
+      "joint_component_nominal_misses": 5222,
+      "single_target_amplitude_nominal_misses": 19879,
+      "single_winner_not_injected": 15369
+    }
+  ],
+  "source_gate": "unresolved",
+  "scientific_promotions": 0,
+  "method": {
+    "schema_version": 1,
+    "name": "known-contributor-truth-and-position-stress-v1",
+    "purpose": "Conditional forward controls for joint signed contributions; preserve real-background source warnings",
+    "random_seed": 27484101,
+    "draws_per_scene": 128,
+    "background_amplitude_factors": [
+      -1.0,
+      0.0,
+      0.5,
+      1.0,
+      2.0
+    ],
+    "generator_position_offsets_pixels": [
+      [
+        0.0,
+        0.0
+      ],
+      [
+        0.2,
+        0.0
+      ],
+      [
+        0.0,
+        0.2
+      ]
+    ],
+    "nominal_interval_probability": 0.99,
+    "rank_relative_tolerance": 1e-10,
+    "profile_replay_rtol": 1e-10,
+    "profile_replay_atol": 1e-10
+  },
+  "limits": [
+    "Synthetic declared Gaussian covariance/means, not real-background coverage or detection reliability",
+    "One-source labels concern total composite; joint coefficients concern each known contributor",
+    "Position-offset stresses are deterministic model mismatch, not astrometric probabilities",
+    "Fixed bounded catalogue basis, covariance/PRF/host uncertainty and physical feasibility unqualified"
+  ],
+  "private_synthetic_replay": {
+    "scenes": 330,
+    "draws": 42240,
+    "maximum_absolute_difference": 0.0,
+    "scope": "Known synthetic contribution estimate replay, not raw-input/public empirical vetting reproduction"
+  },
+  "origin_batch_manifest_sha256": "185388e013782a73631508b5591151d98be08f215c82bb029f4f2ef2155cb282"
+}

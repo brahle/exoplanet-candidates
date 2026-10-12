@@ -50,6 +50,11 @@ tests finite-prior fast/slow variability predictions on each target's next avail
 sector. Twenty targets support the test; improvements are mixed, leaving source
 qualification unresolved.
 
+A [contributor-truth review](docs/contributor-truth-review-2026-10-12.md) distinguishes
+an added source from the whole composite image in known forward controls. Joint
+contribution estimates handle signed blends under the declared model, while position
+mismatches retain substantial failures. Existing source warnings remain intact.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
