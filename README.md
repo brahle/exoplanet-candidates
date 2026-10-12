@@ -86,6 +86,11 @@ that experimental fit to all original light-curve diagnostics. All 36 saved-inpu
 replays are stable, including conditional covariance; native-input repeatability
 and interval qualification remain open. No dossier assessment changes.
 
+A [native-input repeatability review](docs/native-fit-repeatability-2026-10-12.md)
+expands the experiment to32 presampled targets and480 complete searches. Available
+measurements repeat within the declared tolerances, while nine trial groups retain
+undefined diagnostics. The method remains experimental and all assessments unchanged.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
