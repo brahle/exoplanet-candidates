@@ -32,6 +32,53 @@ An observing request belongs to process/follow-up needs; it does not by itself
 make a detection a likely planet. A previously reported flag is independent too:
 it answers whether this signal has been reported before, not whether it is real.
 
+### Reading a record in practice
+
+Think of the progress axis as **what work have we done?** and the assessment axis
+as **what does the evidence support?** Neither is a percentage chance of a planet.
+
+| Example | Progress | Assessment | Additional information |
+|---|---|---|---|
+| Newly flagged dips, no checks yet | Queue | Unclassified | Search evidence only. |
+| Initial checks available, no warnings in those checks | Screened | Unclassified | Source attribution and other requirements may still be open. |
+| Odd/even depths differ, but the explanation is unresolved | Screened | Unclassified | Odd/even warning; retain the measurement and its limitations. |
+| Review establishes that a neighbouring eclipsing binary causes the dips | Source vetting | False positive | Cite the source attribution and binary evidence. |
+| Declared minimum candidate policy satisfied and reviewed | Relevant vetting stage | Candidate | List the policy version and remaining tests. |
+| Strong qualified planetary evidence; external observations needed | Relevant vetting stage, or follow-up once started | Likely planet | State the outstanding observation and why it matters. |
+
+The second example is the useful home for “passes everything we have thrown at it
+so far” when the implemented suite is still incomplete. A failed numerical fit
+belongs in the recorded stage status and open requirements. It becomes a scientific
+warning only when the result supports one; it cannot alone establish a false positive.
+
+### Useful subdivisions as the evidence grows
+
+For candidates and likely planets, the most actionable subdivisions are their
+**outstanding needs**, rather than letter grades:
+
+- **Source attribution:** establish which star produces the dips; resolve neighbours
+  or dilution with pixel analysis, imaging or suitable transit photometry.
+- **Transit evidence:** test repeatability, ephemeris and shape with additional
+  sectors or transit observations.
+- **Physical alternatives:** assess binary and blended-source explanations; obtain
+  stellar constraints or spectroscopy where those would discriminate the models.
+- **Reliability and validation:** qualify the detection and the assumptions needed
+  for a statistical validation.
+
+These needs can overlap. Existing `open_requirements`, warning tags and the review
+evidence carry them; this recommendation introduces no new grades or probability
+thresholds. “Needs observatory follow-up” is a work requirement, not a likelihood tier.
+
+Once a false-positive classification is supported, record its **specific mechanism**:
+an eclipse on the target, an eclipse on another star, stellar variability, or an
+instrumental/data artifact. Use that mechanism for future browse subdivisions only
+after a reviewed attribution exists. A nearby binary, elevated RUWE or an off-target
+diagnostic by itself remains a warning.
+
+Assessments can move in either direction as evidence changes. Keep the dated basis
+for the earlier assessment and link the new review; never erase a rejected signal
+or turn an old warning into a historical pass.
+
 For practical subdivisions, use the existing stage statuses, warning tags and
 `open_requirements`: needs source attribution, timing, physical alternatives,
 reliability, or a classification review. Publish the specific outstanding
