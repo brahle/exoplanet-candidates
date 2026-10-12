@@ -66,6 +66,12 @@ cores remain unusable; TIC 21694454 shows substantial target-contribution sensit
 to the profile model. The failed case and missing windows remain explicit, with no
 host or planetary promotion.
 
+A [source-profile resampling review](docs/profile-bootstrap-review-2026-10-12.md)
+propagates early pixel-block variation through position/profile refits into late
+transit contributions. Within-family scatter is small for TIC 21694454 compared
+with the persistent structural difference between families; the bootstrap cannot
+qualify that host assignment. Missing windows and rejected baseline controls remain.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |

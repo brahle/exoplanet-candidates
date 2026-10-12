@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "assessment_date": "2026-10-12",
+  "science_commit": "2d71026",
+  "audit_commit": "662988f",
+  "batch_manifest_sha256": "c16c4ff7d820736ff82f20d6dbdc56bebcc266f0deb3bd900f47819ee80058ed",
+  "audit_manifest_sha256": "ce534e2e26c2e1e476a7912b2bca2ad0e9bbbbb9c9e7688716ec530bcd8e1bed",
+  "signals": 24,
+  "bootstrap_fields": 23,
+  "inherited_parent_unavailable": 1,
+  "draws_per_block_length": 16,
+  "block_minutes": [
+    30.0,
+    120.0
+  ],
+  "resampled_coadds": 736,
+  "nonlinear_released_source_fits": 4416,
+  "position_fit_statuses": {
+    "diagnostic": 4192,
+    "bound_limited": 192,
+    "rank_limited": 32
+  },
+  "propagated_contrasts": 7296,
+  "requested_family_block_phase_groups": 576,
+  "all_group_outcomes": {
+    "complete_conditional_sensitivity": 456,
+    "inherited_window_unavailable": 96,
+    "inherited_parent_unavailable": 24
+  },
+  "group_interpretation": "Inherited missing windows and failed roster remain unavailable; complete sensitivity is not a qualified science pass",
+  "median_and_max_total_to_conditional_se": [
+    {
+      "model": "archive",
+      "block_minutes": 30.0,
+      "fields": 20,
+      "median": 1.0000001058283043,
+      "maximum": 1.0041932121029615
+    },
+    {
+      "model": "archive",
+      "block_minutes": 120.0,
+      "fields": 20,
+      "median": 1.0000002282550904,
+      "maximum": 1.0085252089621854
+    },
+    {
+      "model": "hybrid_core",
+      "block_minutes": 30.0,
+      "fields": 20,
+      "median": 1.0000004564807834,
+      "maximum": 1.002174354956963
+    },
+    {
+      "model": "hybrid_core",
+      "block_minutes": 120.0,
+      "fields": 20,
+      "median": 1.0000012804159488,
+      "maximum": 1.0042365046303212
+    },
+    {
+      "model": "position",
+      "block_minutes": 30.0,
+      "fields": 20,
+      "median": 1.000000219634582,
+      "maximum": 1.0016815356147875
+    },
+    {
+      "model": "position",
+      "block_minutes": 120.0,
+      "fields": 20,
+      "median": 1.0000008091938553,
+      "maximum": 1.0034971493827318
+    }
+  ],
+  "public_sensitivity_example": {
+    "signal_id": "tic-21694454-s01",
+    "models": [
+      {
+        "model": "archive",
+        "block_minutes": 30.0,
+        "draws": 16,
+        "target_mean_electrons_per_second": 306.71761724143255,
+        "conditional_late_noise_se": 21.141610700959262,
+        "between_draw_se": 1.938122753977623,
+        "total_conditional_se": 21.230261958826627
+      },
+      {
+        "model": "position",
+        "block_minutes": 30.0,
+        "draws": 16,
+        "target_mean_electrons_per_second": 16.938254269265887,
+        "conditional_late_noise_se": 20.254180556631827,
+        "between_draw_se": 1.1750739640302954,
+        "total_conditional_se": 20.28823868258614
+      },
+      {
+        "model": "hybrid_core",
+        "block_minutes": 30.0,
+        "draws": 16,
+        "target_mean_electrons_per_second": 16.938254269265887,
+        "conditional_late_noise_se": 20.254180556631827,
+        "between_draw_se": 1.1750739640302954,
+        "total_conditional_se": 20.28823868258614
+      },
+      {
+        "model": "archive",
+        "block_minutes": 120.0,
+        "draws": 16,
+        "target_mean_electrons_per_second": 307.56718942294253,
+        "conditional_late_noise_se": 21.15411526154883,
+        "between_draw_se": 2.7681270943990324,
+        "total_conditional_se": 21.334458514563693
+      },
+      {
+        "model": "position",
+        "block_minutes": 120.0,
+        "draws": 16,
+        "target_mean_electrons_per_second": 17.312582901599683,
+        "conditional_late_noise_se": 20.262527507723,
+        "between_draw_se": 1.6960750822038468,
+        "total_conditional_se": 20.333388593289218
+      },
+      {
+        "model": "hybrid_core",
+        "block_minutes": 120.0,
+        "draws": 16,
+        "target_mean_electrons_per_second": 17.312582901599683,
+        "conditional_late_noise_se": 20.262527507723,
+        "between_draw_se": 1.6960750822038468,
+        "total_conditional_se": 20.333388593289218
+      }
+    ],
+    "interpretation": "Within-family resampling does not resolve the structural archive/position discrepancy"
+  },
+  "audit": {
+    "signals": 24,
+    "inherited_unavailable": 1,
+    "failed_executions": 0,
+    "draws": 736,
+    "coadds": 736,
+    "joint_contrasts": 7296,
+    "summary_moments": 456,
+    "maximum_mean_difference": 3.2134721550391987e-09,
+    "maximum_covariance_relative_difference": 2.1020371012454886e-12,
+    "source_gate": "unresolved",
+    "limits": [
+      "Independent native coadd/gap and QR/mixture-moment replay",
+      "No nonlinear solver global-optimum or physical uncertainty-coverage certificate"
+    ]
+  },
+  "cache_replay": {
+    "reused": 24,
+    "new_numerical_cases": 0,
+    "seconds": 3.309898
+  },
+  "source_gate": "unresolved",
+  "scientific_promotions": 0,
+  "limits": [
+    "Whole early pixel vectors and observing segments resampled together; late photons excluded",
+    "Originally failed positions and unqualified cores not rescued on favorable draws",
+    "Between-draw variation plus fixed conditional white late-noise covariance is not a Bayesian posterior or calibrated confidence",
+    "Two block lengths are sensitivity settings, not measured correlation times",
+    "Structural model bias, correlated late noise, source completeness and eclipse feasibility remain unqualified",
+    "Public aggregate report does not include complete raw-input reproduction closure"
+  ]
+}
