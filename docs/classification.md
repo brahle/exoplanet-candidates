@@ -98,7 +98,8 @@ declared model, a calibrated policy and published supporting evidence.
 
 The [combined browse table](../browse/README.md) shows both axes together. It counts
 each assessed record once; warning and novelty views overlap. All 172 currently
-published signals remain unclassified. The dated findings and subsequent method
+run-5-era signals remain unclassified. The 14 run-6 additions also remain
+unclassified, bringing the current total to 186. The dated findings and subsequent method
 reviews contain useful negative evidence, but do not qualify any of them for a
 stronger planetary assessment.
 

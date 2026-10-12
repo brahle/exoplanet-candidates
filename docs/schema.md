@@ -49,3 +49,17 @@ posterior. `host.dilution.target_flux_fraction` is null. No planet radius is
 computed. `evidence/stellar-catalogue.json` records the raw selected TIC row,
 all Gaia neighbourhood alternatives, queries, UTC retrieval, configuration and
 response hashes. The complete raw batch responses accompany the batch.
+
+## Vetting schema 1.1
+
+Run-6 vetting records use `vetting-1.1.schema.json`. Version 1.0 remains unchanged.
+Version 1.1 adds descriptive flags for weak timing-qualified-sector dips, the
+13-day period cluster, conditional odd/even sensitivity, an uncorrected secondary
+scan, imprecise early-only predictions and missing saved pixel competitors.
+These flags are warnings, never calibrated probabilities or automatic rejection.
+The generated vetting catalogue uses wrapper version 1.1 when it contains 1.1
+records; individual records retain their own schema version.
+
+All 14 new candidate records use candidate schema 1.3 with catalogue aperture
+parameters and exact-replay conditional duration/ingress covariance. The physical
+host and transit geometry remain unresolved.

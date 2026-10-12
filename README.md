@@ -5,6 +5,12 @@ Each entry identifies a **signal**, records what was checked and retains what re
 An entry is an attributable research record; its presence here does not establish a planet,
 scientific priority or an official TESS designation.
 
+**[Run 6: 14 new dossiers and the complete 826-pass triage ledger](batches/run6-v1/README.md).**
+Fresh checks retain seven records with diagnostic warnings and seven without those
+particular warnings; every new record still has incomplete qualification. There
+are now **186 dossiers**, all scientifically unclassified. See the
+[new findings](docs/run6-followup-2026-10-12.md) and [diagnostic gallery](gallery/README.md).
+
 **[Browse by vetting progress, scientific assessment and warning flags](browse/README.md).**
 The [classification guide](docs/classification.md) separates work performed from
 confidence in a planetary explanation. Dossiers keep stable paths as findings change.

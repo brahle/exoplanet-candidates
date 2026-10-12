@@ -81,7 +81,10 @@ def validate(record, folder, root):
     if not path.exists():
         return None  # Older dossiers are not assigned invented progress.
     data = load(path)
-    schema = load(root / 'schemas/vetting-1.0.schema.json')
+    version = data.get('schema_version')
+    if version not in {'1.0', '1.1'}:
+        raise ValueError('Unsupported vetting schema version')
+    schema = load(root / f'schemas/vetting-{version}.schema.json')
     Draft202012Validator(schema, format_checker=FormatChecker()).validate(data)
     safe_public(data)
     if data['signal_id'] != record['id']:
@@ -180,7 +183,8 @@ def generated_files(records, root):
         'followup_shortlist_without_published_warnings': len(shortlist),
         'planet_probability': None,
     }
-    files = {'vetting-catalogue.json': encoded({'schema_version': '1.0', 'summary': summary, 'signals': rows})}
+    version = '1.1' if any(r['schema_version'] == '1.1' for r in rows) else '1.0'
+    files = {'vetting-catalogue.json': encoded({'schema_version': version, 'summary': summary, 'signals': rows})}
     groups = []
     for stage in PROCESS:
         groups.append((f'process/{stage.replace("_", "-")}', stage,

@@ -9,6 +9,12 @@ depths. Failed events and withheld products stay in the JSON context.
 These are diagnostic illustrations of provisional unclassified signals. They
 add no physical fit, planet designation, false-alarm probability or new measurement.
 
+Run-6 dossiers contain the same saved-profile panels and complete event pages.
+Their search periodograms were not saved in the imported evidence. The spectrum
+panel explicitly states that it is unavailable; no spectrum is reconstructed or
+inferred from the discovery peak. Fresh folds exclude timing-unverified QLP
+sectors 99–104 and select one primary reduction per sector.
+
 Run-5 timelines use the primary acquisition masks (quality-zero, finite positive
 flux) and sector-median normalization. Red segments are saved local baselines;
 no global detrending is claimed. Folds subtract the saved additive baseline from

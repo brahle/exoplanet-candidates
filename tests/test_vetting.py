@@ -56,6 +56,27 @@ class VettingAxes(unittest.TestCase):
         self.assertEqual(result['scientific_assessment']['status'], 'unclassified')
         self.assertIsNone(result['scientific_assessment']['planet_probability'])
 
+    def test_extended_warnings_require_the_new_schema(self):
+        (self.root / 'schemas/vetting-1.1.schema.json').write_bytes(
+            (ROOT / 'schemas/vetting-1.1.schema.json').read_bytes())
+        self.findings['lightcurve']['flags']['no_saved_pixel_competitor'] = True
+        self.findings['screen']['priority'] = 'diagnostic_warning_review'
+        self.data['initial_screen']['outcome'] = 'warnings'
+        self.data['warnings'] = ['no_saved_pixel_competitor']
+        self.save()
+        with self.assertRaises(Exception):
+            vetting.validate(self.record, self.folder, self.root)
+        self.data['schema_version'] = '1.1'
+        self.save()
+        result = vetting.validate(self.record, self.folder, self.root)
+        self.assertEqual(result['scientific_assessment']['status'], 'unclassified')
+
+    def test_unknown_schema_is_not_silently_accepted(self):
+        self.data['schema_version'] = '9.9'
+        self.save()
+        with self.assertRaisesRegex(ValueError, 'Unsupported vetting schema'):
+            vetting.validate(self.record, self.folder, self.root)
+
     def test_missing_check_cannot_become_no_warning_pass(self):
         self.findings['screen']['all_joined_checks_available'] = False
         self.data['initial_screen']['all_checks_available'] = False

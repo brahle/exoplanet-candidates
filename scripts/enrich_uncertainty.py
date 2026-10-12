@@ -59,7 +59,8 @@ def enrich(root, batch, path):
             source_hash = next(f.get('source_sha256') for f in receipt['files']
                                if f['path'] == 'evidence/ephemeris.json')
             replayed = fit['replayed_refinement']
-            old_model = {k: v for k, v in replayed.items() if k != 'shape_uncertainty'}
+            old_model = (replayed if 'shape_uncertainty' in old else
+                         {k: v for k, v in replayed.items() if k != 'shape_uncertainty'})
             if (fit['status'] != 'conditional_duration_error' or
                     fit['exact_previous_fit_replay'] is not True or
                     old_model != old or fit['previous_refinement_sha256'] != source_hash or
