@@ -6,6 +6,26 @@ A completed diagnostic calculation is not a qualified scientific pass. “No ini
 
 [Definitions and promotion rules](../docs/classification.md) · [Dated findings](../docs/vetting-findings-2026-10-11.md) · [Machine-readable index](../vetting-catalogue.json)
 
+## Work performed × scientific assessment
+
+Each signal appears in exactly one cell. A stage records work started, not tests passed. Warning and prior-report views below can overlap.
+
+| Work performed | [unclassified](assessment/unclassified/README.md) | [candidate](assessment/candidate/README.md) | [likely planet](assessment/likely-planet/README.md) | [false positive](assessment/false-positive/README.md) | [validated planet](assessment/validated-planet/README.md) | [confirmed planet](assessment/confirmed-planet/README.md) | [known signal](assessment/known-signal/README.md) | Total |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| [queue](process/queue/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| [screening](process/screening/README.md) | 22 | 0 | 0 | 0 | 0 | 0 | 0 | 22 |
+| [screened](process/screened/README.md) | 137 | 0 | 0 | 0 | 0 | 0 | 0 | 137 |
+| [source vetting](process/source-vetting/README.md) | 10 | 0 | 0 | 0 | 0 | 0 | 0 | 10 |
+| [physical vetting](process/physical-vetting/README.md) | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 3 |
+| [followup](process/followup/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| [validation](process/validation/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| [confirmation](process/confirmation/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
+| Total | 172 | 0 | 0 | 0 | 0 | 0 | 0 | 172 |
+
+0 dossiers lack a vetting record and are excluded from this table.
+
+## Folder views
+
 | View | Records |
 |---|---:|
 | [queue](process/queue/README.md) | 0 |

@@ -138,6 +138,23 @@ def table(rows, prefix):
     return '\n'.join(lines) + '\n'
 
 
+def axes_table(rows):
+    """Cross-tabulate progress and assessment without treating tags as dispositions."""
+    counts = Counter((row['progress']['stage'], row['scientific_assessment']['status'])
+                     for row in rows)
+    headers = [f'[{name.replace("_", " ")}](assessment/{name.replace("_", "-")}/README.md)'
+               for name in ASSESSMENTS]
+    lines = ['| Work performed | ' + ' | '.join(headers) + ' | Total |',
+             '|---|' + '---:|' * (len(ASSESSMENTS) + 1)]
+    for stage in PROCESS:
+        values = [counts[stage, assessment] for assessment in ASSESSMENTS]
+        label = f'[{stage.replace("_", " ")}](process/{stage.replace("_", "-")}/README.md)'
+        lines.append('| ' + label + ' | ' + ' | '.join(map(str, [*values, sum(values)])) + ' |')
+    totals = [sum(counts[stage, assessment] for stage in PROCESS) for assessment in ASSESSMENTS]
+    lines.append('| Total | ' + ' | '.join(map(str, [*totals, sum(totals)])) + ' |')
+    return '\n'.join(lines)
+
+
 def generated_files(records, root):
     rows = index_rows(records, root)
     shortlist = [x for x in rows if x['initial_screen']['outcome'] == 'no_initial_warnings'
@@ -175,6 +192,12 @@ def generated_files(records, root):
              '[Definitions and promotion rules](../docs/classification.md) · '
              '[Dated findings](../docs/vetting-findings-2026-10-11.md) · '
              '[Machine-readable index](../vetting-catalogue.json)\n',
+             '## Work performed × scientific assessment\n',
+             'Each signal appears in exactly one cell. A stage records work started, '
+             'not tests passed. Warning and prior-report views below can overlap.\n',
+             axes_table(rows) + '\n',
+             f'{len(records) - len(rows)} dossiers lack a vetting record and are excluded from this table.\n',
+             '## Folder views\n',
              '| View | Records |\n|---|---:|']
     for path, title, selected in groups:
         prefix = '../../../' if '/' in path else '../../'

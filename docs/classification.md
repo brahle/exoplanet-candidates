@@ -10,6 +10,41 @@ are this project's explicit policy, not official TESS designations or probabilit
 Eumemic's A/B/N/L1 labels are specific to their selection and calibration; we do not
 assign their tiers to our signals.
 
+## Mapping the proposed folders
+
+The proposed categories cover useful questions, but mixing them in one directory
+tree would lose information. For example, a signal can have finished screening,
+still have an unresolved host, and carry an odd/even warning at the same time.
+Use folder **views** linking to its one permanent dossier instead.
+
+| Proposed folder | Where to find it | Adjustment |
+|---|---|---|
+| Queue | `browse/process/queue/` | No initial screening started. |
+| False positives | `browse/assessment/false-positive/` | Require reviewed evidence for a specific explanation; a failed calculation alone is insufficient. |
+| Warnings | `browse/warnings/` | Overlapping flags, not an exclusive assessment. Keep the measurement, uncertainty and reason. |
+| Candidates | `browse/assessment/candidate/` | Require a reviewed minimum policy, with supported source and timing; merely passing our currently implemented checks is insufficient. |
+| Likely planets | `browse/assessment/likely-planet/` | Require qualified evidence favouring the planetary explanation; record the remaining follow-up needed. |
+| Confirmed planets | `browse/assessment/confirmed-planet/` | Require published confirmation evidence; checklist completion does not confer confirmation. |
+
+Two additions fill the gaps: **unclassified** for detections whose explanation is
+still open, and **validated planet** for a documented statistical validation.
+An observing request belongs to process/follow-up needs; it does not by itself
+make a detection a likely planet. A previously reported flag is independent too:
+it answers whether this signal has been reported before, not whether it is real.
+
+For practical subdivisions, use the existing stage statuses, warning tags and
+`open_requirements`: needs source attribution, timing, physical alternatives,
+reliability, or a classification review. Publish the specific outstanding
+requirement rather than an unexplained A/B/C grade. The shortlist prioritises work;
+its membership is not a probability tier. Any future probability tier needs a
+declared model, a calibrated policy and published supporting evidence.
+
+The [combined browse table](../browse/README.md) shows both axes together. It counts
+each assessed record once; warning and novelty views overlap. All 172 currently
+published signals remain unclassified. The dated findings and subsequent method
+reviews contain useful negative evidence, but do not qualify any of them for a
+stronger planetary assessment.
+
 ## Axis 1: work performed
 
 | Stage | Meaning |
