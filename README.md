@@ -35,6 +35,11 @@ A [joint temporal source/noise pilot](docs/temporal-source-review-2026-10-11.md)
 attempted24 source records and retained missing-event and nominal-interval issues.
 It remains a conditional method experiment, with no stronger scientific assessments.
 
+A [mode-dependent temporal covariance review](docs/mode-temporal-source-review-2026-10-12.md)
+replays the same 24-record cohort. It reduces three selected nominal interval
+mismatches to two; remaining mismatches and correlation-bound clipping leave
+source attribution unresolved.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
