@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "supplement_version": "1.0.0",
+  "scope": "Anonymous aggregate finite-prior fast/slow variability prediction on a different sector from earlier noise experiments",
+  "reproduction_level": "evidence_inspection_only",
+  "signals": 24,
+  "execution_failures": 0,
+  "available_sectors": 20,
+  "unavailable_sectors": 4,
+  "paired_modes": 60,
+  "predictions": 180,
+  "strata": [
+    {
+      "cohort": "development",
+      "fields": 2,
+      "available_sectors": 2,
+      "unavailable_sectors": 0,
+      "model_counts": [
+        {
+          "noise_model": "white",
+          "modes": 6,
+          "point_mode_evaluations": 1200,
+          "nominal_pit_tail_misses": 41
+        },
+        {
+          "noise_model": "pure_ou_grid",
+          "modes": 6,
+          "point_mode_evaluations": 1200,
+          "nominal_pit_tail_misses": 26
+        },
+        {
+          "noise_model": "white_ou_grid",
+          "modes": 6,
+          "point_mode_evaluations": 1200,
+          "nominal_pit_tail_misses": 26
+        }
+      ],
+      "mixed_vs_pure_positive_pairs": 2,
+      "mixed_vs_pure_pairs": 6,
+      "median_mean_block_score_difference": 0.0,
+      "median_upper_tau_posterior_mass": 0.030693484193494755
+    },
+    {
+      "cohort": "additional_fields",
+      "fields": 22,
+      "available_sectors": 18,
+      "unavailable_sectors": 4,
+      "model_counts": [
+        {
+          "noise_model": "white",
+          "modes": 54,
+          "point_mode_evaluations": 27048,
+          "nominal_pit_tail_misses": 560
+        },
+        {
+          "noise_model": "pure_ou_grid",
+          "modes": 54,
+          "point_mode_evaluations": 27048,
+          "nominal_pit_tail_misses": 551
+        },
+        {
+          "noise_model": "white_ou_grid",
+          "modes": 54,
+          "point_mode_evaluations": 27048,
+          "nominal_pit_tail_misses": 531
+        }
+      ],
+      "mixed_vs_pure_positive_pairs": 23,
+      "mixed_vs_pure_pairs": 54,
+      "median_mean_block_score_difference": 0.0,
+      "median_upper_tau_posterior_mass": 0.03508888475262445
+    }
+  ],
+  "method": {
+    "holdout_duration_factor": 1.0,
+    "buffer_rows": 1,
+    "maximum_modes": 3,
+    "minimum_tau_exposures": 0.1,
+    "maximum_tau_exposures": 10000.0,
+    "tau_grid_points": 13,
+    "mixture_fractions": [
+      0.1,
+      0.3,
+      0.5,
+      0.7,
+      0.9
+    ],
+    "white_prior_mass": 0.25,
+    "pure_prior_mass": 0.25,
+    "mixed_prior_mass": 0.5,
+    "nominal_interval_probability": 0.99
+  },
+  "source_gate": "unresolved",
+  "scientific_promotions": 0,
+  "limits": [
+    "Next sector withheld from earlier noise-model selection, not an independent astrophysical validation population",
+    "Finite prior grid uncertainty; spatial basis, nonstationarity, cross-mode/mean adequacy uncalibrated",
+    "Block scores are descriptive, not whole-sector joint likelihood or independent FPR estimates",
+    "No source/PRF/host/timing/physical/reliability classification qualification"
+  ],
+  "private_selected_vector_replay": {
+    "components": 4740,
+    "predictions": 180,
+    "maximum_absolute_difference": 0.0,
+    "scope": "Finite-prior selected-vector replay only; no full raw-input/public vetting capsule"
+  },
+  "origin_batch_manifest_sha256": "eb4d0c5ab5e4c0e3e1a60dad7769c315cdcc07bd984c7786113a342dabbc1428"
+}

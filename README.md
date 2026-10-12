@@ -45,6 +45,11 @@ training-only noise models against unseen transit-duration OOT blocks. Predictio
 improvements are mixed, and many timescales remain at a bound; this does not qualify
 source attribution or promote any signal.
 
+An [independent-sector noise review](docs/independent-sector-noise-review-2026-10-12.md)
+tests finite-prior fast/slow variability predictions on each target's next available
+sector. Twenty targets support the test; improvements are mixed, leaving source
+qualification unresolved.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
