@@ -1,0 +1,108 @@
+{
+  "schema_version": "1.0",
+  "assessment_date": "2026-10-12",
+  "science_commit": "5a4b806",
+  "audit_commit": "395404c",
+  "batch_status": "partial_execution_failure",
+  "batch_manifest_sha256": "721eee126a930d9dda8aef26a4b3ae77090fd43941d4ca5aface02f8d7cf133b",
+  "audit_manifest_sha256": "1e88fb574ee8187ee4cac5b8239e611d39a34f06bfbad9d997369ba15b7dd21a",
+  "signals": 24,
+  "completed_comparisons": 23,
+  "failed_executions": 1,
+  "failed_reason": "Original source hypothesis roster empty; no replacement roster invented",
+  "source_templates": 184,
+  "template_statuses": {
+    "conditional_template": 9,
+    "unusable_template": 175
+  },
+  "overlapping_template_failure_reasons": {
+    "core_truncated": 1,
+    "flux_limited": 170,
+    "crowding_limited": 170,
+    "negative_mass_limited": 160
+  },
+  "constrained_late_scene_fits": 69,
+  "actual_contrast_fields": 20,
+  "planned_contrasts_on_completed_fields": 276,
+  "contrast_statuses": {
+    "conditional_fit": 228,
+    "window_unavailable": 48
+  },
+  "late_weighted_rms_comparisons": {
+    "position": {
+      "fields": 23,
+      "improved_fields": 21,
+      "percent_change_quantiles": {
+        "p16": -4.977955322275562,
+        "median": -1.8370460888548323,
+        "p84": -0.35561250640667547
+      }
+    },
+    "hybrid_core": {
+      "fields": 23,
+      "improved_fields": 22,
+      "percent_change_quantiles": {
+        "p16": -6.643603164439618,
+        "median": -2.64510930172257,
+        "p84": -1.080117225245551
+      }
+    }
+  },
+  "target_contribution_model_sensitivity": {
+    "position": {
+      "fields": 20,
+      "median_change_over_archive_conditional_se": 0.08286194826091167,
+      "maximum_change_over_archive_conditional_se": 13.704980493766035
+    },
+    "hybrid_core": {
+      "fields": 20,
+      "median_change_over_archive_conditional_se": 0.09105426161072903,
+      "maximum_change_over_archive_conditional_se": 13.704980493766035
+    }
+  },
+  "public_sensitivity_example": {
+    "signal_id": "tic-21694454-s01",
+    "unit": "e-/s in-stamp contribution",
+    "models": [
+      {
+        "model": "archive",
+        "target_signed_in_stamp_loss_electrons_per_second": 307.1356515416706,
+        "conditional_standard_error": 21.164112715269482
+      },
+      {
+        "model": "position",
+        "target_signed_in_stamp_loss_electrons_per_second": 17.08189961103665,
+        "conditional_standard_error": 20.248977915860138
+      },
+      {
+        "model": "hybrid_core",
+        "target_signed_in_stamp_loss_electrons_per_second": 17.08189961103665,
+        "conditional_standard_error": 20.248977915860138
+      }
+    ],
+    "interpretation": "Model sensitivity only; conditional white-noise errors, not calibrated significance or a false-positive decision"
+  },
+  "audit": {
+    "signals": 24,
+    "missing_cases": 1,
+    "constrained_scene_fits": 69,
+    "joint_contrasts": 228,
+    "maximum_coefficient_difference": 5.688320925401058e-10,
+    "maximum_covariance_relative_difference": 9.94448962335696e-13,
+    "maximum_kkt_relative_residual": 1.8232440088057317e-15,
+    "source_gate": "unresolved",
+    "limits": [
+      "Numerical constrained-fit optimality and white conditional GLS replay",
+      "No profile/noise uncertainty coverage, host assignment or planet validation"
+    ]
+  },
+  "source_gate": "unresolved",
+  "scientific_promotions": 0,
+  "limits": [
+    "Profiles learned only from early OOT; late amplitudes and sky refitted for held-out shape comparison",
+    "Original source roster came from earlier full-sector analysis; not independent discovery validation",
+    "Position/core/noise/deblend uncertainty not marginalised, bounded sources and hybrid fallbacks unqualified",
+    "White temporal covariance comparison, no detection reliability or host probability",
+    "Full reproduction requires upstream raw FITS/PRFs, not included in public supplement"
+  ]
+}

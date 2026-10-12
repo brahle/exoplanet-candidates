@@ -60,6 +60,12 @@ measures disjoint early/late images across 24 source records. Most selected posi
 are stable within a sector despite catalogue-relative offsets; boundary and rank
 failures remain explicit. Field ranks are descriptive, with no adopted host exclusions.
 
+An [early-profile transfer review](docs/profile-transfer-review-2026-10-12.md)
+compares those profiles on late images and joint transit contrasts. Most learned
+cores remain unusable; TIC 21694454 shows substantial target-contribution sensitivity
+to the profile model. The failed case and missing windows remain explicit, with no
+host or planetary promotion.
+
 | Signal | Period | Source localisation | Timing consistency | Novelty check |
 |---|---:|---|---|---|
 | [TIC 464547401 / S01](candidates/tic-464547401-s01/README.md) | 13.24437854 d | unresolved | unresolved | No match in checked sources, 2026-10-10 |
