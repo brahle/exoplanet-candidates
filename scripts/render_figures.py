@@ -213,7 +213,7 @@ def render(folder):
     pgax.set(
         xlabel="Period [days]",
         ylabel="BLS likelihood power",
-        title=f"Recorded BLS search · {sectors}\n"
+        title=f"{meta['periodogram'].get('title', 'Recorded BLS search')} · {sectors}\n"
         "Search clock/preprocessing scope differs from fold",
     )
     folded = fig.add_subplot(grid[1, 1])

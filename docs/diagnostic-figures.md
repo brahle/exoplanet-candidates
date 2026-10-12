@@ -10,10 +10,30 @@ These are diagnostic illustrations of provisional unclassified signals. They
 add no physical fit, planet designation, false-alarm probability or new measurement.
 
 Run-6 dossiers contain the same saved-profile panels and complete event pages.
-Their search periodograms were not saved in the imported evidence. The spectrum
-panel explicitly states that it is unavailable; no spectrum is reconstructed or
-inferred from the discovery peak. Fresh folds exclude timing-unverified QLP
-sectors 99–104 and select one primary reduction per sector.
+On 13 October 2026 their previously empty spectrum panels were filled with
+**Reconstructed BLS search** plots. These are new calculations using the recorded
+discovery recipe and exact original FITS bytes. The previous figure bundles are
+retained in each dossier's `evidence/figure-history/before-run6-bls-v1/` directory.
+Fresh folds exclude timing-unverified QLP sectors 99–104 and select one primary
+reduction per sector; the reconstructed discovery search uses its original
+timing-affected QLP v01 products. Those scopes are different.
+
+The run-6 reconstructions pin numerical source revision
+`b716ac76eb3c1b558076ca7bc955c29248d8f2bf` and the original source-file SHA256s.
+They use 29 exact discovery-sector products, quality-zero masks, the original
+clipping/one-day biweight detrending, weighted ten-minute bins and star-density
+period grids with oversampling five. Periods span 0.4 to min(15, baseline/2) days;
+the original durations are 0.5, 1, 1.5, 2.25, 3.5, 5 and 7 hours.
+
+Astropy 8.0.1 on the reconstruction host replaces the original verified native
+Linux backend. All 14 searches agree with their recorded numerical results at
+relative tolerance 1e-6 / absolute tolerance 1e-8. Loaded cadence-array hashes
+match the originals; later preprocessing hashes differ across hosts. The
+original full spectra were never saved, so original spectrum-byte equivalence
+cannot be tested. Two fresh same-host reconstructions produce identical period
+and power arrays. Exact inputs, settings, comparison results and limitations are
+in each current plot context. No ephemeris, assessment or planet probability is
+changed by these plots.
 
 Run-5 timelines use the primary acquisition masks (quality-zero, finite positive
 flux) and sector-median normalization. Red segments are saved local baselines;

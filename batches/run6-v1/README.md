@@ -57,3 +57,13 @@ evidence; public numerical reproduction and physical-host attribution remain ope
 | [tic-358231727-s01](../../candidates/tic-358231727-s01/README.md) | 12.97574537 | 8 | 3.24 | no_saved_pixel_competitor, period_cluster_13d, weak_qualified_sector_dip |
 | [tic-390719318-s01](../../candidates/tic-390719318-s01/README.md) | 3.88927641 | 3 | 13.58 | none in this subset; incomplete |
 | [tic-425933702-s01](../../candidates/tic-425933702-s01/README.md) | 12.93962926 | 8 | 1.47 | period_cluster_13d, weak_qualified_sector_dip |
+
+## BLS figure update, 13 October 2026
+
+All 14 dossiers now include full reconstructed BLS spectra using the original
+discovery recipe and exact inputs. All recorded numerical search results agree
+within declared tolerances, and a second reconstruction reproduces the new
+period/power vectors exactly. The panels explicitly say **Reconstructed BLS
+search**. [Methods and limits](../../docs/diagnostic-figures.md) explain the
+backend and timing differences. Prior figure bundles remain linked in each
+dossier; scientific measurements, assessments and disclosure dates are unchanged.

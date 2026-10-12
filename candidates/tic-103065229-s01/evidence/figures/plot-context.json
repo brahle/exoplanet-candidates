@@ -1,5 +1,5 @@
 {
-  "schema_version": "1.0",
+  "schema_version": "1.1",
   "candidate_id": "tic-103065229-s01",
   "ephemeris": {
     "period_d": {
@@ -23,8 +23,250 @@
   "ephemeris_source_sha256": "b68b6d3094aeb352fa60c0b5f2b5b784ee25a25cd07d54c23f5582675bf05a1a",
   "profiles_source_sha256": "48195a8161b829a0ad4b295447a2fd73621ba7c5feefb830b05e9ea11acba377",
   "periodogram": {
-    "status": "unavailable",
-    "reason": "No saved search periodogram supplied"
+    "config_key": "5393b3128449766447bac7fe6514515e91de2c09d24f4f4d67390d3c90a11337",
+    "grid_points": 2906,
+    "implementation": "astropy",
+    "inputs": [
+      {
+        "bytes": 527040,
+        "file": "hlsp_qlp_tess_ffi_s0099-0000000103065229_tess_v01_llc.fits",
+        "flux_column": "DET_FLUX",
+        "sector": 99,
+        "sha256": "1c5f3e4bad3889a8817aa2be6204390c731ed2bae0a9bd4039f5199cc582d604",
+        "timing": "affected-uncorrected",
+        "version": "v01"
+      }
+    ],
+    "limits": [
+      "New reconstruction, not the original saved spectrum.",
+      "Original native Linux backend replaced by Astropy on this host.",
+      "Scalar tolerances are declared; original spectrum bytes are unavailable.",
+      "Discovery QLP v01 times are affected/uncorrected; withheld from qualified folds.",
+      "No FAP, planet probability, new fitted ephemeris or scientific promotion."
+    ],
+    "original_backend": {
+      "implementation": "native",
+      "kernel": {
+        "astropy_impl_sha256": "524a17beb6d593ce593ff17c3683d4319f7df9e55e9e202e221629972a528a8c",
+        "astropy_source": "8.0.1",
+        "compiler": "cc (Ubuntu 13.3.0-6ubuntu2~24.04.1) 13.3.0",
+        "flags": [
+          "-O3",
+          "-march=native",
+          "-ffp-contract=off",
+          "-fno-fast-math",
+          "-fPIC",
+          "-shared",
+          "-fopenmp"
+        ],
+        "machine": "x86_64",
+        "openmp": true,
+        "self_check": "bit-identical",
+        "source_sha256": "64fe43b98bbb942fec87ce3ac5ae5688a959bc525c703f44f51d52f52ba76804"
+      }
+    },
+    "original_numeric_comparison": {
+      "fields": [
+        {
+          "actual": 24.422690718266495,
+          "expected": 24.422690718266495,
+          "field": "baseline_d",
+          "match": true
+        },
+        {
+          "actual": -46.8489452799,
+          "expected": -46.8489452799,
+          "field": "dec_obj",
+          "match": true
+        },
+        {
+          "actual": 776.2830610666598,
+          "expected": 776.2830610666598,
+          "field": "depth_even_err",
+          "match": true
+        },
+        {
+          "actual": 7752.392672041086,
+          "expected": 7752.392672041086,
+          "field": "depth_even_ppm",
+          "match": true
+        },
+        {
+          "actual": 3794.356942696586,
+          "expected": 3794.356942696586,
+          "field": "depth_half_ppm",
+          "match": true
+        },
+        {
+          "actual": 950.6193970138943,
+          "expected": 950.6193970138943,
+          "field": "depth_odd_err",
+          "match": true
+        },
+        {
+          "actual": 5560.585061595846,
+          "expected": 5560.585061595846,
+          "field": "depth_odd_ppm",
+          "match": true
+        },
+        {
+          "actual": 697.6366400229805,
+          "expected": 697.6366400229805,
+          "field": "depth_phased_ppm",
+          "match": true
+        },
+        {
+          "actual": 6877.561906194146,
+          "expected": 6877.561906194147,
+          "field": "depth_ppm",
+          "match": true
+        },
+        {
+          "actual": 11.386050019992894,
+          "expected": 11.386050019992895,
+          "field": "depth_snr",
+          "match": true
+        },
+        {
+          "actual": 1.5,
+          "expected": 1.5,
+          "field": "duration_h",
+          "match": true
+        },
+        {
+          "actual": -64.81464160482994,
+          "expected": -64.81464160483051,
+          "field": "harmonic_delta_loglike",
+          "match": true
+        },
+        {
+          "actual": 4.33436,
+          "expected": 4.33436,
+          "field": "logg",
+          "match": true
+        },
+        {
+          "actual": 6388.788388725206,
+          "expected": 6388.788388725206,
+          "field": "mad_ppm",
+          "match": true
+        },
+        {
+          "actual": 1.03,
+          "expected": 1.03,
+          "field": "mass",
+          "match": true
+        },
+        {
+          "actual": 2393,
+          "expected": 2393,
+          "field": "n",
+          "match": true
+        },
+        {
+          "actual": 5,
+          "expected": 5,
+          "field": "n_transits_with_data",
+          "match": true
+        },
+        {
+          "actual": 3.4666097704239123,
+          "expected": 3.4666097704239123,
+          "field": "period",
+          "match": true
+        },
+        {
+          "actual": 66.07684835111556,
+          "expected": 66.07684835111559,
+          "field": "power",
+          "match": true
+        },
+        {
+          "actual": 156.385548933,
+          "expected": 156.385548933,
+          "field": "ra_obj",
+          "match": true
+        },
+        {
+          "actual": 1.14359,
+          "expected": 1.14359,
+          "field": "radius",
+          "match": true
+        },
+        {
+          "actual": 12.008793740726928,
+          "expected": 12.008793740726935,
+          "field": "sde",
+          "match": true
+        },
+        {
+          "actual": 4046.9978077662786,
+          "expected": 4046.9978077662786,
+          "field": "t0",
+          "match": true
+        },
+        {
+          "actual": 5760.0,
+          "expected": 5760.0,
+          "field": "teff",
+          "match": true
+        },
+        {
+          "actual": 13.4514,
+          "expected": 13.4514,
+          "field": "tessmag",
+          "match": true
+        },
+        {
+          "actual": 103065229,
+          "expected": 103065229,
+          "field": "ticid",
+          "match": true
+        }
+      ],
+      "match": true
+    },
+    "peak_period_d": 3.4666097704239123,
+    "recipe": {
+      "bin_d": 0.006944444444444444,
+      "detrend_window_d": 1.0,
+      "durations_d": [
+        0.020833333333333332,
+        0.041666666666666664,
+        0.0625,
+        0.09375,
+        0.14583333333333334,
+        0.20833333333333334,
+        0.2916666666666667
+      ],
+      "grid_oversampling": 5,
+      "iterations": 1,
+      "pmax_rule": "min(15, base/2)",
+      "pmin_d": 0.4
+    },
+    "run_id": "20261012T233831Z-vet-bls-periodogram-469ca5",
+    "search_id": "34af6e8e46b4850b518fcf3725d042c69b7ee9106d056bc3968101beac4645d4:1697415c739ef4aabd5b0db2d694379de62f4cd8cfae0ae817c447d9774a73f8:5393b3128449766447bac7fe6514515e91de2c09d24f4f4d67390d3c90a11337:real",
+    "sectors": [
+      99
+    ],
+    "signal_id": "tic-103065229-s01",
+    "source_code_sha256": {
+      "qlp_schema.py": "41ffccff6920456951b52e350c4958d05fd2eaabef6aea142b82ab0c8a764b0e",
+      "qlp_search.py": "70943f7e74c9e0af1db9bd3e66861486fcd39498d6eefd71955c12a9d8fbfa2b",
+      "realization.py": "6573a6a37ba22dfb66dfebaa440e0a4537446af756d4a0136ab23fa85eaf65ea",
+      "transit_search/search.py": "6208c59b017d863184338b8f8f3100fbde72097df101dda1cdc8650c3a2f4ec6"
+    },
+    "source_revision": "b716ac76eb3c1b558076ca7bc955c29248d8f2bf",
+    "source_sha256": "01efac78ea52bd62dfdfeb1cab001cd042612079adb06b8970a57d95e3c20258",
+    "source_sha256_npz": "01efac78ea52bd62dfdfeb1cab001cd042612079adb06b8970a57d95e3c20258",
+    "stage_hash_matches": {
+      "prepared_hash": false,
+      "realization_hash": true,
+      "search_input_hash": false
+    },
+    "status": "documented_discovery_reconstruction",
+    "tic": "103065229",
+    "title": "Reconstructed BLS search"
   },
   "event_rows": [
     {
@@ -1217,5 +1459,5 @@
     "overview_events": 12,
     "dpi": 140
   },
-  "plot_data_sha256": "5cc4bfa5b39cab5e6412f918b23278cdd3379da2882a9b093f9cd84727d5f2b0"
+  "plot_data_sha256": "7e9569f0c9f41e4863282748c06ee079b91aba3c07fb5f1efb3b2e17891a9236"
 }

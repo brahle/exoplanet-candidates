@@ -13,4 +13,4 @@
 
 [Methods and rendering](../docs/diagnostic-figures.md).
 
-Figure staging receipts: [previous batch](receipts/run5-previous.json) and [run 6](receipts/run6-v1.json).
+Run-6 BLS update: [revision receipt](receipts/run6-bls-v1.json), [previous batch receipt](receipts/run6-v1.json), [methods](../docs/diagnostic-figures.md).

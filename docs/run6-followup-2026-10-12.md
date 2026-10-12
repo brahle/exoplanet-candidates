@@ -84,7 +84,10 @@ Their six-arcsecond neighbours do not alone prove contamination.
 ## Public evidence and remaining work
 
 The 14 dossiers include 30 diagnostic/event-page images and saved plot vectors.
-The original search spectra were not saved; that panel is explicitly unavailable.
+The original search spectra were not saved. On 13 October the initially empty
+panels were filled with explicitly labelled [documented reconstructions](diagnostic-figures.md)
+using the original discovery-sector recipe and exact input bytes. Earlier
+figures remain available in each dossier's figure-history directory.
 Readers can inspect and replot the evidence, but a clean public numerical rerun
 is not yet supplied. Conditional errors are not qualified for observing forecasts.
 

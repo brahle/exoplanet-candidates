@@ -63,3 +63,13 @@ records; individual records retain their own schema version.
 All 14 new candidate records use candidate schema 1.3 with catalogue aperture
 parameters and exact-replay conditional duration/ingress covariance. The physical
 host and transit geometry remain unresolved.
+
+## Plot context 1.1
+
+The 13 October 2026 run-6 figure revisions use plot-context version 1.1. Their
+periodogram block adds documented reconstruction status, the numerical source
+revision and code hashes, the original recipe/backend/input hashes and explicit
+comparison results. `source_sha256` remains the spectrum artifact hash;
+`source_code_sha256` contains the named numerical-source hashes. Existing 1.0
+contexts and their historical figures are retained. Candidate measurements and
+scientific dispositions keep their existing schema and semantics.

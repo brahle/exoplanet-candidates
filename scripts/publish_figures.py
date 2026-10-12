@@ -74,7 +74,9 @@ def gallery(root, records):
         '[Methods and rendering](../docs/diagnostic-figures.md).\n')
 
 
-def stage(root, source, report_path, manifest_path, require_complete=False):
+def stage(root, source, report_path, manifest_path, require_complete=False, revision=None):
+    if revision is not None and not re.fullmatch(r'[A-Za-z0-9][A-Za-z0-9_-]*', revision):
+        raise ValueError('Unsafe figure revision')
     root = root.resolve(); source = source.resolve()
     previous_root = catalogue.ROOT
     try:
@@ -98,28 +100,44 @@ def stage(root, source, report_path, manifest_path, require_complete=False):
             if context['ephemeris'] != expected:
                 raise ValueError('Figure ephemeris differs')
             target = folder / 'evidence/figures'
+            archive = None
             if target.exists():
-                for name, item in row['files'].items():
-                    if sha(target / name) != item['sha256']:
-                        raise ValueError('Existing figure differs; requires new figure version')
-                continue
+                identical = all((target / name).is_file() and
+                                sha(target / name) == item['sha256']
+                                for name, item in row['files'].items())
+                if identical:
+                    continue
+                if revision is None:
+                    raise ValueError('Existing figure differs; requires new figure version')
+                archive = folder / 'evidence/figure-history' / ('before-' + revision)
+                if archive.exists():
+                    raise ValueError('Figure history revision already exists')
             if sha(folder / 'candidate.json') != row['source_candidate_sha256']:
                 raise ValueError('Figure source dossier changed before initial delivery')
-            prepared.append((record, row, folder, target))
+            prepared.append((record, row, folder, target, archive))
         timestamp = datetime.now(timezone.utc).strftime('%Y-%m-%dT%H:%M:%SZ')
-        for record, row, folder, target in prepared:
-            target.mkdir()
+        for record, row, folder, target, archive in prepared:
+            if archive is not None:
+                shutil.copytree(target, archive)
+            target.mkdir(exist_ok=True)
             for name in row['files']:
                 shutil.copyfile(source / record['id'] / name, target / name)
             updated = copy.deepcopy(record)
             major, minor, patch = map(int, record['version'].split('.'))
             updated['version'] = f'{major}.{minor}.{patch + 1}'
-            updated['evidence'].extend('evidence/figures/' + name for name in sorted(row['files']))
+            updated['evidence'] = list(dict.fromkeys(updated['evidence'] +
+                ['evidence/figures/' + name for name in sorted(row['files'])]))
+            if archive is not None:
+                updated['evidence'].extend(p.relative_to(folder).as_posix()
+                                           for p in sorted(archive.iterdir()) if p.is_file())
             updated['provenance']['runs']['figures'] = manifest['run_id']
             updated['provenance']['source_revisions']['figures'] = manifest['git']['commit']
             updated['history'].append({'version': updated['version'], 'date': timestamp[:10],
-                'change': 'Added saved-evidence five-panel diagnostic and complete event pages; '
-                          'scientific measurements and classification unchanged.'})
+                'change': ('Updated diagnostic figures with explicitly reconstructed BLS spectra; '
+                           'previous figure bundle retained in figure-history. '
+                           if archive is not None else
+                           'Added saved-evidence five-panel diagnostic and complete event pages; ') +
+                          'Scientific measurements, assessments and disclosure dates unchanged.'})
             write(folder / 'candidate.json', updated)
             links = ', '.join(f'[{name}](evidence/figures/{name})' for name in row['images'][1:])
             caption = ('Saved signed local profiles; all numeric events, including negative depths. '
@@ -134,8 +152,17 @@ def stage(root, source, report_path, manifest_path, require_complete=False):
                      '[Saved plot vectors](evidence/figures/plot-data.npz) · '
                      '[Rendering methods](../../docs/diagnostic-figures.md).\n')
             text = (folder / 'README.md').read_text()
-            split = text.find('\n\n')
-            (folder / 'README.md').write_text(text[:split] + block + text[split:])
+            if archive is None:
+                split = text.find('\n\n')
+                (folder / 'README.md').write_text(text[:split] + block + text[split:])
+            else:
+                previous_link = archive.relative_to(folder).as_posix() + '/diagnostic.png'
+                note = ('\n\nThe BLS panel is now a documented reconstruction using the original '
+                        'discovery-sector recipe and exact input bytes. Its timing-affected '
+                        'QLP products differ from the qualified fold. '
+                        f'[Previous figure]({previous_link}); full input/settings/comparison '
+                        'provenance is in the current plot context.\n')
+                (folder / 'README.md').write_text(text + note)
             old = load(folder / 'evidence-manifest.json')
             sources = {f['path']: f['source_sha256'] for f in old['files'] if 'source_sha256' in f}
             seal(folder, sources)
@@ -148,6 +175,8 @@ def stage(root, source, report_path, manifest_path, require_complete=False):
             'report_sha256': sha(report_path), 'renderer_sha256': binding['code_sha256']['figure_render.py'],
             'candidates': report['records'], 'images': sum(len(r['images']) for r in report['records'])}
         if prepared:
+            if revision is not None:
+                write(root / 'gallery/receipts' / (revision + '.json'), receipt)
             write(root / 'gallery/publication-receipt.json', receipt)
         return receipt
     finally:
@@ -161,8 +190,10 @@ def main():
     parser.add_argument('--report', type=Path, required=True)
     parser.add_argument('--manifest', type=Path, required=True)
     parser.add_argument('--require-complete', action='store_true')
+    parser.add_argument('--revision', help='Explicit new figure version; archives any prior bundle')
     args = parser.parse_args()
-    receipt = stage(args.root, args.source, args.report, args.manifest, args.require_complete)
+    receipt = stage(args.root, args.source, args.report, args.manifest, args.require_complete,
+                    args.revision)
     print(json.dumps({k: receipt[k] for k in ('updated_records', 'source_run', 'images')}))
 
 

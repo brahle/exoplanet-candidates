@@ -48,6 +48,32 @@ def fixture(base):
 
 
 class FigurePublication(unittest.TestCase):
+    def test_explicit_revision_preserves_previous_figures_and_science(self):
+        with tempfile.TemporaryDirectory() as temporary:
+            root, source, folder, old, report, manifest = fixture(Path(temporary))
+            publish_figures.stage(root, source, report, manifest)
+            current = load(folder / 'candidate.json')
+            previous_image = (folder / 'evidence/figures/diagnostic.png').read_bytes()
+            case = source / old['id']
+            (case / 'diagnostic.png').write_bytes(b'new reconstructed spectrum image')
+            row = load(report)['records'][0]
+            row['source_candidate_sha256'] = sha(folder / 'candidate.json')
+            row['files']['diagnostic.png'] = {'sha256': sha(case / 'diagnostic.png'),
+                                             'bytes': (case / 'diagnostic.png').stat().st_size}
+            write(report, {'source_run': 'fixture', 'records': [row]})
+            m = load(manifest); m['outputs']['report.json'] = sha(report); write(manifest, m)
+            with self.assertRaisesRegex(ValueError, 'requires new figure version'):
+                publish_figures.stage(root, source, report, manifest)
+            self.assertEqual(publish_figures.stage(root, source, report, manifest,
+                             revision='bls-v1')['updated_records'], 1)
+            history = folder / 'evidence/figure-history/before-bls-v1/diagnostic.png'
+            self.assertEqual(history.read_bytes(), previous_image)
+            revised = load(folder / 'candidate.json')
+            for key in ('target', 'signal', 'assessment', 'novelty', 'host', 'fit', 'publication'):
+                self.assertEqual(revised.get(key), current.get(key))
+            self.assertEqual(publish_figures.stage(root, source, report, manifest,
+                             revision='bls-v1')['updated_records'], 0)
+
     def test_science_preserved_and_repeat_changes_no_records(self):
         with tempfile.TemporaryDirectory() as temporary:
             root, source, folder, old, report, manifest = fixture(Path(temporary))

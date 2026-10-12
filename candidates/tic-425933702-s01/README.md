@@ -44,3 +44,6 @@ The saved trapezoid duration now has a conditional error of 1.39701 hours. [Full
 ## Run 6 follow-up
 
 Fresh checks use 8 timing-qualified primary sectors, with one reduction per sector. Diagnostic warning flags: period_cluster_13d, weak_qualified_sector_dip. [Detailed results and missing checks](evidence/vetting-findings.json). These descriptive flags do not assign a planet probability. The initial screen remains incomplete and source attribution unresolved.
+
+
+The BLS panel is now a documented reconstruction using the original discovery-sector recipe and exact input bytes. Its timing-affected QLP products differ from the qualified fold. [Previous figure](evidence/figure-history/before-run6-bls-v1/diagnostic.png); full input/settings/comparison provenance is in the current plot context.
