@@ -6,9 +6,16 @@ Progressive survey batches use [terminal ledgers and deliberate signal amendment
 An entry is an attributable research record; its presence here does not establish a planet,
 scientific priority or an official TESS designation.
 
-**Local review staging:** [Phase 4 batches b001–b003](docs/phase4-local-review-2026-10-14.md)
-add 60 draft evidence dossiers and account for all 111 registered survivors. These drafts
-have no public disclosure date and await owner release review. All remain unclassified.
+**[Phase 4 batches b001–b003](docs/phase4-local-review-2026-10-14.md):** 60 new evidence
+dossiers and the complete outcome ledger for 111 registered survivors bring this catalogue
+to **246 dossiers**. All remain scientifically unclassified. Publication receipts record
+actual public disclosure and immutable release dates; reproduction covers evidence inspection.
+The survey-wide null comparison suggests roughly **one third of initial survivors could be
+noise or stellar-variability false alarms before eclipsing binaries**, if the controls
+represent the survey background. Its uncertainty cannot rule out most or all initial
+survivors being false alarms. This is not a measured contamination fraction for the 60
+selected dossiers or an individual planet probability. See the
+[rates, assumptions and limits](docs/phase4-local-review-2026-10-14.md#survey-wide-false-alarm-estimate).
 
 **[Run 6: 14 new dossiers and the complete 826-pass triage ledger](batches/run6-v1/README.md).**
 Fresh checks retain seven records with diagnostic warnings and seven without those

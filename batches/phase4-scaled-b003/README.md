@@ -1,11 +1,12 @@
-# Phase 4 local batch b003
+# Phase 4 provisional batch b003
 
-Local review staging; no public disclosure or scientific promotion.
+Provisional evidence-inspection records; all scientific assessments remain unclassified.
+Actual disclosure and immutable release metadata are recorded in [publication-receipt.json](publication-receipt.json).
 
 All 74 registered signals are conserved in [outcomes.json](outcomes.json).
 A match hypothesis does not resolve the physical host. A ledger-only row is not an adjudicated rejection.
 
-[Reviews](reviews.json) · [Fresh findings](followup-findings.json) · [Stellar context receipt](stellar-enrichment.json) · [Whole-cohort findings](triage-cohort.json)
+[Release-time catalogue recheck](release-preflight.json) · [Exact MCP responses](release-catalogue-checks.jsonl) · [Reviews](reviews.json) · [Fresh findings](followup-findings.json) · [Stellar context receipt](stellar-enrichment.json) · [Whole-cohort findings](triage-cohort.json)
 
 | Outcome | Count |
 |---|---:|
@@ -35,7 +36,7 @@ open. The scrambled controls had 0/1,500 survivors (Wilson upper endpoint 0.255%
 
 Periods below are adopted conditional diagnostic values, or the unadopted discovery seed where the fit failed. All assessments remain unclassified.
 
-| Signal | Period (d) | Local outcome | Diagnostic warnings |
+| Signal | Period (d) | Recorded outcome | Diagnostic warnings |
 |---|---:|---|---|
 | tic-105801802-s01 | 0.65656854 | no_adopted_diagnostic_ephemeris | no_adopted_ephemeris, odd_even_conditional_tension, scanned_secondary_uncorrected |
 | [tic-122854005-s01](../../candidates/tic-122854005-s01/README.md) | 9.50815792 | provisional_signal_record | none in this subset |

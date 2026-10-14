@@ -1,11 +1,13 @@
-# Phase 4: local owner review
+# Phase 4: evidence review
 
-Prepared 2026-10-14. This is local staging, with no release, DOI or first-publication
-claim. All 111 registered survivors in three sealed batches have completed the installed
+Prepared locally 2026-10-14; owner authorized release on 2026-10-15 (Europe/London).
+Actual disclosure and release times are recorded separately in the batch publication
+receipts, using GitHub server timestamps. No DOI is assigned. All 111 registered
+survivors in three sealed batches have completed the installed
 verifier stages and received an assessment-bound Codex numerical-summary review.
 No signal has been promoted to a planet candidate or confirmed planet.
 
-| Batch | Registered signals | Draft dossiers | Prior report or match hypothesis | No adopted ephemeris | Insufficient multisector evidence |
+| Batch | Registered signals | Selected dossiers | Prior report or match hypothesis | No adopted ephemeris | Insufficient multisector evidence |
 |---|---:|---:|---:|---:|---:|
 | [b001](../batches/phase4-scaled-b001/README.md) | 28 | 16 | 9 | 3 | 0 |
 | [b002](../batches/phase4-scaled-b002/README.md) | 9 | 4 | 3 | 1 | 1 |
@@ -57,6 +59,11 @@ sources, five nearby planet/TOI hypotheses and 32 variable-star hypotheses.
 Unindexed papers and other gaps remain in the snapshots. These checks establish
 neither exhaustive novelty nor a physical host.
 
+A release-time recheck through the same configured MCP at 2026-10-14 23:22 UTC
+returned identical scientific results for all 111 signals. Each batch retains
+its new `release-catalogue-checks.jsonl` and comparison receipt separately from
+the original dated assessment responses; no previous snapshot was replaced.
+
 All 111 TIC aperture targets have a unique qualifying Gaia DR3 association via the
 official DR2 neighbourhood, using the declared angular-distance and magnitude
 limits. Each of the 60 draft dossiers includes TIC 8.2 stellar values, their catalogue
@@ -81,7 +88,7 @@ these separate axes. Automated review authorizes evidence inspection only.
 
 ## Diagnostic figures and reproduction
 
-The local diagnostic gallery provides the saved light curve and local baselines,
+The diagnostic gallery provides the saved light curve and local baselines,
 phase fold, original-grid BLS reconstruction, odd/even profiles, and all retained
 individual-event pages. Search reconstruction uses the exact launch source, period
 grid and native kernel. Raw realization and final binned BLS input hashes must match,
@@ -99,5 +106,7 @@ or a planet probability. Display-bin errors are uncalibrated white standard erro
 Dossiers remain at evidence-inspection reproduction level; schema/hash checking
 is not a clean public-input numerical replay.
 
-The owner reviews this local staging before a deliberate release. Public dates stay
-null until an actual public disclosure is recorded.
+The owner authorized this evidence-inspection release after reviewing the local staging.
+All scientific assessments remain unclassified. The batch publication receipts preserve
+actual first disclosure separately from versioned release publication; neither establishes
+discovery priority, peer review or a planetary interpretation.
