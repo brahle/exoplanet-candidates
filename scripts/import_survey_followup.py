@@ -20,6 +20,8 @@ def prepare(root, batch, source):
         if sha(source / name) != checksum:
             raise ValueError('Follow-up evidence changed')
     summary = load(source / 'summary.json')
+    label = summary.get('label', 'Run 6 follow-up')
+    provenance_key = summary.get('provenance_key', 'run6_followup')
     findings = load(source / 'findings.json')
     cohort = load(source / 'cohort.json')
     ledger = load(root / 'batches' / batch / 'outcomes.json')['outcomes']
@@ -92,11 +94,11 @@ def prepare(root, batch, source):
                              'sha256': sha(candidate / 'evidence/vetting-findings.json')}]
         write(candidate / 'vetting.json', data)
         record['evidence'].extend(['vetting.json', 'evidence/vetting-findings.json'])
-        record['provenance']['runs']['run6_followup'] = manifest['run_id']
-        record['provenance']['source_revisions']['run6_followup'] = manifest['git']['commit']
+        record['provenance']['runs'][provenance_key] = manifest['run_id']
+        record['provenance']['source_revisions'][provenance_key] = manifest['git']['commit']
         write(candidate / 'candidate.json', record)
         with (candidate / 'README.md').open('a') as stream:
-            stream.write('\n## Run 6 follow-up\n\n'
+            stream.write(f'\n## {label}\n\n'
                 f'Fresh checks use {evidence["followup"]["primary_sectors"]} timing-qualified '
                 'primary sectors, with one reduction per sector. '
                 f'Diagnostic warning flags: {", ".join(data["warnings"]) or "none in this subset"}. '

@@ -130,6 +130,7 @@ def dossier(destination, assessment, check, documents, prior, date, review=None,
     if not re.fullmatch(r'tic-[0-9]+-s[0-9]{2}', seed['id']) or not seed['id'].startswith(f"tic-{seed['tic']}-"):
         raise ValueError('Unsafe or inconsistent signal identity')
     fitted = ep['ephemeris']; cov = ep['epoch_period_covariance']
+    duration_error = retained_duration_error(ep)
     phot = documents['photometry.json'][0]
     depth = next(a for a in phot['aggregates'] if a['baseline_order'] == 1)
     folder = destination / 'candidates' / seed['id']
@@ -155,10 +156,13 @@ def dossier(destination, assessment, check, documents, prior, date, review=None,
         'retained_unresolved_gates': list(assessment['blocking_gates']),
         'science_configuration_hashes': {name: data[2]['config'].get('sha256') for name, data in documents.items()},
         'scientific_recipes': {name: scientific_recipe(data[2]) for name, data in documents.items()},
+        'duration_uncertainty_source': 'Saved conditional diagnostic covariance' if duration_error is not None else 'Unavailable',
+        'physical_transit_geometry': 'Not fitted; no physical radius ratio, impact parameter or scaled semimajor axis inferred.',
     })
     limits = ['Preliminary unclassified signal; binary, blend and instrumental explanations remain open.',
               'Conditional diagnostic errors; no calibrated false-alarm or planet probability.',
-              'Duration uncertainty unavailable; null is intentional.',
+              ('Duration uncertainty unavailable; null is intentional.' if duration_error is None else
+               'Duration uncertainty is retained from the saved conditional diagnostic covariance; coverage is uncalibrated.'),
               'Mission clock, host identity, noise coverage and search selection remain unresolved.',
               'All saved event exclusions, failed fits and signed alternative diagnostics are retained.']
     record = {
@@ -172,7 +176,7 @@ def dossier(destination, assessment, check, documents, prior, date, review=None,
                    'epoch_bjd_tdb': fitted['epoch_bjd_tdb'], 'bjd_offset': 2457000, 'time_scale': 'TDB',
                    'covariance_epoch_period_d2': cov,
                    'covariance_method': 'Saved local integrated-trapezoid diagnostic Jacobian covariance; conditional and not empirically calibrated.',
-                   'duration_h': {'value': fitted['duration_h'], 'error': None},
+                   'duration_h': {'value': fitted['duration_h'], 'error': duration_error},
                    'depth_ppm': {'value': depth['depth_ppm'], 'error': depth['error_ppm']},
                    'model': 'Exposure-integrated diagnostic trapezoid; free event depths and local baseline. Separate linear-baseline box-window aggregate depth.',
                    'sectors': sorted({e['sector'] for e in phot['events'] if e.get('usable') and e['baseline_order'] == 1}),
@@ -199,6 +203,8 @@ def dossier(destination, assessment, check, documents, prior, date, review=None,
     rb = assessment['stages']['robustness']['metrics']
     odd_even = rb.get('odd_even_tension_sigma')
     odd_even_text = 'unavailable' if odd_even is None else f'{odd_even:.3g} conditional error units'
+    duration_text = ('uncertainty unavailable' if duration_error is None else
+                     f'± {duration_error:.3g} h; conditional diagnostic error')
     adverse = ('The saved odd/even diagnostic exceeds its recorded three-error-unit flag; '
                'a binary or alternating-depth explanation needs particular attention.'
                if odd_even is not None and abs(odd_even) >= documents['robustness.json'][0]['diagnostic_tension_sigma']
@@ -210,7 +216,7 @@ Binary, blend and instrumental explanations remain open. This is a dated evidenc
 
 Diagnostic period: {fitted['period_d']:.10f} ± {math.sqrt(cov[1][1]):.3g} d.
 Epoch: BJD_TDB {fitted['epoch_bjd_tdb']:.8f} ± {math.sqrt(cov[0][0]):.3g} d.
-Duration: {fitted['duration_h']:.4f} h (uncertainty unavailable).
+Duration: {fitted['duration_h']:.4f} h ({duration_text}).
 Linear-baseline depth: {depth['depth_ppm']:.1f} ± {depth['error_ppm']:.1f} ppm,
 from {depth['n_events']} usable events in {len(record['signal']['sectors'])} sectors.
 Errors are conditional diagnostic estimates.
@@ -242,6 +248,25 @@ A future numerical release needs exact public input bytes, versioned code, froze
 and a clean public-input rerun certificate. No planet probability or discovery priority is certified.
 ''')
     seal(folder, sources)
+
+
+def retained_duration_error(ephemeris):
+    """Use a covariance already saved by the fit, with its original limitations."""
+    shape = ephemeris.get('shape_uncertainty', {})
+    if shape.get('status') != 'conditional_local_covariance':
+        return None
+    import catalogue
+    matrix = shape['epoch_covariance']
+    catalogue.validate_shape_covariance(matrix)
+    error = shape['duration_error_h']
+    if (shape['parameter_order'] != ['epoch_btjd', 'period_d', 'duration_d', 'ingress_fraction'] or
+            shape['jacobian_rank'] != 4 or shape['fit_at_bound'] or
+            not math.isfinite(error) or error <= 0 or
+            not math.isclose(error, 24 * math.sqrt(matrix[2][2]), rel_tol=1e-8) or
+            any(not math.isclose(matrix[i][j], ephemeris['epoch_period_covariance'][i][j], rel_tol=1e-8, abs_tol=1e-12)
+                for i in range(2) for j in range(2))):
+        raise ValueError('Saved conditional duration covariance is inconsistent')
+    return error
 
 
 def verified_reviews(path, report_path):

@@ -56,6 +56,18 @@ def scientific_fixture(root, sid):
 
 
 class ProgressivePublication(unittest.TestCase):
+    def test_saved_duration_covariance_is_retained_without_a_new_fit(self):
+        ep = {'epoch_period_covariance': [[.01, 0], [0, .0001]], 'shape_uncertainty': {
+            'status': 'conditional_local_covariance', 'jacobian_rank': 4, 'fit_at_bound': False,
+            'parameter_order': ['epoch_btjd', 'period_d', 'duration_d', 'ingress_fraction'],
+            'epoch_covariance': [[.01, 0, 0, 0], [0, .0001, 0, 0], [0, 0, .000001, 0], [0, 0, 0, .001]],
+            'duration_error_h': .024}}
+        self.assertEqual(export.retained_duration_error(ep), .024)
+        ep['shape_uncertainty']['duration_error_h'] = .24
+        with self.assertRaisesRegex(ValueError, 'inconsistent'):
+            export.retained_duration_error(ep)
+        self.assertIsNone(export.retained_duration_error({}))
+
     def test_acceptance_batch_and_deliberate_amendment(self):
         with tempfile.TemporaryDirectory() as temp:
             base = Path(temp); repo = base / 'repo'; repo.mkdir()

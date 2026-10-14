@@ -66,8 +66,9 @@ def gallery(root, records):
         for i in range(0, len(cells), 3):
             lines.append('| ' + ' | '.join((cells[i:i + 3] + [''] * 3)[:3]) + ' |')
         (folder / name).write_text('\n'.join(lines) + '\n')
+    drafts = sum(r.get('publication', {}).get('state') == 'draft' for r in records)
     (folder / 'README.md').write_text('# Candidate diagnostic gallery\n\n'
-        f'{len(records)} public dossiers. Five-panel overviews and complete chronological '
+        f'{len(records)} dossiers: {len(records) - drafts} previously disclosed and {drafts} local drafts awaiting owner review. Five-panel overviews and complete chronological '
         'event pages use saved evidence. Signals remain unclassified.\n\n' +
         '\n'.join(f'- [Page {i + 1}: candidates {i * 24 + 1}–{min((i + 1) * 24, len(records))}]({p})'
                   for i, p in enumerate(pages)) + '\n\n'
