@@ -16,6 +16,9 @@ represent the survey background. Its uncertainty cannot rule out most or all ini
 survivors being false alarms. This is not a measured contamination fraction for the 60
 selected dossiers or an individual planet probability. See the
 [rates, assumptions and limits](docs/phase4-local-review-2026-10-14.md#survey-wide-false-alarm-estimate).
+Immutable evidence releases: [b001 (16 dossiers)](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b001-v0.1.0),
+[b002 (4)](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b002-v0.1.0),
+[b003 (40)](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b003-v0.1.0).
 
 **[Run 6: 14 new dossiers and the complete 826-pass triage ledger](batches/run6-v1/README.md).**
 Fresh checks retain seven records with diagnostic warnings and seven without those

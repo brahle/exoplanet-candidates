@@ -3,6 +3,8 @@
 Provisional evidence-inspection records; all scientific assessments remain unclassified.
 Actual disclosure and immutable release metadata are recorded in [publication-receipt.json](publication-receipt.json).
 
+[Immutable b001 v0.1.0 evidence release (16 selected dossiers)](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b001-v0.1.0).
+
 All 28 registered signals are conserved in [outcomes.json](outcomes.json).
 A match hypothesis does not resolve the physical host. A ledger-only row is not an adjudicated rejection.
 

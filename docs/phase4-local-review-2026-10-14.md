@@ -110,3 +110,24 @@ The owner authorized this evidence-inspection release after reviewing the local 
 All scientific assessments remain unclassified. The batch publication receipts preserve
 actual first disclosure separately from versioned release publication; neither establishes
 discovery priority, peer review or a planetary interpretation.
+
+
+## Release receipts
+
+First public Git disclosure was observed at **2026-10-14 23:25:11 UTC**
+(15 October 00:25 locally), at commit `7016474145b9fe217ca8a13586e8ea427202a1fb`.
+All three immutable releases lock source `63378d632679cabd3a8cf47ca3a7b7dbc887ece8`
+and selected dossier versions **0.2.2**. Later receipt-only version changes preserve
+this locked version and the first-disclosure timestamp.
+
+| Batch | Selected dossiers | Immutable release | GitHub publication time (UTC) |
+|---|---:|---|---|
+| b001 | 16 | [v0.1.0](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b001-v0.1.0) | 2026-10-14 23:30:55 |
+| b002 | 4 | [v0.1.0](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b002-v0.1.0) | 2026-10-14 23:31:15 |
+| b003 | 40 | [v0.1.0](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b003-v0.1.0) | 2026-10-14 23:31:52 |
+
+Each archive contains the complete 246-dossier source snapshot; its manifest
+enumerates this batch's selected versions and binds its conserved ledger and
+assessment-bound reviews. The releases retain evidence-inspection coverage and
+unclassified scientific assessments. Public inspection certificates and detailed
+publication receipts are stored alongside each batch.
