@@ -101,7 +101,8 @@ def validate(record, folder):
         if path.stat().st_size != artifact['bytes'] or hashlib.sha256(path.read_bytes()).hexdigest() != artifact['sha256']:
             raise ValueError(f"Artifact bytes changed: {artifact['path']}")
         listed.add(artifact['path'])
-    actual = {p.relative_to(folder).as_posix() for p in folder.rglob('*') if p.is_file() and p.name != 'evidence-manifest.json'}
+    actual = {p.relative_to(folder).as_posix() for p in folder.rglob('*')
+              if p.is_file() and p != folder / 'evidence-manifest.json'}
     if actual != listed:
         raise ValueError(f"Unaccounted files: {sorted(actual ^ listed)}")
     if record['reproducibility']['level'] == 'public_numerical_rerun':

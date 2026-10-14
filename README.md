@@ -2,6 +2,7 @@
 
 Independent transit detections, dated research and inspectable evidence by Bruno Rahle.
 Each entry identifies a **signal**, records what was checked and retains what remains uncertain.
+Progressive survey batches use [terminal ledgers and deliberate signal amendments](docs/progressive-intake.md).
 An entry is an attributable research record; its presence here does not establish a planet,
 scientific priority or an official TESS designation.
 

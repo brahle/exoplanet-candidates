@@ -23,12 +23,16 @@ def prepare(root, batch, source):
     findings = load(source / 'findings.json')
     cohort = load(source / 'cohort.json')
     ledger = load(root / 'batches' / batch / 'outcomes.json')['outcomes']
+    if any(c.get('signal_id') for c in cohort) and not all(c.get('signal_id') for c in cohort):
+        raise ValueError('Signal-keyed cohort cannot contain anonymous rows')
+    key = 'signal_id' if cohort and all(c.get('signal_id') for c in cohort) else 'tic'
     if (len(cohort) != summary['cohort_count'] or
-            len({c['tic'] for c in cohort}) != len(cohort) or
+            len({c[key] for c in cohort}) != len(cohort) or
             dict(Counter(c['legacy_class'] for c in cohort)) != summary['original_class_counts']):
         raise ValueError('Whole upstream cohort is not conserved')
     if (len(findings) != summary['fresh_followup_count'] or
-            {f['signal_id'] for f in findings} != {r['signal_id'] for r in ledger}):
+            {f['signal_id'] for f in findings} != {
+                r['signal_id'] for r in ledger if r.get('assessment_sha256')}):
         raise ValueError('Follow-up and disclosure ledger differ')
     if len({f['signal_id'] for f in findings}) != len(findings):
         raise ValueError('Duplicate follow-up signal')

@@ -10,6 +10,8 @@ import math
 from pathlib import Path
 import re
 import subprocess
+import shutil
+import tempfile
 import tomllib
 
 
@@ -70,7 +72,7 @@ def route(ephemeris, photometry, robustness, check, prior):
     """Disclosure rule, not a calibrated scientific classification or discovery claim."""
     if check.get('error') or not check.get('result', {}).get('checked_sources'):
         return 'catalogue_check_failed'
-    if prior or check['result'].get('near_matches'):
+    if prior or check['result'].get('near_matches') or check['result'].get('variable_matches'):
         return 'prior_report_or_match_hypothesis'
     if check['result'].get('status') != 'no_match_in_checked_sources':
         return 'catalogue_status_unresolved'
@@ -88,14 +90,16 @@ def route(ephemeris, photometry, robustness, check, prior):
     return 'provisional_signal_record'
 
 
-def novelty_text(check):
+def novelty_text(check, previously_reported=False):
     radius = check['arguments']['cone_radius_arcsec']
+    finding = ('The existing public dossier for this same stable signal ID was returned. '
+               'This is a re-detection and new assessment of a previously reported signal.'
+               if previously_reported else 'No matching record was returned in those indexed checks.')
     return f'''# Dated catalogue check
 
 MCP checked {check['checked_utc']} at the adopted diagnostic period, using the recorded
 {radius:g}-arcsecond cone and period/harmonic matching arguments. The [receipt](evidence/catalogue-check.json)
-lists checked snapshots, source timestamps and declared unindexed sources. No matching record
-was returned in those indexed checks.
+lists checked snapshots, source timestamps and declared unindexed sources. {finding}
 
 [Additional saved hypotheses](evidence/direct-catalogue-hypotheses.json) retain any direct-source
 matches supplied to this export. An empty list does not attest that a direct catalogue query
@@ -107,21 +111,21 @@ physical-host attribution and discovery priority remain unresolved.
 '''
 
 
-def seal(folder, sources):
+def seal(folder, sources, signal_id=None):
     files = []
     for p in sorted(folder.rglob('*')):
-        if p.is_file() and p.name != 'evidence-manifest.json':
+        if p.is_file() and p != folder / 'evidence-manifest.json':
             relative = p.relative_to(folder).as_posix()
             item = {'path': relative, 'bytes': p.stat().st_size, 'sha256': sha(p),
                     'export_mode': 'derived public record'}
             if relative in sources:
                 item.update(source_sha256=sources[relative], export_mode='scientific JSON with private storage references removed')
             files.append(item)
-    write(folder / 'evidence-manifest.json', {'schema_version': '1.0', 'candidate': folder.name, 'files': files})
+    write(folder / 'evidence-manifest.json', {'schema_version': '1.0', 'candidate': signal_id or folder.name, 'files': files})
 
 
-def dossier(destination, assessment, check, documents, prior, date, review=None):
-    novelty_note = novelty_text(check)
+def dossier(destination, assessment, check, documents, prior, date, review=None, previously_reported=False):
+    novelty_note = novelty_text(check, previously_reported)
     seed = assessment['signal']; ep = documents['ephemeris.json'][0]
     if not re.fullmatch(r'tic-[0-9]+-s[0-9]{2}', seed['id']) or not seed['id'].startswith(f"tic-{seed['tic']}-"):
         raise ValueError('Unsafe or inconsistent signal identity')
@@ -176,9 +180,9 @@ def dossier(destination, assessment, check, documents, prior, date, review=None)
         'assessment': {'disposition': 'unclassified_transit_like_signal',
                        'source_localisation': {'status': 'unresolved', 'reason': 'No calibrated physical-host attribution; FITS target identity identifies the aperture only.', 'evidence': ['inputs.json']},
                        'timing_consistency': {'status': 'unresolved', 'reason': 'Signed event profiles retain failures, competing clock/shape hypotheses and conditional errors; independent clock/coverage calibration unfinished.', 'evidence': ['evidence/timing-summary.json', 'evidence/timing-events.json']}},
-        'novelty': {'status': 'no_match_in_checked_sources', 'checked_utc': check['checked_utc'],
+        'novelty': {'status': 'previously_reported' if previously_reported else 'no_match_in_checked_sources', 'checked_utc': check['checked_utc'],
                     'evidence': ['evidence/catalogue-check.json', 'evidence/direct-catalogue-hypotheses.json', 'NOVELTY.md'],
-                    'limits': ['No match in listed snapshots, not established discovery priority.', 'Unindexed literature and catalogue completeness remain unresolved.', 'Coordinates are static; nearby-source exclusion and proper-motion reconciliation remain incomplete.']},
+                    'limits': [('Re-detection of the existing stable signal; no new discovery claim.' if previously_reported else 'No match in listed snapshots, not established discovery priority.'), 'Unindexed literature and catalogue completeness remain unresolved.', 'Coordinates are static; nearby-source exclusion and proper-motion reconciliation remain incomplete.']},
         'provenance': {'analysis_date': date, 'source_revisions': {name[:-5]: data[2]['git']['commit'] for name, data in documents.items()},
                        'runs': {name[:-5]: data[2]['run_id'] for name, data in documents.items()}, 'input_lock': 'inputs.json'},
         'reproducibility': {'level': 'evidence_inspection', 'command': 'uv sync --frozen && uv run python scripts/catalogue.py check',
@@ -255,12 +259,43 @@ def verified_reviews(path, report_path):
 
 
 def prepare(report_path, checks_path, screens, destination, batch, reviews_path):
+    if not re.fullmatch(r'[a-zA-Z0-9_-]+', batch):
+        raise ValueError('Unsafe batch identifier')
+    if (destination / 'batches' / batch).exists():
+        raise ValueError('Immutable publication batch already exists')
     report_manifest = load(report_path.parent / 'manifest.json')
     if not report_manifest['ok'] or report_manifest['outputs'][report_path.name] != sha(report_path):
         raise ValueError('Batch report changed or failed')
     report = load(report_path)
+    assessments = {a['signal']['id']: a for a in report['assessments']}
+    if len(assessments) != len(report['assessments']):
+        raise ValueError('Duplicate assessment signal')
+    terminal = report.get('terminal_outcomes', [
+        {'row_id': sid, 'signal_id': sid, 'tic': a['signal']['tic'], 'route': 'completed',
+         'assessment_sha256': a['assessment_sha256']} for sid, a in assessments.items()])
+    allowed = {'completed', 'carried_forward', 'identity_hold', 'intake_hold', 'execution_failed'}
+    if any(r['route'] not in allowed for r in terminal):
+        raise ValueError('Publication waits for terminal outcomes; catalogue failures are non-terminal')
+    row_ids = [r.get('row_id', r['signal_id']) for r in terminal]
+    if len(set(row_ids)) != len(row_ids) or set(assessments) != {
+            r['signal_id'] for r in terminal if r['route'] in {'completed', 'carried_forward'}}:
+        raise ValueError('Terminal outcomes do not conserve assessments')
+    for row in terminal:
+        if row['route'] in {'identity_hold', 'intake_hold', 'execution_failed'} and not row.get('reason'):
+            raise ValueError('Terminal hold or failure needs a reason')
+        if row['route'] == 'execution_failed' and row.get('attempts', 0) < 3:
+            raise ValueError('Execution failure must exhaust the declared bounded retries')
+        if row['signal_id'] in assessments and row.get('assessment_sha256') != assessments[row['signal_id']]['assessment_sha256']:
+            raise ValueError('Terminal outcome refers to another assessment')
     reviews = verified_reviews(reviews_path, report_path)
     for assessment in report['assessments']:
+        identity = {k: v for k, v in assessment.items() if k != 'assessment_sha256'}
+        if hashlib.sha256(json.dumps(identity, sort_keys=True, separators=(',', ':'), allow_nan=False).encode()).hexdigest() != assessment['assessment_sha256']:
+            raise ValueError('Assessment content differs from its seal')
+        for stage in assessment['stages'].values():
+            for path, checksum in stage.get('artifacts', {}).items():
+                if sha(path) != checksum:
+                    raise ValueError('Assessment artifact changed')
         review = reviews.get(assessment['signal']['id'])
         if (not review or review['assessment_sha256'] != assessment['assessment_sha256'] or
                 review['disposition'] != 'unclassified_transit_like_signal' or
@@ -270,6 +305,10 @@ def prepare(report_path, checks_path, screens, destination, batch, reviews_path)
     checks = {r['signal_id']: r for r in rows}
     if len(checks) != len(rows) or set(checks) != {a['signal']['id'] for a in report['assessments']}:
         raise ValueError('Fresh checks must account for exactly every batch signal once')
+    if any(r.get('error') or not r.get('result', {}).get('checked_sources') or
+           r['result'].get('status') not in {'no_match_in_checked_sources', 'near_matches_found', 'variable_star_match'}
+           for r in rows):
+        raise ValueError('A failed catalogue check is non-terminal')
     hypotheses = {}
     snapshots = []
     for path in screens:
@@ -283,7 +322,64 @@ def prepare(report_path, checks_path, screens, destination, batch, reviews_path)
         for line in path.read_text().splitlines():
             row = json.loads(line); hypotheses.setdefault(row['signal_id'], []).append(row)
     outcomes = []; date = datetime.now(timezone.utc).date().isoformat()
-    for a in report['assessments']:
+    # Validate and build everything before committing any destination directory.
+    destination.mkdir(parents=True, exist_ok=True)
+    with tempfile.TemporaryDirectory(prefix='.export-', dir=destination) as temporary:
+        staging = Path(temporary)
+        _prepare_rows(terminal, assessments, checks, hypotheses, reviews, staging,
+                      destination, batch, date, outcomes)
+        counts = dict(Counter(r['route'] for r in outcomes))
+        write(staging / 'batches' / batch / 'outcomes.json', {'batch': batch, 'date': date,
+            'count': len(outcomes), 'routes': counts, 'report_sha256': sha(report_path),
+            'fresh_checks_sha256': sha(checks_path), 'direct_screen_sha256': [sha(p) for p in screens],
+            'occurrences': public(report.get('occurrences', [])), 'outcomes': outcomes})
+        write(staging / 'batches' / batch / 'catalogue-snapshots.json', snapshots)
+        write(staging / 'batches' / batch / 'reviews.json', public(load(reviews_path)))
+        for folder in sorted((staging / 'candidates').glob('*')):
+            final = destination / 'candidates' / folder.name
+            if final.exists():
+                raise ValueError('Refusing to overwrite a signal')
+        for folder in sorted((staging / 'candidates').glob('*')):
+            final = destination / 'candidates' / folder.name
+            final.parent.mkdir(parents=True, exist_ok=True)
+            folder.rename(final)
+        final_batch = destination / 'batches' / batch
+        final_batch.parent.mkdir(parents=True, exist_ok=True)
+        (staging / 'batches' / batch).rename(final_batch)
+    print(json.dumps({'count': len(outcomes), 'routes': counts}))
+
+
+def _prepare_rows(terminal, assessments, checks, hypotheses, reviews, staging,
+                  destination, batch, date, outcomes):
+    for occurrence in terminal:
+        sid = occurrence['signal_id']
+        row = public(dict(occurrence))
+        if occurrence['route'] in {'identity_hold', 'intake_hold', 'execution_failed'}:
+            outcomes.append(row)
+            continue
+        a = assessments[sid]
+        prior = hypotheses.get(sid, [])
+        check = checks[sid]
+        for field in ('ra_deg', 'dec_deg'):
+            if field not in a['signal'] or not math.isclose(check[field], a['signal'][field], rel_tol=0, abs_tol=1e-12):
+                raise ValueError('Catalogue check is for another position')
+        if 'tic' in check and str(check['tic']) != a['signal']['tic']:
+            raise ValueError('Catalogue target differs')
+        row.update(assessment_sha256=a['assessment_sha256'], catalogue_check=public(check),
+                   direct_catalogue_hypotheses=public(prior))
+        if occurrence['route'] == 'carried_forward':
+            row['route'] = 'carried_forward'
+            outcomes.append(row)
+            continue
+        near = check['result'].get('near_matches', [])
+        self_report = bool(near) and (destination / 'candidates' / sid).exists() and all(
+            m.get('sources') == ['git:brahle/exoplanet-candidates'] and
+            sid in m.get('source_keys', []) and str(m.get('tic_id')) == a['signal']['tic']
+            for m in near)
+        if prior or (near and not self_report) or check['result'].get('variable_matches'):
+            row['route'] = 'prior_report_or_match_hypothesis'
+            outcomes.append(row)
+            continue
         docs = {}
         for stage, names in {'acquisition': ['inputs.json'], 'photometry': ['ephemeris.json', 'photometry.json'],
                              'robustness': ['robustness.json'], 'timing': ['timing-summary.json', 'timing-events.json', 'timing-controls.json'],
@@ -292,24 +388,94 @@ def prepare(report_path, checks_path, screens, destination, batch, reviews_path)
                 docs[name] = artifact(a['stages'][stage], name)
         ep, phot = docs['ephemeris.json'][0], docs['photometry.json'][0]
         expected = ep['ephemeris'] if ep.get('adopted') else a['signal']
-        check = checks[a['signal']['id']]
         for field in ('ra_deg', 'dec_deg', 'period_d'):
             if not math.isclose(check[field], expected[field], rel_tol=0, abs_tol=1e-12):
                 raise ValueError('Catalogue check is for another ephemeris/position')
-        prior = hypotheses.get(a['signal']['id'], [])
-        decision = route(ep, phot, a['stages']['robustness'].get('metrics', {}), check, prior)
-        outcomes.append({'signal_id': a['signal']['id'], 'tic': a['signal']['tic'], 'route': decision,
-                         'assessment_sha256': a['assessment_sha256'], 'catalogue_check': public(check),
-                         'direct_catalogue_hypotheses': public(prior)})
+        routing_check = check
+        if self_report:
+            routing_check = dict(check, result=dict(check['result'], near_matches=[], status='no_match_in_checked_sources'))
+            row['novelty'] = 'previously_reported'
+        decision = route(ep, phot, a['stages']['robustness'].get('metrics', {}), routing_check, prior)
+        row['route'] = decision
         if decision == 'provisional_signal_record':
-            dossier(destination, a, check, docs, prior, date, reviews[a['signal']['id']])
-    counts = dict(Counter(r['route'] for r in outcomes))
-    write(destination / 'batches' / batch / 'outcomes.json', {'batch': batch, 'date': date, 'count': len(outcomes), 'routes': counts,
-        'report_sha256': sha(report_path), 'fresh_checks_sha256': sha(checks_path),
-        'direct_screen_sha256': [sha(p) for p in screens], 'outcomes': outcomes})
-    write(destination / 'batches' / batch / 'catalogue-snapshots.json', snapshots)
-    write(destination / 'batches' / batch / 'reviews.json', public(load(reviews_path)))
-    print(json.dumps({'count': len(outcomes), 'routes': counts}))
+            dossier(staging, a, check, docs, prior, date, reviews[sid], self_report)
+            if (destination / 'candidates' / sid).exists():
+                old = destination / 'candidates' / sid
+                row.update(route='amendment_pending', previous_manifest_sha256=sha(old / 'evidence-manifest.json'))
+                amendment = staging / 'batches' / batch / 'amendments' / sid
+                amendment.parent.mkdir(parents=True, exist_ok=True)
+                (staging / 'candidates' / sid).rename(amendment)
+                row['amendment_manifest_sha256'] = sha(amendment / 'evidence-manifest.json')
+        outcomes.append(row)
+
+
+def amend(destination, batch, signal_id):
+    """Deliberately apply a staged, reviewed amendment while preserving prior bytes."""
+    import catalogue
+    if not re.fullmatch(r'[a-zA-Z0-9_-]+', batch) or not re.fullmatch(r'tic-\d+-s\d{2,}', signal_id):
+        raise ValueError('Unsafe amendment identity')
+    batch_dir = destination / 'batches' / batch
+    rows = load(batch_dir / 'outcomes.json')['outcomes']
+    row = next(r for r in rows if r['signal_id'] == signal_id)
+    if row['route'] != 'amendment_pending':
+        raise ValueError('No reviewed amendment pending for this signal')
+    receipt = batch_dir / 'amendment-receipts' / (signal_id + '.json')
+    if receipt.exists():
+        raise ValueError('Immutable amendment already applied')
+    old_folder = destination / 'candidates' / signal_id
+    source = batch_dir / 'amendments' / signal_id
+    if (sha(old_folder / 'evidence-manifest.json') != row['previous_manifest_sha256'] or
+            sha(source / 'evidence-manifest.json') != row['amendment_manifest_sha256']):
+        raise ValueError('Amendment or previous dossier changed since review')
+    old, new = load(old_folder / 'candidate.json'), load(source / 'candidate.json')
+    catalogue.validate(old, old_folder)
+    catalogue.validate(new, source)
+    if old['id'] != new['id'] or old['target']['tic'] != new['target']['tic']:
+        raise ValueError('Amendment changes stable identity')
+    if load(source / 'analysis-settings.json')['original_assessment_sha256'] != row['assessment_sha256']:
+        raise ValueError('Amendment assessment differs')
+    major, minor, _ = map(int, old['version'].split('.'))
+    new['version'] = f'{major}.{minor + 1}.0'
+    new['history'] = old['history'] + [{'date': datetime.now(timezone.utc).date().isoformat(),
+        'version': new['version'], 'change': 'New sealed input assessment; prior dossier and all evidence archived. Local amendment awaiting deliberate release.'}]
+    publication = dict(old['publication'])
+    if publication['first_public_utc']:
+        publication.update(state='disclosed', disclosure_url=publication.get('disclosure_url') or publication['release_url'],
+                           release_url=None, doi=None)
+    new['publication'] = publication
+    # Recoverable swap: a crash leaves the previous directory beside its exact
+    # replacement, rather than deleting the only copy of public evidence.
+    replacement = old_folder.with_name('.' + signal_id + '-amendment')
+    backup = old_folder.with_name('.' + signal_id + '-previous')
+    if replacement.exists() or backup.exists():
+        raise ValueError('Unfinished amendment requires recovery before retrying')
+    shutil.copytree(source, replacement)
+    history = replacement / 'evidence' / ('prior-v' + old['version'])
+    shutil.copytree(old_folder, history)
+    new['evidence'].append(history.relative_to(replacement).as_posix() + '/candidate.json')
+    write(replacement / 'candidate.json', new)
+    with (replacement / 'README.md').open('a') as stream:
+        stream.write('\nThis local amendment preserves the signal’s first public disclosure. '
+                     'Its new analysis version awaits deliberate release; previous evidence is archived.\n')
+    sources = {f['path']: f['source_sha256'] for f in load(source / 'evidence-manifest.json')['files'] if 'source_sha256' in f}
+    seal(replacement, sources, signal_id)
+    # Validation requires the stable signal directory name.
+    old_folder.rename(backup)
+    try:
+        replacement.rename(old_folder)
+        catalogue.validate(load(old_folder / 'candidate.json'), old_folder)
+        write(receipt, {'signal_id': signal_id, 'previous_version': old['version'],
+            'version': new['version'], 'assessment_sha256': row['assessment_sha256'],
+            'first_public_utc': publication['first_public_utc'], 'state': 'local_pending_release',
+            'prior_manifest_sha256': row['previous_manifest_sha256'],
+            'amended_manifest_sha256': sha(old_folder / 'evidence-manifest.json')})
+    except BaseException:
+        if old_folder.exists():
+            old_folder.rename(replacement)
+        backup.rename(old_folder)
+        raise
+    shutil.rmtree(backup)
+    return load(receipt)
 
 
 def main():

@@ -41,7 +41,7 @@ def batch_records(root, batch):
     folder = root / 'batches' / safe_name(batch)
     outcomes = load(folder / 'outcomes.json')
     rows = outcomes['outcomes']
-    if (len(rows) != outcomes['count'] or len({r['signal_id'] for r in rows}) != len(rows)
+    if (len(rows) != outcomes['count'] or len({r.get('row_id', r['signal_id']) for r in rows}) != len(rows)
             or dict(Counter(r['route'] for r in rows)) != outcomes['routes']):
         raise ValueError('Batch ledger does not conserve its input records')
     review_doc = load(folder / 'reviews.json')
@@ -56,10 +56,21 @@ def batch_records(root, batch):
         reviews[review['signal_id']] = review
     chosen = []
     for row in rows:
+        if row['route'] in {'identity_hold', 'intake_hold', 'execution_failed'}:
+            if not row.get('reason') or row.get('assessment_sha256'):
+                raise ValueError('Malformed ledger-only outcome')
+            continue
         review = reviews.get(row['signal_id'])
         if not review or review['assessment_sha256'] != row['assessment_sha256']:
             raise ValueError('Missing or stale assessment review')
-        if row['route'] != 'provisional_signal_record':
+        if row['route'] == 'amendment_pending':
+            receipt = folder / 'amendment-receipts' / (row['signal_id'] + '.json')
+            if not receipt.exists():
+                raise ValueError('Apply and validate pending amendments before release')
+            applied = load(receipt)
+            if applied['assessment_sha256'] != row['assessment_sha256']:
+                raise ValueError('Amendment receipt refers to another assessment')
+        elif row['route'] != 'provisional_signal_record':
             continue
         record = records[row['signal_id']]
         if (review['disposition'] != record['assessment']['disposition'] or
