@@ -19,6 +19,34 @@ catalogue hypotheses do not establish the source of a dip or close its analysis.
 their failed or unadopted fit evidence. Routing also considers catalogue matches,
 so those ten do not all appear in the no-adopted-ephemeris column.
 
+## Survey-wide false-alarm estimate
+
+Added 15 October 2026, using the saved gate-2 results and the sealed b003 survey
+snapshot. Rates count stars with any automatic-triage survivor; vetting errors
+count as survivors in the null test.
+
+| Sample | Survivor stars / searched stars | Survivor rate | Upper endpoint of two-sided 95% Wilson interval |
+|---|---:|---:|---:|
+| Inverted null controls | 2 / 1,500 | 0.133% | 0.485% |
+| Scrambled null controls | 0 / 1,500 | 0% | 0.255% |
+| Real survey through b003 | 111 / 27,653 | 0.401% (about 0.40%) | Not used for this comparison |
+
+Using the higher observed null-control rate, `(2/1500) / (111/27653) = 0.332`:
+**roughly one third of the initial survey survivors could be false alarms from
+noise or stellar variability, before counting eclipsing binaries**, if the null
+controls represent the real survey background. The null rate's 0.485% upper
+endpoint exceeds the real survey's approximately 0.40% survivor rate, so this
+comparison **cannot rule out most or all initial survivors being false alarms**.
+
+This is a conditional survey-level contamination estimate. The transformed
+controls may not reproduce every real false-alarm mechanism. It is not a
+calibrated per-signal false-alarm probability, an astrophysical false-positive
+probability, or a measured contamination fraction for the 60 dossiers selected
+after additional vetting. Binary/blend contamination needs separate assessment;
+whole-search reliability remains open. The real-run denominator excludes three
+no-result stars from 27,656 completed targets and is a dated snapshot, not a live
+rate. [Source counts, intervals, hashes and calculation](phase4-false-alarm-estimate-2026-10-15.json).
+
 ## Fresh catalogue and stellar context
 
 The configured Exoplanet MCP was queried at the fitted period where an adopted

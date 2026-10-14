@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "documented_date": "2026-10-15",
+  "scope": "Conditional survey-wide comparison for initial search/automatic-triage survivors at sealed b003; not the selected 60 dossiers",
+  "rate_unit": "fraction_of_stars",
+  "null_controls": {
+    "experiment": "Phase 4 fresh-host re-gate (gate 2)",
+    "source_revision": "c7f780c",
+    "source_gate_json_sha256": "268b8f079b2ac7058490d432b886c4f65dbaae220016d9489b1ea234ac86e1db",
+    "interval": {
+      "method": "Wilson score",
+      "confidence_level": 0.95,
+      "sides": "two-sided"
+    },
+    "survivor_definition": "Any automatic-triage survivor on a host; vetting errors count as survivors",
+    "inverted": {
+      "k": 2,
+      "n": 1500,
+      "rate": 0.0013333333333333333,
+      "wilson95": [
+        0.00036572427558412583,
+        0.004848561296010212
+      ]
+    },
+    "scrambled": {
+      "k": 0,
+      "n": 1500,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.002554430720181488
+      ]
+    }
+  },
+  "real_run_snapshot": {
+    "through_batch": "b003",
+    "launch_commit": "917b726",
+    "source_batch_json_sha256": "cfa2d4c1a2504b60cc36ad6a1cfb5e2725cf20ff3b43a949520e771429caf45f",
+    "stars_complete": 27656,
+    "stars_searched": 27653,
+    "no_result": 3,
+    "survivor_stars": 111,
+    "survivor_rate": 0.004014031027374968
+  },
+  "comparison": {
+    "formula": "(2 / 1500) / (111 / 27653)",
+    "inverted_null_rate_over_real_survivor_rate": 0.3321681681681682,
+    "null_upper_endpoint_exceeds_real_survivor_rate": true,
+    "interpretation": "If the null controls represent the real survey background, roughly one third of initial survivors could be noise/stellar-variability false alarms before eclipsing binaries. The upper endpoint cannot rule out most or all.",
+    "limits": [
+      "Transfer from finite transformed controls to the real population is an assumption, not established exchangeability.",
+      "The rate ratio is a conditional population comparison, not a calibrated individual false-alarm probability or astrophysical FPP.",
+      "It is not a measured contamination fraction for the 60 dossiers selected after further vetting.",
+      "Eclipsing binaries, blends and other astrophysical contaminants require separate assessment.",
+      "The live run can change after the sealed b003 snapshot; these are dated rates."
+    ]
+  }
+}

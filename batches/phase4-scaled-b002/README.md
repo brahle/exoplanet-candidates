@@ -14,6 +14,23 @@ A match hypothesis does not resolve the physical host. A ledger-only row is not 
 | provisional_signal_record | 4 |
 | prior_report_or_match_hypothesis | 3 |
 
+## Survey-wide false-alarm context
+
+The fresh-host gate-2 inverted-null test left **2/1,500 survivors (0.133%, about
+0.13%)**, with a **0.485% upper endpoint of the two-sided 95% Wilson interval**.
+The real survey through sealed b003 left **111/27,653 (0.401%, about 0.40%)**.
+If the null controls represent the real survey background, their rate ratio is
+about **one third**: that fraction of initial survivors could be noise or
+stellar-variability false alarms **before counting eclipsing binaries**. Because
+the null upper endpoint exceeds the real survivor rate, this comparison cannot
+rule out **most or all** initial survivors being false alarms.
+
+This is a conditional survey-level comparison, not an individual signal's
+false-alarm/astrophysical false-positive probability or a measured contamination
+fraction for the 60 later-selected dossiers. Whole-search reliability remains
+open. The scrambled controls had 0/1,500 survivors (Wilson upper endpoint 0.255%).
+[Full interpretation and dated source calculation](../../docs/phase4-local-review-2026-10-14.md#survey-wide-false-alarm-estimate).
+
 ## Signals
 
 Periods below are adopted conditional diagnostic values, or the unadopted discovery seed where the fit failed. All assessments remain unclassified.
