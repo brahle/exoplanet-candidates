@@ -23,6 +23,10 @@ replacement in `batches/<batch>/amendments/<id>/`, records `amendment_pending`, 
 leaves the current dossier untouched. An exact DB match to this repository's own
 stable ID is retained as `previously_reported`; it does not suppress an amendment
 or become a new discovery claim. Other match hypotheses remain in the ledger.
+New adverse or inconclusive assessments of an existing dossier also stage an
+amendment. They retain the prior dated measurements and their original evidence,
+then add the new diagnostics and catalogue hypotheses in a separate evidence
+section. They explicitly state that the old values are not new fit estimates.
 
 Apply one staged amendment deliberately:
 

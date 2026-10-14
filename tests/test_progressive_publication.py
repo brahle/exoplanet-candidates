@@ -123,6 +123,28 @@ class ProgressivePublication(unittest.TestCase):
                 export.amend(repo, 'acceptance', 'tic-123-s01')
             with self.assertRaisesRegex(ValueError, 'already exists'):
                 export.prepare(report, check_path, [], repo, 'acceptance', review_path)
+            # A new external hypothesis also amends an existing record, while
+            # preserving its previous fit rather than fabricating new errors.
+            prior_signal = export.load(old_folder / 'candidate.json')['signal']
+            adverse_report = base / 'adverse/report.json'
+            export.write(adverse_report, {'assessments': [a], 'terminal_outcomes': [rows[0]]})
+            export.write(adverse_report.parent / 'manifest.json', {'ok': True,
+                'outputs': {'report.json': export.sha(adverse_report)}})
+            adverse_reviews = base / 'adverse-reviews.json'
+            export.write(adverse_reviews, {'report_sha256': export.sha(adverse_report), 'reviews': [reviews[0]]})
+            adverse_checks = base / 'adverse-checks.jsonl'
+            adverse_checks.write_text(json.dumps(dict(check, result={'status': 'variable_star_match',
+                'checked_sources': ['snapshot'], 'variable_matches': [{'source': 'EB'}]}))+'\n')
+            export.prepare(adverse_report, adverse_checks, [], repo, 'adverse', adverse_reviews)
+            self.assertEqual(export.load(repo / 'batches/adverse/outcomes.json')['routes'], {'amendment_pending': 1})
+            export.amend(repo, 'adverse', 'tic-123-s01')
+            newest = export.load(old_folder / 'candidate.json')
+            self.assertEqual(newest['signal'], prior_signal)
+            self.assertEqual(newest['publication']['first_public_utc'], old['publication']['first_public_utc'])
+            self.assertEqual(newest['version'], '0.3.0')
+            self.assertEqual(newest['novelty']['status'], 'unresolved')
+            self.assertTrue((old_folder / 'evidence/progressive/adverse/catalogue-check.json').exists())
+            catalogue.validate(newest, old_folder)
 
     def test_followup_keys_multiple_signals_per_tic(self):
         with tempfile.TemporaryDirectory() as temp:

@@ -376,7 +376,9 @@ def _prepare_rows(terminal, assessments, checks, hypotheses, reviews, staging,
             m.get('sources') == ['git:brahle/exoplanet-candidates'] and
             sid in m.get('source_keys', []) and str(m.get('tic_id')) == a['signal']['tic']
             for m in near)
-        if prior or (near and not self_report) or check['result'].get('variable_matches'):
+        existing = (destination / 'candidates' / sid).exists()
+        matched = prior or (near and not self_report) or check['result'].get('variable_matches')
+        if matched and not existing:
             row['route'] = 'prior_report_or_match_hypothesis'
             outcomes.append(row)
             continue
@@ -406,7 +408,59 @@ def _prepare_rows(terminal, assessments, checks, hypotheses, reviews, staging,
                 amendment.parent.mkdir(parents=True, exist_ok=True)
                 (staging / 'candidates' / sid).rename(amendment)
                 row['amendment_manifest_sha256'] = sha(amendment / 'evidence-manifest.json')
+        elif existing:
+            # Adverse or inconclusive new evidence must also reach the existing
+            # record. Retain its prior measurements, explicitly identified as
+            # such, rather than inventing a replacement fit.
+            amendment = staging / 'batches' / batch / 'amendments' / sid
+            assessment_amendment(destination / 'candidates' / sid, amendment,
+                                 batch, a, check, docs, prior, reviews[sid], decision)
+            row.update(route='amendment_pending', assessment_route=decision,
+                       amendment_kind='assessment_only',
+                       previous_manifest_sha256=sha(destination / 'candidates' / sid / 'evidence-manifest.json'),
+                       amendment_manifest_sha256=sha(amendment / 'evidence-manifest.json'))
         outcomes.append(row)
+
+
+def assessment_amendment(old_folder, amendment, batch, assessment, check, docs, prior, review, decision):
+    """Stage negative findings while keeping earlier measurements/provenance intact."""
+    old = load(old_folder / 'candidate.json')
+    if old['assessment']['disposition'] != 'unclassified_transit_like_signal':
+        raise ValueError('A stronger existing classification needs a separate scientific review')
+    shutil.copytree(old_folder, amendment)
+    relative = 'evidence/progressive/' + batch
+    hashes = {f['path']: f['source_sha256'] for f in load(old_folder / 'evidence-manifest.json')['files'] if 'source_sha256' in f}
+    for name, (value, source, _) in docs.items():
+        write(amendment / relative / name, public(value))
+        hashes[relative + '/' + name] = sha(source)
+    write(amendment / relative / 'catalogue-check.json', public(check))
+    write(amendment / relative / 'direct-hypotheses.json', public(prior))
+    write(amendment / relative / 'review.json', public(review))
+    write(amendment / relative / 'assessment.json', {
+        'signal_id': old['id'], 'assessment_sha256': assessment['assessment_sha256'],
+        'route': decision, 'blocking_gates': assessment['blocking_gates'],
+        'measurement_policy': 'Root signal values remain dated measurements from the previous dossier; new diagnostics do not supply a selected replacement fit.'})
+    additions = [relative + '/' + name for name in docs] + [relative + '/' + n for n in
+        ['catalogue-check.json', 'direct-hypotheses.json', 'review.json', 'assessment.json']]
+    old['evidence'] = list(dict.fromkeys(old['evidence'] + additions))
+    old['novelty'].update(status='unresolved', checked_utc=check['checked_utc'],
+                         evidence=list(dict.fromkeys(old['novelty']['evidence'] +
+                            [relative + '/catalogue-check.json', relative + '/direct-hypotheses.json'])))
+    old['novelty']['limits'].append('New assessment and catalogue hypotheses retained; prior novelty interpretation must be reviewed.')
+    write(amendment / 'candidate.json', old)
+    settings = load(amendment / 'analysis-settings.json')
+    settings['prior_measurement_assessment_sha256'] = settings['original_assessment_sha256']
+    settings['original_assessment_sha256'] = assessment['assessment_sha256']
+    settings['latest_assessment_only'] = relative + '/assessment.json'
+    write(amendment / 'analysis-settings.json', settings)
+    with (amendment / 'README.md').open('a') as stream:
+        stream.write('\n## New adverse or inconclusive assessment\n\n'
+            f'Outcome: `{decision}`. [Latest dated findings]({relative}/assessment.json). '
+            'The signal measurements above remain the previous dated measurements; '
+            'they are not estimates from this new assessment. New catalogue hypotheses '
+            'and all supporting/adverse diagnostic files are retained. Scientific '
+            'classification remains unclassified.\n')
+    seal(amendment, hashes)
 
 
 def amend(destination, batch, signal_id):
