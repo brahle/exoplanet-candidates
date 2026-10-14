@@ -1,6 +1,6 @@
 # Current warning flags
 
-142 records. This is a generated view, assessed per record. [Classification definitions](../../docs/classification.md).
+167 records. This is a generated view, assessed per record. [Classification definitions](../../docs/classification.md).
 
 | Signal | Period (d) | Progress | Assessment | Warning flags |
 |---|---:|---|---|---|
@@ -17,9 +17,12 @@
 | [tic-134412679-s01](../../candidates/tic-134412679-s01/README.md) | 2.62818094 | screening | unclassified | binary_catalogue_match |
 | [tic-140175607-s01](../../candidates/tic-140175607-s01/README.md) | 0.69135013 | source_vetting | unclassified | binary_catalogue_match, nine_phase_scan_uncorrected, odd_even, phase_half_secondary |
 | [tic-141939616-s01](../../candidates/tic-141939616-s01/README.md) | 11.74540477 | screened | unclassified | external_adverse_report |
+| [tic-143896115-s01](../../candidates/tic-143896115-s01/README.md) | 3.50636424 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-144003599-s01](../../candidates/tic-144003599-s01/README.md) | 1.07611322 | screened | unclassified | binary_catalogue_match |
+| [tic-146612375-s01](../../candidates/tic-146612375-s01/README.md) | 22.32625268 | source_vetting | unclassified | odd_even_conditional_tension |
 | [tic-146998411-s01](../../candidates/tic-146998411-s01/README.md) | 1.68838625 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-147024543-s01](../../candidates/tic-147024543-s01/README.md) | 2.79668892 | screened | unclassified | binary_catalogue_match, nine_phase_scan_uncorrected |
+| [tic-149640591-s01](../../candidates/tic-149640591-s01/README.md) | 2.00026962 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-151437417-s01](../../candidates/tic-151437417-s01/README.md) | 0.87033091 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected, odd_even |
 | [tic-158159741-s01](../../candidates/tic-158159741-s01/README.md) | 1.80689752 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected |
 | [tic-158620278-s01](../../candidates/tic-158620278-s01/README.md) | 13.47534119 | screened | unclassified | elevated_ruwe |
@@ -27,38 +30,51 @@
 | [tic-161357250-s01](../../candidates/tic-161357250-s01/README.md) | 4.92272145 | screened | unclassified | elevated_ruwe |
 | [tic-162620520-s01](../../candidates/tic-162620520-s01/README.md) | 3.41287730 | screened | unclassified | odd_even |
 | [tic-163031959-s01](../../candidates/tic-163031959-s01/README.md) | 1.54691113 | source_vetting | unclassified | off_target_diagnostic |
+| [tic-165274329-s01](../../candidates/tic-165274329-s01/README.md) | 10.35639411 | source_vetting | unclassified | odd_even_conditional_tension, scanned_secondary_uncorrected |
+| [tic-166883336-s01](../../candidates/tic-166883336-s01/README.md) | 0.69330132 | source_vetting | unclassified | odd_even_conditional_tension |
 | [tic-172943975-s01](../../candidates/tic-172943975-s01/README.md) | 4.03168546 | screened | unclassified | elevated_ruwe, external_adverse_report, nine_phase_scan_uncorrected |
 | [tic-178361782-s01](../../candidates/tic-178361782-s01/README.md) | 6.10646734 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected |
 | [tic-188129917-s01](../../candidates/tic-188129917-s01/README.md) | 3.25787118 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-189339098-s01](../../candidates/tic-189339098-s01/README.md) | 1.35180817 | screened | unclassified | binary_catalogue_match, elevated_ruwe, nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-189439662-s01](../../candidates/tic-189439662-s01/README.md) | 1.65037675 | screened | unclassified | nine_phase_scan_uncorrected |
+| [tic-19439828-s01](../../candidates/tic-19439828-s01/README.md) | 17.41349747 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-19899732-s01](../../candidates/tic-19899732-s01/README.md) | 0.64343548 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected, odd_even |
 | [tic-208432222-s01](../../candidates/tic-208432222-s01/README.md) | 5.86014120 | screened | unclassified | odd_even |
 | [tic-208666173-s01](../../candidates/tic-208666173-s01/README.md) | 1.14714379 | screening | unclassified | elevated_ruwe |
+| [tic-209241947-s01](../../candidates/tic-209241947-s01/README.md) | 12.82972049 | source_vetting | unclassified | period_cluster_13d |
 | [tic-216669784-s01](../../candidates/tic-216669784-s01/README.md) | 1.20129260 | source_vetting | unclassified | binary_catalogue_match, nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-21694454-s01](../../candidates/tic-21694454-s01/README.md) | 1.80974370 | screening | unclassified | binary_catalogue_match |
 | [tic-219382845-s01](../../candidates/tic-219382845-s01/README.md) | 1.11766988 | screened | unclassified | odd_even |
 | [tic-219452141-s01](../../candidates/tic-219452141-s01/README.md) | 1.39594665 | screened | unclassified | nine_phase_scan_uncorrected, odd_even |
+| [tic-22093252-s01](../../candidates/tic-22093252-s01/README.md) | 2.41127393 | source_vetting | unclassified | scanned_secondary_uncorrected |
+| [tic-221238153-s01](../../candidates/tic-221238153-s01/README.md) | 0.86863932 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-222224160-s01](../../candidates/tic-222224160-s01/README.md) | 1.63921964 | screening | unclassified | external_adverse_report |
 | [tic-23205275-s01](../../candidates/tic-23205275-s01/README.md) | 1.85886421 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-23205280-s01](../../candidates/tic-23205280-s01/README.md) | 1.85886380 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-243500407-s01](../../candidates/tic-243500407-s01/README.md) | 0.68639664 | screened | unclassified | external_adverse_report |
 | [tic-245101439-s01](../../candidates/tic-245101439-s01/README.md) | 3.47727242 | screened | unclassified | elevated_ruwe, external_adverse_report |
+| [tic-246327562-s01](../../candidates/tic-246327562-s01/README.md) | 16.19445645 | source_vetting | unclassified | odd_even_conditional_tension |
 | [tic-246469763-s01](../../candidates/tic-246469763-s01/README.md) | 1.77059904 | screened | unclassified | elevated_ruwe |
 | [tic-253145639-s01](../../candidates/tic-253145639-s01/README.md) | 1.32935234 | screening | unclassified | elevated_ruwe |
 | [tic-253347253-s01](../../candidates/tic-253347253-s01/README.md) | 1.27712500 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-253384622-s01](../../candidates/tic-253384622-s01/README.md) | 2.08705565 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
+| [tic-258714787-s01](../../candidates/tic-258714787-s01/README.md) | 0.82197304 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-260569590-s01](../../candidates/tic-260569590-s01/README.md) | 1.49506409 | source_vetting | unclassified | binary_catalogue_match, elevated_ruwe, nine_phase_scan_uncorrected, off_target_diagnostic, phase_half_secondary |
 | [tic-261102618-s01](../../candidates/tic-261102618-s01/README.md) | 2.93593065 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-261119502-s01](../../candidates/tic-261119502-s01/README.md) | 11.75651312 | physical_vetting | unclassified | external_adverse_report, nine_phase_scan_uncorrected |
 | [tic-261707476-s01](../../candidates/tic-261707476-s01/README.md) | 14.75344771 | source_vetting | unclassified | scanned_secondary_uncorrected |
+| [tic-262093857-s01](../../candidates/tic-262093857-s01/README.md) | 29.50374296 | source_vetting | unclassified | scanned_secondary_uncorrected |
+| [tic-266994937-s01](../../candidates/tic-266994937-s01/README.md) | 2.12264120 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-268187402-s01](../../candidates/tic-268187402-s01/README.md) | 1.59290959 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected |
 | [tic-268201230-s01](../../candidates/tic-268201230-s01/README.md) | 1.71398157 | screening | unclassified | elevated_ruwe |
+| [tic-272585011-s01](../../candidates/tic-272585011-s01/README.md) | 4.98292457 | source_vetting | unclassified | odd_even_conditional_tension |
 | [tic-276645751-s01](../../candidates/tic-276645751-s01/README.md) | 0.74768618 | screened | unclassified | nine_phase_scan_uncorrected |
+| [tic-280503057-s01](../../candidates/tic-280503057-s01/README.md) | 0.74000841 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-281705082-s01](../../candidates/tic-281705082-s01/README.md) | 1.45779611 | screened | unclassified | odd_even |
 | [tic-282413282-s01](../../candidates/tic-282413282-s01/README.md) | 3.44915412 | screened | unclassified | elevated_ruwe |
 | [tic-2835596-s01](../../candidates/tic-2835596-s01/README.md) | 1.60923180 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-286763467-s01](../../candidates/tic-286763467-s01/README.md) | 2.90251992 | screened | unclassified | binary_catalogue_match |
+| [tic-288765766-s01](../../candidates/tic-288765766-s01/README.md) | 2.41156008 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-290342858-s01](../../candidates/tic-290342858-s01/README.md) | 1.11379249 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected, odd_even, phase_half_secondary |
 | [tic-292291978-s01](../../candidates/tic-292291978-s01/README.md) | 11.48023544 | screened | unclassified | odd_even |
 | [tic-292547242-s01](../../candidates/tic-292547242-s01/README.md) | 7.13929992 | source_vetting | unclassified | early_prediction_imprecise, scanned_secondary_uncorrected |
@@ -91,6 +107,7 @@
 | [tic-362372394-s01](../../candidates/tic-362372394-s01/README.md) | 1.99200824 | screened | unclassified | elevated_ruwe, odd_even |
 | [tic-365363321-s01](../../candidates/tic-365363321-s01/README.md) | 5.83399104 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-365899880-s01](../../candidates/tic-365899880-s01/README.md) | 14.37124388 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
+| [tic-370679537-s01](../../candidates/tic-370679537-s01/README.md) | 1.44377110 | source_vetting | unclassified | odd_even_conditional_tension, weak_qualified_sector_dip |
 | [tic-380007573-s01](../../candidates/tic-380007573-s01/README.md) | 1.74291143 | screened | unclassified | nine_phase_scan_uncorrected |
 | [tic-384268936-s01](../../candidates/tic-384268936-s01/README.md) | 2.41820268 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected |
 | [tic-38593803-s01](../../candidates/tic-38593803-s01/README.md) | 4.70261764 | source_vetting | unclassified | odd_even_conditional_tension |
@@ -99,11 +116,13 @@
 | [tic-390438806-s01](../../candidates/tic-390438806-s01/README.md) | 1.04604644 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-395511355-s01](../../candidates/tic-395511355-s01/README.md) | 0.49073072 | screened | unclassified | nine_phase_scan_uncorrected, odd_even |
 | [tic-402682058-s01](../../candidates/tic-402682058-s01/README.md) | 1.71180008 | screened | unclassified | elevated_ruwe, external_adverse_report |
+| [tic-403412642-s01](../../candidates/tic-403412642-s01/README.md) | 0.82196601 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-403443129-s01](../../candidates/tic-403443129-s01/README.md) | 2.81741862 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-406803545-s01](../../candidates/tic-406803545-s01/README.md) | 0.84707432 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-409652504-s01](../../candidates/tic-409652504-s01/README.md) | 2.00058851 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-411812299-s01](../../candidates/tic-411812299-s01/README.md) | 1.88814907 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-413415228-s01](../../candidates/tic-413415228-s01/README.md) | 1.64314912 | screened | unclassified | binary_catalogue_match |
+| [tic-414182199-s01](../../candidates/tic-414182199-s01/README.md) | 3.62087087 | source_vetting | unclassified | odd_even_conditional_tension |
 | [tic-419165427-s01](../../candidates/tic-419165427-s01/README.md) | 2.36751358 | screened | unclassified | nine_phase_scan_uncorrected |
 | [tic-420631795-s01](../../candidates/tic-420631795-s01/README.md) | 0.78091733 | screened | unclassified | nine_phase_scan_uncorrected, odd_even |
 | [tic-423023660-s01](../../candidates/tic-423023660-s01/README.md) | 1.37219086 | screened | unclassified | nine_phase_scan_uncorrected |
@@ -125,7 +144,9 @@
 | [tic-455311098-s01](../../candidates/tic-455311098-s01/README.md) | 2.58490410 | screened | unclassified | elevated_ruwe, nine_phase_scan_uncorrected |
 | [tic-455325214-s01](../../candidates/tic-455325214-s01/README.md) | 1.03693740 | screened | unclassified | binary_catalogue_match |
 | [tic-455978103-s01](../../candidates/tic-455978103-s01/README.md) | 5.66426163 | screened | unclassified | external_adverse_report |
+| [tic-457267007-s01](../../candidates/tic-457267007-s01/README.md) | 13.56582239 | source_vetting | unclassified | period_cluster_13d |
 | [tic-457537281-s01](../../candidates/tic-457537281-s01/README.md) | 0.85189624 | screening | unclassified | external_adverse_report, odd_even |
+| [tic-463186778-s01](../../candidates/tic-463186778-s01/README.md) | 3.63694118 | source_vetting | unclassified | scanned_secondary_uncorrected |
 | [tic-463538362-s01](../../candidates/tic-463538362-s01/README.md) | 1.46719874 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-465040244-s01](../../candidates/tic-465040244-s01/README.md) | 0.90662305 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-466146018-s01](../../candidates/tic-466146018-s01/README.md) | 4.36261406 | screened | unclassified | nine_phase_scan_uncorrected, odd_even |
@@ -133,6 +154,7 @@
 | [tic-467059462-s01](../../candidates/tic-467059462-s01/README.md) | 1.13072694 | screening | unclassified | binary_catalogue_match |
 | [tic-467193799-s01](../../candidates/tic-467193799-s01/README.md) | 5.92773724 | screened | unclassified | elevated_ruwe, external_adverse_report |
 | [tic-46806792-s01](../../candidates/tic-46806792-s01/README.md) | 1.96780698 | screened | unclassified | external_adverse_report |
+| [tic-468207990-s01](../../candidates/tic-468207990-s01/README.md) | 1.77080244 | source_vetting | unclassified | scanned_secondary_uncorrected, weak_qualified_sector_dip |
 | [tic-48061356-s01](../../candidates/tic-48061356-s01/README.md) | 2.26204079 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-50020789-s01](../../candidates/tic-50020789-s01/README.md) | 0.90145937 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-5508653-s01](../../candidates/tic-5508653-s01/README.md) | 0.95356498 | screened | unclassified | nine_phase_scan_uncorrected |
@@ -144,5 +166,8 @@
 | [tic-73597516-s01](../../candidates/tic-73597516-s01/README.md) | 1.78896516 | screened | unclassified | nine_phase_scan_uncorrected, phase_half_secondary |
 | [tic-74743490-s01](../../candidates/tic-74743490-s01/README.md) | 0.84730942 | screened | unclassified | binary_catalogue_match, nine_phase_scan_uncorrected, odd_even |
 | [tic-7475565-s01](../../candidates/tic-7475565-s01/README.md) | 0.87847921 | screening | unclassified | elevated_ruwe |
+| [tic-79508759-s01](../../candidates/tic-79508759-s01/README.md) | 2.52947715 | source_vetting | unclassified | odd_even_conditional_tension |
 | [tic-79810298-s01](../../candidates/tic-79810298-s01/README.md) | 0.87270875 | source_vetting | unclassified | odd_even_conditional_tension |
+| [tic-89743317-s01](../../candidates/tic-89743317-s01/README.md) | 1.51263790 | source_vetting | unclassified | scanned_secondary_uncorrected |
+| [tic-91474214-s01](../../candidates/tic-91474214-s01/README.md) | 1.98542134 | source_vetting | unclassified | odd_even_conditional_tension, weak_qualified_sector_dip |
 | [tic-94012748-s01](../../candidates/tic-94012748-s01/README.md) | 6.90745441 | screened | unclassified | nine_phase_scan_uncorrected, odd_even |

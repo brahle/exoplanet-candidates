@@ -22,6 +22,7 @@ def prepare(root, batch, source):
     summary = load(source / 'summary.json')
     label = summary.get('label', 'Run 6 follow-up')
     provenance_key = summary.get('provenance_key', 'run6_followup')
+    progressive = provenance_key == 'progressive_followup'
     findings = load(source / 'findings.json')
     cohort = load(source / 'cohort.json')
     ledger = load(root / 'batches' / batch / 'outcomes.json')['outcomes']
@@ -64,7 +65,9 @@ def prepare(root, batch, source):
             'screen': {'priority': priority, 'all_joined_checks_available': False},
             'lightcurve': {'flags': f['flags']},
             'catalogues': {'binary_catalogue_warning': False, 'ruwe_warning': False,
-                'coverage': 'Saved 60-arcsec binary/variable queries have no match hypothesis here; '
+                'coverage': ('Saved 120-arcsec MCP queries have no match hypothesis here; '
+                             if progressive else
+                             'Saved 60-arcsec binary/variable queries have no match hypothesis here; ') +
                             'complete catalogue coverage and RUWE screening remain unqualified.'},
             'followup': public(f),
             'limits': summary['limits'],
@@ -76,7 +79,8 @@ def prepare(root, batch, source):
             'assessed_utc': manifest['finished_utc'],
             'progress': {'stage': 'source_vetting', 'stages': stages},
             'scientific_assessment': {'status': 'unclassified', 'planet_probability': None,
-                'basis': 'Fresh signed diagnostics and legacy pixel rankings; physical host, '
+                'basis': ('Fresh signed diagnostics and aperture centroid checks; ' if progressive else
+                          'Fresh signed diagnostics and legacy pixel rankings; ') + 'physical host, '
                          'timing qualification and planetary interpretation remain unresolved.',
                 'review_evidence': []},
             'initial_screen': {'outcome': 'warnings' if warnings else 'incomplete',

@@ -145,7 +145,7 @@ def enrich(root, batch, path):
                   'source_report_sha256': report_hash,
                   'unchanged': ['signal measurements', 'assessment', 'novelty', 'publication timestamps'],
                   'limits': ['Aperture catalogue context, not supported host attribution',
-                             'Duration uncertainty and physical transit parameters remain unfilled']}
+                             'This enrichment does not estimate transit parameters; retained fit uncertainties are unchanged']}
         if prepared:
             write(root / 'batches' / batch / 'stellar-enrichment.json', result)
         return result

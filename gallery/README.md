@@ -1,6 +1,6 @@
 # Candidate diagnostic gallery
 
-186 public dossiers. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
+246 dossiers: 186 previously disclosed and 60 local drafts awaiting owner review. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
 
 - [Page 1: candidates 1–24](page-01.md)
 - [Page 2: candidates 25–48](page-02.md)
@@ -9,8 +9,9 @@
 - [Page 5: candidates 97–120](page-05.md)
 - [Page 6: candidates 121–144](page-06.md)
 - [Page 7: candidates 145–168](page-07.md)
-- [Page 8: candidates 169–186](page-08.md)
+- [Page 8: candidates 169–192](page-08.md)
+- [Page 9: candidates 193–216](page-09.md)
+- [Page 10: candidates 217–240](page-10.md)
+- [Page 11: candidates 241–246](page-11.md)
 
 [Methods and rendering](../docs/diagnostic-figures.md).
-
-Run-6 BLS update: [revision receipt](receipts/run6-bls-v1.json), [previous batch receipt](receipts/run6-v1.json), [methods](../docs/diagnostic-figures.md).

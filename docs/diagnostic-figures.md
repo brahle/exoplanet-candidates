@@ -35,6 +35,28 @@ and power arrays. Exact inputs, settings, comparison results and limitations are
 in each current plot context. No ephemeris, assessment or planet probability is
 changed by these plots.
 
+## Phase 4 local drafts
+
+The 60 drafts from b001–b003 use the sealed launch source at `917b726` and its
+recorded native BLS kernel, verified against the launch kernel metadata. The
+launch grid spans 0.4 to min(100, baseline/2) days; it uses the original one-day
+biweight detrending, ten-minute weighted bins, seven recorded durations and
+oversampling five. Full original-grid spectra are reconstructed from sealed
+original cadence arrays. Raw realization and final binned BLS input hashes must
+match, together with every recorded numerical scalar at relative tolerance 1e-6 /
+absolute tolerance 1e-8. Intermediate pre-binning hash comparisons are retained,
+including mismatches. Original full-spectrum bytes are unavailable, so this is
+not a claim of historical spectrum-byte equivalence. Discovery clock/product
+masks differ from the timing-qualified fold; both scopes stay explicit.
+All three stage hashes match for the 60 final native-kernel reconstructions.
+
+Saved supervised-stage recipes are read from their sealed request artifacts;
+plotting does not substitute the current configuration. Conditional duration
+errors come directly from each saved fit covariance. All draft plots retain the
+unclassified assessment and unresolved source/timing limits.
+
+## Earlier batches
+
 Run-5 timelines use the primary acquisition masks (quality-zero, finite positive
 flux) and sector-median normalization. Red segments are saved local baselines;
 no global detrending is claimed. Folds subtract the saved additive baseline from
@@ -46,7 +68,7 @@ The duration and its conditional error are read from the dossier.
 The recorded periodogram is the uniquely matching observed full-search
 reconstruction, not a new search. Its sectors and preprocessing/time scope can
 differ from the fold, including clock-unverified QLP products withheld from local
-profiles. Original launch provenance remains unbound. An unavailable unique
+profiles. For the older Run-5 reconstruction, original launch provenance remains unbound. An unavailable unique
 spectrum is explicitly marked rather than silently substituted.
 
 The TIC464547401 adapter renders saved historical Phase-1 masked-biweight flux
