@@ -1,0 +1,1379 @@
+{
+  "disclosure_rule": "Positive under both baseline orders, >=2 usable sectors, positive all sector leaveouts; no indexed or direct-catalogue match hypothesis.",
+  "interpretation": "Record selection only; no calibrated detection or planet-probability threshold.",
+  "immutable_discovery_seed": {
+    "dec_deg": -38.1834758887,
+    "depth_ppm": 9941.646764066827,
+    "discovery": {
+      "batch": "b004",
+      "ephemeris_source": "vet-refined",
+      "epoch_offset": 2457000.0,
+      "files": [
+        [
+          "hlsp_qlp_tess_ffi_s0013-0000000327847776_tess_v01_llc.fits",
+          "dd52973b50371dff25b0e0091ff2b69b85100fbd31ca3e705d11b0c6dd61abf6"
+        ],
+        [
+          "hlsp_qlp_tess_ffi_s0039-0000000327847776_tess_v01_llc.fits",
+          "5fb11667da17f4b8ccee88bbb5f4a71b2eef7a8881c33d9ce2e5a7d84da2fdb6"
+        ],
+        [
+          "hlsp_qlp_tess_ffi_s0066-0000000327847776_tess_v01_llc.fits",
+          "2dbcbdfe1884d3f08db6ef31bbefe05619a0fbfcfcd76055a8b909103a8cfcc5"
+        ],
+        [
+          "hlsp_qlp_tess_ffi_s0093-0000000327847776_tess_v01_llc.fits",
+          "6adf6f266b08cf098f91b882e974f6febc3721a82d5edfe458ff52ee1caf6e0e"
+        ]
+      ],
+      "flags": [],
+      "format": "phase4-intake",
+      "hypotheses": [
+        "d9d80d7fcbd9a43f82a98d415cec45ae93081e06260b6756cfb0406c7fc2993e"
+      ],
+      "primary_source_key": "6786da6fef494af40e1874bb924de5679527effc0da3291df427736a41109912:2f779c74623e4036e9356b63a933c7d242f4b23c51adfbc93f32ff68513efa99:e464b8dbf7c26435280a9b1f536369bf601ec6014b249c112debc4ea01d3a7c8:real:0",
+      "source_keys": [
+        "6786da6fef494af40e1874bb924de5679527effc0da3291df427736a41109912:2f779c74623e4036e9356b63a933c7d242f4b23c51adfbc93f32ff68513efa99:e464b8dbf7c26435280a9b1f536369bf601ec6014b249c112debc4ea01d3a7c8:real:0"
+      ],
+      "time_scale": "TDB"
+    },
+    "duration_h": 4.489966717926321,
+    "epoch_bjd_tdb": 2458664.8200534643,
+    "id": "tic-327847776-s01",
+    "period_d": 14.262463404104487,
+    "ra_deg": 270.955743909,
+    "schema_version": 1,
+    "tic": "327847776"
+  },
+  "ephemeris_selection": "discovery",
+  "original_assessment_sha256": "b22e35d4c99f767aec625d4e0cd434b52a7f093dd0fc230752de621fbc771880",
+  "retained_unresolved_gates": [
+    "novelty",
+    "photometry",
+    "robustness",
+    "source_localisation",
+    "timing_consistency",
+    "astrophysical_alternatives",
+    "search_reliability",
+    "public_reproduction"
+  ],
+  "science_configuration_hashes": {
+    "inputs.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc",
+    "ephemeris.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc",
+    "photometry.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc",
+    "robustness.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc",
+    "timing-summary.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc",
+    "timing-events.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc",
+    "timing-controls.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc",
+    "alternative-summary.json": "1778d767f5329b2b6eda83692c92a164ab35c6a359408f5f6b1a14e773c33ffc"
+  },
+  "scientific_recipes": {
+    "inputs.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "71a43ec4e0d868e476d814765dbbd3e0ee12218ef138f17335e9cce6e13d4c91",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        },
+        "pixels": {
+          "identity_radius_arcsec": 5.0,
+          "vector_step_minutes": 30,
+          "clock_archive_tolerance_seconds": 1.0,
+          "clock_interpolation_tolerance_seconds": 0.01,
+          "cutout_size": 11,
+          "gaia_radius_arcsec": 240.0,
+          "gaia_max_rows": 10000,
+          "clock_max_pair_offset_seconds": 5.0,
+          "minimum_clock_matches": 10,
+          "minimum_clock_fraction": 0.99,
+          "minimum_coverage_fraction": 0.7,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "in_transit_duration": 0.35,
+          "baseline_exclusion_duration": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_transit_points": 2,
+          "minimum_baseline_each_side": 4,
+          "bootstrap_samples": 48,
+          "control_bootstrap_samples": 16,
+          "control_neighbours": 2,
+          "block_minutes": 30.0,
+          "random_seed": 464547401,
+          "fit_radius_pixels": 3.5,
+          "maximum_offset_pixels": 3.0,
+          "background_inner_radius_pixels": 4.0,
+          "uncertainty_floor_pixels": 0.1,
+          "error_floor_median_fraction": 0.01,
+          "bound_fraction": 0.95,
+          "profile_sigma_pixels": [
+            0.7,
+            1.0,
+            1.3
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.65,
+            0.8
+          ],
+          "minimum_diagnostic_snr": 3.0,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "maximum_fit_evaluations": 120,
+          "centroid_grid_points": 7,
+          "science_columns_inclusive": [
+            45,
+            2092
+          ],
+          "science_rows_inclusive": [
+            1,
+            2048
+          ]
+        }
+      }
+    },
+    "ephemeris.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "71a43ec4e0d868e476d814765dbbd3e0ee12218ef138f17335e9cce6e13d4c91",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        },
+        "pixels": {
+          "identity_radius_arcsec": 5.0,
+          "vector_step_minutes": 30,
+          "clock_archive_tolerance_seconds": 1.0,
+          "clock_interpolation_tolerance_seconds": 0.01,
+          "cutout_size": 11,
+          "gaia_radius_arcsec": 240.0,
+          "gaia_max_rows": 10000,
+          "clock_max_pair_offset_seconds": 5.0,
+          "minimum_clock_matches": 10,
+          "minimum_clock_fraction": 0.99,
+          "minimum_coverage_fraction": 0.7,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "in_transit_duration": 0.35,
+          "baseline_exclusion_duration": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_transit_points": 2,
+          "minimum_baseline_each_side": 4,
+          "bootstrap_samples": 48,
+          "control_bootstrap_samples": 16,
+          "control_neighbours": 2,
+          "block_minutes": 30.0,
+          "random_seed": 464547401,
+          "fit_radius_pixels": 3.5,
+          "maximum_offset_pixels": 3.0,
+          "background_inner_radius_pixels": 4.0,
+          "uncertainty_floor_pixels": 0.1,
+          "error_floor_median_fraction": 0.01,
+          "bound_fraction": 0.95,
+          "profile_sigma_pixels": [
+            0.7,
+            1.0,
+            1.3
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.65,
+            0.8
+          ],
+          "minimum_diagnostic_snr": 3.0,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "maximum_fit_evaluations": 120,
+          "centroid_grid_points": 7,
+          "science_columns_inclusive": [
+            45,
+            2092
+          ],
+          "science_rows_inclusive": [
+            1,
+            2048
+          ]
+        }
+      }
+    },
+    "photometry.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "71a43ec4e0d868e476d814765dbbd3e0ee12218ef138f17335e9cce6e13d4c91",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        },
+        "pixels": {
+          "identity_radius_arcsec": 5.0,
+          "vector_step_minutes": 30,
+          "clock_archive_tolerance_seconds": 1.0,
+          "clock_interpolation_tolerance_seconds": 0.01,
+          "cutout_size": 11,
+          "gaia_radius_arcsec": 240.0,
+          "gaia_max_rows": 10000,
+          "clock_max_pair_offset_seconds": 5.0,
+          "minimum_clock_matches": 10,
+          "minimum_clock_fraction": 0.99,
+          "minimum_coverage_fraction": 0.7,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "in_transit_duration": 0.35,
+          "baseline_exclusion_duration": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_transit_points": 2,
+          "minimum_baseline_each_side": 4,
+          "bootstrap_samples": 48,
+          "control_bootstrap_samples": 16,
+          "control_neighbours": 2,
+          "block_minutes": 30.0,
+          "random_seed": 464547401,
+          "fit_radius_pixels": 3.5,
+          "maximum_offset_pixels": 3.0,
+          "background_inner_radius_pixels": 4.0,
+          "uncertainty_floor_pixels": 0.1,
+          "error_floor_median_fraction": 0.01,
+          "bound_fraction": 0.95,
+          "profile_sigma_pixels": [
+            0.7,
+            1.0,
+            1.3
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.65,
+            0.8
+          ],
+          "minimum_diagnostic_snr": 3.0,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "maximum_fit_evaluations": 120,
+          "centroid_grid_points": 7,
+          "science_columns_inclusive": [
+            45,
+            2092
+          ],
+          "science_rows_inclusive": [
+            1,
+            2048
+          ]
+        }
+      }
+    },
+    "robustness.json": {
+      "filename": "triage-v1.toml",
+      "sha256": "71a43ec4e0d868e476d814765dbbd3e0ee12218ef138f17335e9cce6e13d4c91",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "seed-local-photometry-triage-v1",
+        "purpose": "Diagnostic triage, not calibrated candidate validation",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 81,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2
+        },
+        "pixels": {
+          "identity_radius_arcsec": 5.0,
+          "vector_step_minutes": 30,
+          "clock_archive_tolerance_seconds": 1.0,
+          "clock_interpolation_tolerance_seconds": 0.01,
+          "cutout_size": 11,
+          "gaia_radius_arcsec": 240.0,
+          "gaia_max_rows": 10000,
+          "clock_max_pair_offset_seconds": 5.0,
+          "minimum_clock_matches": 10,
+          "minimum_clock_fraction": 0.99,
+          "minimum_coverage_fraction": 0.7,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "in_transit_duration": 0.35,
+          "baseline_exclusion_duration": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_transit_points": 2,
+          "minimum_baseline_each_side": 4,
+          "bootstrap_samples": 48,
+          "control_bootstrap_samples": 16,
+          "control_neighbours": 2,
+          "block_minutes": 30.0,
+          "random_seed": 464547401,
+          "fit_radius_pixels": 3.5,
+          "maximum_offset_pixels": 3.0,
+          "background_inner_radius_pixels": 4.0,
+          "uncertainty_floor_pixels": 0.1,
+          "error_floor_median_fraction": 0.01,
+          "bound_fraction": 0.95,
+          "profile_sigma_pixels": [
+            0.7,
+            1.0,
+            1.3
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.65,
+            0.8
+          ],
+          "minimum_diagnostic_snr": 3.0,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "maximum_fit_evaluations": 120,
+          "centroid_grid_points": 7,
+          "science_columns_inclusive": [
+            45,
+            2092
+          ],
+          "science_rows_inclusive": [
+            1,
+            2048
+          ]
+        }
+      }
+    },
+    "timing-summary.json": {
+      "filename": "timing-v1.toml",
+      "sha256": "570c1611ff6ed50201c76cd53354b88247f7608f91ccfb0d05e35651d36d02a5",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "signed-event-timing-audit-v1",
+        "purpose": "Signed timing, cycle-alias and shifted injection diagnostics; no automatic timing pass",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 161,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "duration_factors": [
+            1.0,
+            0.8,
+            1.2
+          ],
+          "bootstrap_samples": 32,
+          "block_minutes": 30.0,
+          "random_seed": 190271683,
+          "profile_delta_chi2": 1.0,
+          "bound_fraction": 0.95,
+          "maximum_bootstrap_bound_fraction": 0.1,
+          "minimum_noise_differences": 8,
+          "rank_relative_tolerance": 1e-10,
+          "cycle_offsets": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.65
+          ]
+        },
+        "pixels": {
+          "identity_radius_arcsec": 5.0,
+          "vector_step_minutes": 30,
+          "clock_archive_tolerance_seconds": 1.0,
+          "clock_interpolation_tolerance_seconds": 0.01,
+          "cutout_size": 11,
+          "gaia_radius_arcsec": 240.0,
+          "gaia_max_rows": 10000,
+          "clock_max_pair_offset_seconds": 5.0,
+          "minimum_clock_matches": 10,
+          "minimum_clock_fraction": 0.99,
+          "minimum_coverage_fraction": 0.7,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "in_transit_duration": 0.35,
+          "baseline_exclusion_duration": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_transit_points": 2,
+          "minimum_baseline_each_side": 4,
+          "bootstrap_samples": 48,
+          "control_bootstrap_samples": 16,
+          "control_neighbours": 2,
+          "block_minutes": 30.0,
+          "random_seed": 464547401,
+          "fit_radius_pixels": 3.5,
+          "maximum_offset_pixels": 3.0,
+          "background_inner_radius_pixels": 4.0,
+          "uncertainty_floor_pixels": 0.1,
+          "error_floor_median_fraction": 0.01,
+          "bound_fraction": 0.95,
+          "profile_sigma_pixels": [
+            0.7,
+            1.0,
+            1.3
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.65,
+            0.8
+          ],
+          "minimum_diagnostic_snr": 3.0,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "maximum_fit_evaluations": 120,
+          "centroid_grid_points": 7,
+          "science_columns_inclusive": [
+            45,
+            2092
+          ],
+          "science_rows_inclusive": [
+            1,
+            2048
+          ]
+        }
+      }
+    },
+    "timing-events.json": {
+      "filename": "timing-v1.toml",
+      "sha256": "570c1611ff6ed50201c76cd53354b88247f7608f91ccfb0d05e35651d36d02a5",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "signed-event-timing-audit-v1",
+        "purpose": "Signed timing, cycle-alias and shifted injection diagnostics; no automatic timing pass",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 161,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "duration_factors": [
+            1.0,
+            0.8,
+            1.2
+          ],
+          "bootstrap_samples": 32,
+          "block_minutes": 30.0,
+          "random_seed": 190271683,
+          "profile_delta_chi2": 1.0,
+          "bound_fraction": 0.95,
+          "maximum_bootstrap_bound_fraction": 0.1,
+          "minimum_noise_differences": 8,
+          "rank_relative_tolerance": 1e-10,
+          "cycle_offsets": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.65
+          ]
+        },
+        "pixels": {
+          "identity_radius_arcsec": 5.0,
+          "vector_step_minutes": 30,
+          "clock_archive_tolerance_seconds": 1.0,
+          "clock_interpolation_tolerance_seconds": 0.01,
+          "cutout_size": 11,
+          "gaia_radius_arcsec": 240.0,
+          "gaia_max_rows": 10000,
+          "clock_max_pair_offset_seconds": 5.0,
+          "minimum_clock_matches": 10,
+          "minimum_clock_fraction": 0.99,
+          "minimum_coverage_fraction": 0.7,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "in_transit_duration": 0.35,
+          "baseline_exclusion_duration": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_transit_points": 2,
+          "minimum_baseline_each_side": 4,
+          "bootstrap_samples": 48,
+          "control_bootstrap_samples": 16,
+          "control_neighbours": 2,
+          "block_minutes": 30.0,
+          "random_seed": 464547401,
+          "fit_radius_pixels": 3.5,
+          "maximum_offset_pixels": 3.0,
+          "background_inner_radius_pixels": 4.0,
+          "uncertainty_floor_pixels": 0.1,
+          "error_floor_median_fraction": 0.01,
+          "bound_fraction": 0.95,
+          "profile_sigma_pixels": [
+            0.7,
+            1.0,
+            1.3
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.65,
+            0.8
+          ],
+          "minimum_diagnostic_snr": 3.0,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "maximum_fit_evaluations": 120,
+          "centroid_grid_points": 7,
+          "science_columns_inclusive": [
+            45,
+            2092
+          ],
+          "science_rows_inclusive": [
+            1,
+            2048
+          ]
+        }
+      }
+    },
+    "timing-controls.json": {
+      "filename": "timing-v1.toml",
+      "sha256": "570c1611ff6ed50201c76cd53354b88247f7608f91ccfb0d05e35651d36d02a5",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "signed-event-timing-audit-v1",
+        "purpose": "Signed timing, cycle-alias and shifted injection diagnostics; no automatic timing pass",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "timing": {
+          "minimum_snr": 3.0,
+          "minimum_events": 3,
+          "center_half_width_durations": 0.5,
+          "center_grid_points": 161,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "duration_factors": [
+            1.0,
+            0.8,
+            1.2
+          ],
+          "bootstrap_samples": 32,
+          "block_minutes": 30.0,
+          "random_seed": 190271683,
+          "profile_delta_chi2": 1.0,
+          "bound_fraction": 0.95,
+          "maximum_bootstrap_bound_fraction": 0.1,
+          "minimum_noise_differences": 8,
+          "rank_relative_tolerance": 1e-10,
+          "cycle_offsets": [
+            -2,
+            -1,
+            0,
+            1,
+            2
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.65
+          ]
+        },
+        "pixels": {
+          "identity_radius_arcsec": 5.0,
+          "vector_step_minutes": 30,
+          "clock_archive_tolerance_seconds": 1.0,
+          "clock_interpolation_tolerance_seconds": 0.01,
+          "cutout_size": 11,
+          "gaia_radius_arcsec": 240.0,
+          "gaia_max_rows": 10000,
+          "clock_max_pair_offset_seconds": 5.0,
+          "minimum_clock_matches": 10,
+          "minimum_clock_fraction": 0.99,
+          "minimum_coverage_fraction": 0.7,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "in_transit_duration": 0.35,
+          "baseline_exclusion_duration": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_transit_points": 2,
+          "minimum_baseline_each_side": 4,
+          "bootstrap_samples": 48,
+          "control_bootstrap_samples": 16,
+          "control_neighbours": 2,
+          "block_minutes": 30.0,
+          "random_seed": 464547401,
+          "fit_radius_pixels": 3.5,
+          "maximum_offset_pixels": 3.0,
+          "background_inner_radius_pixels": 4.0,
+          "uncertainty_floor_pixels": 0.1,
+          "error_floor_median_fraction": 0.01,
+          "bound_fraction": 0.95,
+          "profile_sigma_pixels": [
+            0.7,
+            1.0,
+            1.3
+          ],
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.65,
+            0.8
+          ],
+          "minimum_diagnostic_snr": 3.0,
+          "exposure_subsamples": 7,
+          "ingress_fraction": 0.2,
+          "maximum_fit_evaluations": 120,
+          "centroid_grid_points": 7,
+          "science_columns_inclusive": [
+            45,
+            2092
+          ],
+          "science_rows_inclusive": [
+            1,
+            2048
+          ]
+        }
+      }
+    },
+    "alternative-summary.json": {
+      "filename": "alternatives-v1.toml",
+      "sha256": "e107635f9824ed3c77212a29a8ad11e3ae0cb6e7a06a10ce39d05fe8c83aca15",
+      "source_revision": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "content": {
+        "schema_version": 1,
+        "name": "signed-astrophysical-alternatives-v1",
+        "purpose": "Signed harmonic, odd/even, secondary and modulation diagnostics; no automatic alternative pass",
+        "acquisition": {
+          "identity_radius_arcsec": 5.0,
+          "author_priority": [
+            "SPOC",
+            "TESS-SPOC",
+            "QLP"
+          ],
+          "flux_priority": [
+            "PDCSAP_FLUX",
+            "DET_FLUX",
+            "KSPSAP_FLUX"
+          ],
+          "qlp_v01_bad_time_sectors": [
+            74,
+            75,
+            76,
+            77,
+            78,
+            79
+          ],
+          "qlp_unverified_time_sectors": [
+            99,
+            100,
+            101,
+            102,
+            103,
+            104
+          ],
+          "timing_notice_url": "https://archive.stsci.edu/hlsp/qlp"
+        },
+        "photometry": {
+          "quality_bits": 0,
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "baseline_exclusion_durations": 0.75,
+          "event_half_window_durations": 4.0,
+          "maximum_window_period_fraction": 0.45,
+          "minimum_baseline_each_side": 4,
+          "minimum_transit_points": 2,
+          "minimum_coverage_fraction": 0.7,
+          "noise_floor": 1e-06,
+          "red_noise_bin_minutes": 30.0,
+          "minimum_red_noise_bins": 4,
+          "diagnostic_event_snr": 3.0,
+          "control_phase_offsets": [
+            0.2,
+            0.35,
+            0.5,
+            0.65,
+            0.8
+          ]
+        },
+        "robustness": {
+          "diagnostic_tension_sigma": 3.0
+        },
+        "ephemeris": {
+          "seed_hypotheses": [
+            "discovery",
+            "legacy_global"
+          ],
+          "maximum_legacy_period_difference_fraction": 0.005,
+          "minimum_events": 3,
+          "reference_half_width_durations": 0.5,
+          "maximum_edge_shift_durations": 0.5,
+          "duration_factors": [
+            0.5,
+            2.0
+          ],
+          "ingress_fraction_bounds": [
+            0.02,
+            0.5
+          ],
+          "ingress_fraction_start": 0.2,
+          "exposure_subsamples": 7,
+          "max_nfev": 250
+        },
+        "alternatives": {
+          "period_factors": [
+            0.5,
+            1.0,
+            2.0
+          ],
+          "secondary_phases": [
+            0.1,
+            0.2,
+            0.3,
+            0.4,
+            0.5,
+            0.6,
+            0.7,
+            0.8,
+            0.9
+          ],
+          "baseline_orders": [
+            1,
+            2
+          ],
+          "duration_factors": [
+            1.0,
+            0.8,
+            1.2
+          ],
+          "ingress_fractions": [
+            0.2,
+            0.5
+          ],
+          "exposure_subsamples": 7,
+          "bootstrap_samples": 32,
+          "block_minutes": 30.0,
+          "random_seed": 194816733,
+          "minimum_noise_differences": 8,
+          "minimum_events": 2,
+          "rank_relative_tolerance": 1e-10,
+          "same_event_tolerance_d": 1e-08,
+          "nominal_error_multiple": 3.0,
+          "control_phase_offsets": [
+            0.23,
+            0.67
+          ],
+          "control_even_depth_factors": [
+            1.0,
+            0.4
+          ],
+          "modulation_harmonics": [
+            1,
+            2
+          ],
+          "modulation_baseline_order": 2,
+          "minimum_modulation_points": 30,
+          "reference_url": "https://ntrs.nasa.gov/citations/20170009549"
+        }
+      }
+    }
+  },
+  "duration_uncertainty_source": "Saved conditional diagnostic covariance",
+  "physical_transit_geometry": "Not fitted; no physical radius ratio, impact parameter or scaled semimajor axis inferred."
+}

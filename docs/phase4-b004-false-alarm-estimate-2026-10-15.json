@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "documented_date": "2026-10-15",
+  "scope": "Conditional population comparison for initial survivors through sealed b004; not the 73 later-selected dossiers.",
+  "null_controls": {
+    "experiment": "Phase 4 fresh-host re-gate (gate 2)",
+    "source_revision": "c7f780c",
+    "source_gate_json_sha256": "268b8f079b2ac7058490d432b886c4f65dbaae220016d9489b1ea234ac86e1db",
+    "interval": {
+      "method": "Wilson score",
+      "confidence_level": 0.95,
+      "sides": "two-sided"
+    },
+    "survivor_definition": "Any automatic-triage survivor on a host; vetting errors count as survivors",
+    "inverted": {
+      "k": 2,
+      "n": 1500,
+      "rate": 0.0013333333333333333,
+      "wilson95": [
+        0.00036572427558412583,
+        0.004848561296010212
+      ]
+    },
+    "scrambled": {
+      "k": 0,
+      "n": 1500,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.002554430720181488
+      ]
+    }
+  },
+  "prior_b003_source_document_sha256": "5d0ff294589422e6ac49ec1c8e05a89410b1f045e8544e58ec345115da56ff34",
+  "real_run_snapshot": {
+    "through_batch": "b004",
+    "launch_commit": "917b726",
+    "source_batch_json_sha256": "b473a87d89743b324f229887f6855e664f2ac7322ed926525d2a3ccd8636827b",
+    "stars_complete": 54500,
+    "stars_searched": 54494,
+    "no_result": 6,
+    "survivor_stars": 218,
+    "survivor_rate": 0.0040004404154585825,
+    "vet_rows_by_status": {
+      "no-vet-candidates": 48531,
+      "ok": 5936
+    },
+    "snapshot_limits": "The survey is live; search, completion, vet and retention frontiers are asynchronous. Saved counters are retained without asserting final population completeness."
+  },
+  "comparison": {
+    "formula": "(2 / 1500) / (218 / 54494)",
+    "inverted_null_rate_over_real_survivor_rate": 0.33329663608562693,
+    "null_upper_endpoint_exceeds_real_survivor_rate": true,
+    "interpretation": "If the transformed null controls represent the survey background, roughly one third of initial survivors could be noise/stellar-variability false alarms before eclipsing binaries. The upper endpoint cannot rule out most or all.",
+    "limits": [
+      "Transfer from finite transformed controls to the real population is an assumption, not established exchangeability.",
+      "The rate ratio is a conditional population comparison, not a calibrated individual false-alarm probability or astrophysical FPP.",
+      "Eclipsing binaries, blends and other astrophysical contaminants require separate assessment.",
+      "This is an asynchronous live-run snapshot; it is not a final survey rate.",
+      "This is not a measured contamination fraction for the 73 dossiers selected after further vetting."
+    ]
+  },
+  "derivation_source_sha256": "b4229738a9f4a4f2e4102478e7b66a053b9edce75df6c65fb82b15294998ce5e"
+}

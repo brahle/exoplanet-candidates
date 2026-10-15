@@ -15,12 +15,12 @@ Each signal appears in exactly one cell. A stage records work started, not tests
 | [queue](process/queue/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | [screening](process/screening/README.md) | 22 | 0 | 0 | 0 | 0 | 0 | 0 | 22 |
 | [screened](process/screened/README.md) | 137 | 0 | 0 | 0 | 0 | 0 | 0 | 137 |
-| [source vetting](process/source-vetting/README.md) | 84 | 0 | 0 | 0 | 0 | 0 | 0 | 84 |
+| [source vetting](process/source-vetting/README.md) | 157 | 0 | 0 | 0 | 0 | 0 | 0 | 157 |
 | [physical vetting](process/physical-vetting/README.md) | 3 | 0 | 0 | 0 | 0 | 0 | 0 | 3 |
 | [followup](process/followup/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | [validation](process/validation/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
 | [confirmation](process/confirmation/README.md) | 0 | 0 | 0 | 0 | 0 | 0 | 0 | 0 |
-| Total | 246 | 0 | 0 | 0 | 0 | 0 | 0 | 246 |
+| Total | 319 | 0 | 0 | 0 | 0 | 0 | 0 | 319 |
 
 0 dossiers lack a vetting record and are excluded from this table.
 
@@ -31,23 +31,23 @@ Each signal appears in exactly one cell. A stage records work started, not tests
 | [queue](process/queue/README.md) | 0 |
 | [screening](process/screening/README.md) | 22 |
 | [screened](process/screened/README.md) | 137 |
-| [source vetting](process/source-vetting/README.md) | 84 |
+| [source vetting](process/source-vetting/README.md) | 157 |
 | [physical vetting](process/physical-vetting/README.md) | 3 |
 | [followup](process/followup/README.md) | 0 |
 | [validation](process/validation/README.md) | 0 |
 | [confirmation](process/confirmation/README.md) | 0 |
-| [unclassified](assessment/unclassified/README.md) | 246 |
+| [unclassified](assessment/unclassified/README.md) | 319 |
 | [candidate](assessment/candidate/README.md) | 0 |
 | [likely planet](assessment/likely-planet/README.md) | 0 |
 | [false positive](assessment/false-positive/README.md) | 0 |
 | [validated planet](assessment/validated-planet/README.md) | 0 |
 | [confirmed planet](assessment/confirmed-planet/README.md) | 0 |
 | [known signal](assessment/known-signal/README.md) | 0 |
-| [warnings](initial-screen/warnings/README.md) | 156 |
+| [warnings](initial-screen/warnings/README.md) | 186 |
 | [no initial warnings](initial-screen/no-initial-warnings/README.md) | 40 |
-| [incomplete](initial-screen/incomplete/README.md) | 50 |
+| [incomplete](initial-screen/incomplete/README.md) | 93 |
 | [Follow-up shortlist without published warnings](shortlist/README.md) | 30 |
-| [Current warning flags](warnings/README.md) | 167 |
+| [Current warning flags](warnings/README.md) | 197 |
 | [Previously reported](previously-reported/README.md) | 16 |
 
 ## Outstanding work
@@ -56,9 +56,9 @@ These overlapping views come directly from each record’s `open_requirements`. 
 
 | Work needed | Records |
 |---|---:|
-| [Source attribution](needs/source-attribution/README.md) | 246 |
-| [Transit timing](needs/timing/README.md) | 246 |
-| [Physical alternatives and blends](needs/physical-alternatives/README.md) | 246 |
-| [Search reliability](needs/reliability/README.md) | 246 |
-| [Scientific classification review](needs/review/README.md) | 246 |
-| [Other recorded requirements](needs/other/README.md) | 74 |
+| [Source attribution](needs/source-attribution/README.md) | 319 |
+| [Transit timing](needs/timing/README.md) | 319 |
+| [Physical alternatives and blends](needs/physical-alternatives/README.md) | 319 |
+| [Search reliability](needs/reliability/README.md) | 319 |
+| [Scientific classification review](needs/review/README.md) | 319 |
+| [Other recorded requirements](needs/other/README.md) | 147 |

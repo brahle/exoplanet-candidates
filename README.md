@@ -6,6 +6,11 @@ Progressive survey batches use [terminal ledgers and deliberate signal amendment
 An entry is an attributable research record; its presence here does not establish a planet,
 scientific priority or an official TESS designation.
 
+**Local review staging:** [Phase 4 b004](docs/phase4-b004-local-review-2026-10-15.md)
+adds 73 unpublished, unclassified evidence dossiers and the complete 107-signal
+ledger. The staged catalogue contains 319 dossiers, with 230 new diagnostic images.
+These drafts have no public disclosure date and await owner review.
+
 **[Phase 4 batches b001–b003](docs/phase4-local-review-2026-10-14.md):** 60 new evidence
 dossiers and the complete outcome ledger for 111 registered survivors bring this catalogue
 to **246 dossiers**. All remain scientifically unclassified. Publication receipts record
