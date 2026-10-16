@@ -1,0 +1,66 @@
+{
+  "schema_version": 2,
+  "documented_date": "2026-10-16",
+  "scope": "Conditional comparison for initial survey survivors through the sealed b005 snapshot; not later dossier selection.",
+  "null_controls": {
+    "experiment": "Phase 4 fresh-host re-gate (gate 2)",
+    "source_revision": "c7f780c",
+    "source_gate_json_sha256": "268b8f079b2ac7058490d432b886c4f65dbaae220016d9489b1ea234ac86e1db",
+    "interval": {
+      "method": "Wilson score",
+      "confidence_level": 0.95,
+      "sides": "two-sided"
+    },
+    "survivor_definition": "Any automatic-triage survivor on a host; vetting errors count as survivors",
+    "inverted": {
+      "k": 2,
+      "n": 1500,
+      "rate": 0.0013333333333333333,
+      "wilson95": [
+        0.00036572427558412583,
+        0.004848561296010212
+      ]
+    },
+    "scrambled": {
+      "k": 0,
+      "n": 1500,
+      "rate": 0.0,
+      "wilson95": [
+        0.0,
+        0.002554430720181488
+      ]
+    }
+  },
+  "real_run_snapshot": {
+    "through_batch": "b005",
+    "launch_commit": "917b726",
+    "source_batch_json_sha256": "4a78df9ef98888bf8fad19fdc72cd99b1df0d7410c01f99c704c8ab3bb096bd6",
+    "stars_complete": 82056,
+    "stars_searched": 82044,
+    "no_result": 12,
+    "survivor_stars": 298,
+    "survivor_rate": 0.0036321973575154797,
+    "vet_rows_by_status": {
+      "no-vet-candidates": 73112,
+      "ok": 8921
+    },
+    "snapshot_limits": "Live search, completion, vet and retention frontiers are asynchronous; these are dated counters, not final population completeness."
+  },
+  "comparison": {
+    "formula": "(2 / 1500) / (298 / 82044)",
+    "inverted_null_rate_over_real_survivor_rate": 0.3670872483221476,
+    "null_upper_endpoint_exceeds_real_survivor_rate": true,
+    "interpretation": "If transformed controls represent the survey background, about 37% of initial survivors could be noise/stellar-variability false alarms before eclipsing binaries. The upper endpoint cannot rule out most or all.",
+    "limits": [
+      "Transfer from finite transformed controls to the real survey is an assumption, not established exchangeability.",
+      "This is a conditional population-rate comparison, not an individual FAP/FPP.",
+      "Not a measured contamination fraction for b005 selected dossiers.",
+      "Eclipsing binaries, blends and astrophysical alternatives require separate assessment.",
+      "The asynchronous live-run snapshot is not a final survey rate.",
+      "No probability or contamination fraction is assigned to the49 selected dossiers."
+    ]
+  },
+  "prior_b004_context_sha256": "b4229738a9f4a4f2e4102478e7b66a053b9edce75df6c65fb82b15294998ce5e",
+  "source_context_sha256": "0e31c1cfaf1713038c56275a8510dac8138f8579ff90cd4a65dadc3ded5b2021",
+  "later_selected_dossiers": 49
+}

@@ -1,0 +1,300 @@
+{
+  "schema_version": "1.2",
+  "id": "tic-324502628-s01",
+  "version": "0.2.1",
+  "title": "TIC 324502628: a provisional 3.09378576-day signal",
+  "target": {
+    "tic": "324502628",
+    "gaia_dr3": "6704130558183371008",
+    "aliases": [
+      "TIC 324502628"
+    ],
+    "coordinates": {
+      "ra_deg": 278.833009164,
+      "dec_deg": -48.7165919007,
+      "frame": "ICRS",
+      "epoch": "J2000",
+      "provenance": "Saved TIC discovery coordinates; aperture target identity, not a verified eclipsed host."
+    },
+    "catalogue_association": {
+      "status": "associated",
+      "gaia_dr2": "6704130558183371008",
+      "method": "Exact TIC ID; official Gaia DR2 neighbourhood, uniqueness plus declared separation/Delta-G limits",
+      "evidence": [
+        "evidence/stellar-catalogue.json"
+      ]
+    }
+  },
+  "signal": {
+    "period_d": {
+      "value": 3.093785763283937,
+      "error": 3.0990052089426305e-05
+    },
+    "epoch_btjd": {
+      "value": 1660.509566786699,
+      "error": 0.0184249274815645
+    },
+    "epoch_bjd_tdb": 2458660.5095667867,
+    "bjd_offset": 2457000,
+    "time_scale": "TDB",
+    "covariance_epoch_period_d2": [
+      [
+        0.0003394779527009108,
+        -5.595416081860548e-07
+      ],
+      [
+        -5.595416081860544e-07,
+        9.603833285053559e-10
+      ]
+    ],
+    "covariance_method": "Saved local integrated-trapezoid diagnostic Jacobian covariance; conditional and not empirically calibrated.",
+    "duration_h": {
+      "value": 4.3265439794094105,
+      "error": 0.36544684190841914
+    },
+    "depth_ppm": {
+      "value": 348.80403617740944,
+      "error": 40.72459958912672
+    },
+    "model": "Exposure-integrated diagnostic trapezoid; free event depths and local baseline. Separate linear-baseline box-window aggregate depth.",
+    "sectors": [
+      66,
+      93
+    ],
+    "covered_events": 13,
+    "limits": [
+      "Preliminary unclassified signal; binary, blend and instrumental explanations remain open.",
+      "Conditional diagnostic errors; no calibrated false-alarm or planet probability.",
+      "Duration uncertainty is retained from the saved conditional diagnostic covariance; coverage is uncalibrated.",
+      "Mission clock, host identity, noise coverage and search selection remain unresolved.",
+      "All saved event exclusions, failed fits and signed alternative diagnostics are retained."
+    ]
+  },
+  "assessment": {
+    "disposition": "unclassified_transit_like_signal",
+    "source_localisation": {
+      "status": "unresolved",
+      "reason": "No calibrated physical-host attribution; FITS target identity identifies the aperture only.",
+      "evidence": [
+        "inputs.json"
+      ]
+    },
+    "timing_consistency": {
+      "status": "unresolved",
+      "reason": "Signed event profiles retain failures, competing clock/shape hypotheses and conditional errors; independent clock/coverage calibration unfinished.",
+      "evidence": [
+        "evidence/timing-summary.json",
+        "evidence/timing-events.json"
+      ]
+    }
+  },
+  "novelty": {
+    "status": "no_match_in_checked_sources",
+    "checked_utc": "2026-10-16T00:42:29.690974+00:00",
+    "evidence": [
+      "evidence/catalogue-check.json",
+      "evidence/direct-catalogue-hypotheses.json",
+      "NOVELTY.md"
+    ],
+    "limits": [
+      "No match in listed snapshots, not established discovery priority.",
+      "Unindexed literature and catalogue completeness remain unresolved.",
+      "Coordinates are static; nearby-source exclusion and proper-motion reconciliation remain incomplete."
+    ]
+  },
+  "provenance": {
+    "analysis_date": "2026-10-16",
+    "source_revisions": {
+      "inputs": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "ephemeris": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "photometry": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "robustness": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "timing-summary": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "timing-events": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "timing-controls": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "alternative-summary": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "stellar_catalogue": "3c2ab1866b501c0588b5ae34a4b46ef52332deed",
+      "progressive_followup": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26",
+      "figures": "29952f4f419ed4db9fdce3a23b85a3f9a6f7ae26"
+    },
+    "runs": {
+      "inputs": "20261016T002847Z-vet-acquisition-aff265",
+      "ephemeris": "20261016T002849Z-vet-photometry-45b8a5",
+      "photometry": "20261016T002849Z-vet-photometry-45b8a5",
+      "robustness": "20261016T002850Z-vet-robustness-5e4576",
+      "timing-summary": "20261016T002851Z-vet-timing-f6dfb4",
+      "timing-events": "20261016T002851Z-vet-timing-f6dfb4",
+      "timing-controls": "20261016T002851Z-vet-timing-f6dfb4",
+      "alternative-summary": "20261016T002854Z-vet-alternatives-be9142",
+      "stellar_catalogue": "20261016T002046Z-vet-stellar-b18e70",
+      "progressive_followup": "20261016T004515Z-vet-survey-followup-report-5f526a",
+      "figures": "20261016T011659Z-vet-figures-6a294d"
+    },
+    "input_lock": "inputs.json"
+  },
+  "reproducibility": {
+    "level": "evidence_inspection",
+    "command": "uv sync --frozen && uv run python scripts/catalogue.py check",
+    "limits": [
+      "Saved scientific evidence and hashes can be inspected; this does not rerun numerical fits.",
+      "Exact FITS bytes, complete analysis code/environment and public numerical capsule are not bundled."
+    ],
+    "requirements_for_numerical_release": [
+      "Provide exact inputs, selected source, frozen environment and a verified clean public-input rerun."
+    ]
+  },
+  "publication": {
+    "state": "draft",
+    "first_public_utc": null,
+    "release_url": null,
+    "doi": null,
+    "authors": [
+      "Bruno Rahle"
+    ]
+  },
+  "evidence": [
+    "inputs.json",
+    "analysis-settings.json",
+    "README.md",
+    "NOVELTY.md",
+    "REPRODUCIBILITY.md",
+    "evidence/alternative-summary.json",
+    "evidence/ephemeris.json",
+    "evidence/inputs.json",
+    "evidence/photometry.json",
+    "evidence/robustness.json",
+    "evidence/timing-controls.json",
+    "evidence/timing-events.json",
+    "evidence/timing-summary.json",
+    "evidence/catalogue-check.json",
+    "evidence/direct-catalogue-hypotheses.json",
+    "review.json",
+    "evidence/stellar-catalogue.json",
+    "vetting.json",
+    "evidence/vetting-findings.json",
+    "evidence/figures/diagnostic.png",
+    "evidence/figures/events-01.png",
+    "evidence/figures/plot-context.json",
+    "evidence/figures/plot-data.npz"
+  ],
+  "history": [
+    {
+      "date": "2026-10-16",
+      "version": "0.1.0",
+      "change": "Initial evidence-inspection dossier from the reusable batch; all scientific classifications remain provisional."
+    },
+    {
+      "date": "2026-10-16",
+      "version": "0.2.0",
+      "change": "Add pinned catalogue aperture association and stellar values (report eeda45320f55eb5a921e4b4f9c7338b38228e1c3b3dbe5ce4f4306610acbc803); source, timing and disposition unchanged."
+    },
+    {
+      "version": "0.2.1",
+      "date": "2026-10-16",
+      "change": "Added saved-evidence five-panel diagnostic and complete event pages; Scientific measurements, assessments and disclosure dates unchanged."
+    }
+  ],
+  "host": {
+    "status": "unresolved",
+    "parameter_scope": "catalogue_aperture_target",
+    "catalogue_target": {
+      "tic": "324502628",
+      "gaia_dr3": "6704130558183371008"
+    },
+    "parameters": {
+      "distance_pc": {
+        "error": 1.185,
+        "error_fields": {
+          "error": "e_d",
+          "error_minus": "eneg_dist",
+          "error_plus": "epos_dist"
+        },
+        "error_minus": 1.177,
+        "error_plus": 1.193,
+        "field": "d",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "pc",
+        "value": 186.386
+      },
+      "mass_Msun": {
+        "error": 0.137653,
+        "error_fields": {
+          "error": "e_mass",
+          "error_minus": "eneg_Mass",
+          "error_plus": "epos_Mass"
+        },
+        "error_minus": 0.137694,
+        "error_plus": 0.137612,
+        "field": "mass",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "M_sun",
+        "value": 1.12
+      },
+      "radius_Rsun": {
+        "error": 0.0542563,
+        "error_fields": {
+          "error": "e_rad",
+          "error_minus": "eneg_Rad",
+          "error_plus": "epos_Rad"
+        },
+        "error_minus": 0.0462719,
+        "error_plus": 0.0622407,
+        "field": "rad",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "R_sun",
+        "value": 1.10641
+      },
+      "teff_K": {
+        "error": 124.191,
+        "error_fields": {
+          "error": "e_Teff",
+          "error_minus": "eneg_Teff",
+          "error_plus": "epos_Teff"
+        },
+        "error_minus": 141.201,
+        "error_plus": 107.181,
+        "field": "Teff",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "K",
+        "value": 6046.66
+      },
+      "tmag": {
+        "error": 0.006,
+        "error_fields": {
+          "error": "e_Tmag",
+          "error_minus": null,
+          "error_plus": null
+        },
+        "error_minus": null,
+        "error_plus": null,
+        "field": "Tmag",
+        "limits": [],
+        "status": "reported",
+        "uncertainty_method": "Catalogue-reported",
+        "unit": "mag",
+        "value": 10.2681
+      }
+    },
+    "dilution": {
+      "status": "unresolved",
+      "target_flux_fraction": null
+    },
+    "evidence": [
+      "evidence/stellar-catalogue.json"
+    ],
+    "limits": [
+      "Catalogue association is not source localisation",
+      "Catalogue stellar parameters are not a host/dilution posterior",
+      "Unresolved companions and catalogue errors remain possible",
+      "No derived planet radius: physical host and dilution remain unresolved"
+    ]
+  }
+}

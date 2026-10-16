@@ -1,6 +1,6 @@
 # Candidate diagnostic gallery
 
-319 dossiers: 246 previously disclosed and 73 local drafts awaiting owner review. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
+368 dossiers: 246 previously disclosed and 122 local drafts awaiting owner review. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
 
 - [Page 1: candidates 1–24](page-01.md)
 - [Page 2: candidates 25–48](page-02.md)
@@ -15,6 +15,8 @@
 - [Page 11: candidates 241–264](page-11.md)
 - [Page 12: candidates 265–288](page-12.md)
 - [Page 13: candidates 289–312](page-13.md)
-- [Page 14: candidates 313–319](page-14.md)
+- [Page 14: candidates 313–336](page-14.md)
+- [Page 15: candidates 337–360](page-15.md)
+- [Page 16: candidates 361–368](page-16.md)
 
 [Methods and rendering](../docs/diagnostic-figures.md).
