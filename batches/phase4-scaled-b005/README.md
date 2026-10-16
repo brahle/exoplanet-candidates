@@ -2,7 +2,7 @@
 
 Provisional evidence records, prepared and authorized for public disclosure 16 October 2026. All 80 signals remain scientifically unclassified. No planet, physical host, timing qualification or discovery priority is established.
 
-All 80 completed installed verifier stages on their first attempt, with zero execution failures. The complete [outcome ledger](outcomes.json), [attributed reviews](reviews.json), [dated catalogue responses](catalogue-snapshots.json) and [follow-up findings](followup-findings.json) preserve every row. A ledger-only outcome is not an adjudicated rejection.
+All 80 completed installed verifier stages on their first attempt, with zero execution failures. The complete [outcome ledger](outcomes.json), [attributed reviews](reviews.json), [release-time MCP responses](release-catalogue-checks.jsonl) and [follow-up findings](followup-findings.json) preserve every row. A ledger-only outcome is not an adjudicated rejection.
 
 The table uses adopted diagnostic periods when available; unadopted rows show their explicit discovery seed. Warnings are conditional descriptive probes, not calibrated probabilities.
 

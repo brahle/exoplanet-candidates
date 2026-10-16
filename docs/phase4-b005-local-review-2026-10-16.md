@@ -47,7 +47,7 @@ is not exhaustive novelty, and a neighbour match does not identify the source of
 The dated coverage includes NASA confirmed planets/TOIs, ExoFOP CTOIs, eumemic,
 earlier public dossiers, the TESS eclipsing-binary catalogue (Prša et al. 2022), Gaia
 DR3 eclipsing binaries and periodic VSX entries. Recent preprints and unregistered
-Zenodo dossiers remain explicitly unindexed. See the [saved coverage receipt](../batches/phase4-scaled-b005/catalogue-snapshots.json).
+Zenodo dossiers remain explicitly unindexed. See the [dated MCP coverage receipt](../batches/phase4-scaled-b005/release-catalogue-checks.jsonl).
 
 All 80 aperture targets have a qualifying Gaia DR3 association through TIC's DR2 ID
 and the official DR2 neighbourhood, with separation and magnitude checks retained.
