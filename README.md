@@ -12,8 +12,8 @@ carry automated descriptive warnings; individual numerical/visual concerns remai
 See the [b006 review](docs/phase4-b006-local-review-2026-10-16.md). The dated conditional
 survey-wide null comparison is 36.0% of initial survivors before binaries, with uncertainty
 unable to exclude most or all. This is not an individual planet probability or a measured
-fraction among the selected dossiers. The immutable evidence release is being prepared;
-actual public times are recorded in the batch publication receipt.
+fraction among the selected dossiers. [Immutable b006 evidence release](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b006-v0.1.0). Actual Git disclosure and release times
+are recorded separately in the [publication receipt](batches/phase4-scaled-b006/publication-receipt.json).
 
 **Phase 4 b004 and b005:** 122 new unclassified evidence dossiers, the complete
 187-signal outcome ledger and 378 diagnostic images bring the catalogue to **368 dossiers**.

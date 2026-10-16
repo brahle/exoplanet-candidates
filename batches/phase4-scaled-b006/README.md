@@ -141,3 +141,11 @@ A pinned 10,001-row TESS Ten Thousand EB screen found no matches among the selec
 ## Release-time catalogue check
 
 All 109 configured-MCP query arguments and result objects are unchanged in the release-time recheck. [Comparison receipt](release-preflight.json) · [Exact dated responses](release-catalogue-checks.jsonl). Original assessments and dated evidence remain intact.
+
+## Immutable evidence release
+
+[Release](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b006-v0.1.0) · [Publication receipt](publication-receipt.json) · [Anonymous inspection certificate](public-evidence-certificate.json) · [Locked manifest](release-manifest.json).
+
+First Git disclosure: 2026-10-16T18:10:20Z. Immutable release publication: 2026-10-16T18:16:08Z. These are separate server-observed UTC timestamps. Locked dossier versions are 0.2.2; current 0.2.3 adds publication receipts without changing scientific evidence.
+
+The versioned batch package contains 77 selected dossiers and three explicitly declared older validation-fixture dossiers (80 packaged records), from a 445-dossier source catalogue. Its full 109-row ledger and exact reviews retain all outcomes. The anonymous download passed frozen offline dependencies, catalogue inspection and all 65 tests in a fresh environment. This certifies evidence inspection only. No physical-source, timing or planetary validation, raw-input numerical rerun or DOI is claimed.

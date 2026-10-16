@@ -1,6 +1,6 @@
 # Candidate diagnostic gallery
 
-445 dossiers, including 77 in the owner-authorized b006 disclosure. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
+445 disclosed dossiers, including 77 added in b006. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
 
 - [Page 1: candidates 1–24](page-01.md)
 - [Page 2: candidates 25–48](page-02.md)

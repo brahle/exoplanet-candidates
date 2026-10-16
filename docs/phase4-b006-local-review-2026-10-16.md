@@ -80,3 +80,11 @@ All 77 full-grid reconstructions use recorded launch source 917b726, native kern
 All 77 overviews were inspected on 5 contact sheets; 11 overviews and 4 event pages were inspected individually. Every event count and plotting-vector hash was checked programmatically; not every PNG was individually viewed.
 
 Schema, artifact and saved-vector checks are evidence inspection, not a fresh numerical rerun from public raw inputs or a scientific-validity certificate. This owner-authorized evidence release leaves stronger scientific classification as a separate decision. See the [publication receipt](../batches/phase4-scaled-b006/publication-receipt.json) for actual public times.
+
+## Immutable evidence release
+
+[Release](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b006-v0.1.0) · [Publication receipt](../batches/phase4-scaled-b006/publication-receipt.json) · [Anonymous inspection certificate](../batches/phase4-scaled-b006/public-evidence-certificate.json) · [Locked manifest](../batches/phase4-scaled-b006/release-manifest.json).
+
+First Git disclosure: 2026-10-16T18:10:20Z. Immutable release publication: 2026-10-16T18:16:08Z. These are separate server-observed UTC timestamps. Locked dossier versions are 0.2.2; current 0.2.3 adds publication receipts without changing scientific evidence.
+
+The versioned batch package contains 77 selected dossiers and three explicitly declared older validation-fixture dossiers (80 packaged records), from a 445-dossier source catalogue. Its full 109-row ledger and exact reviews retain all outcomes. The anonymous download passed frozen offline dependencies, catalogue inspection and all 65 tests in a fresh environment. This certifies evidence inspection only. No physical-source, timing or planetary validation, raw-input numerical rerun or DOI is claimed.
