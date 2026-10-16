@@ -6,22 +6,21 @@ Progressive survey batches use [terminal ledgers and deliberate signal amendment
 An entry is an attributable research record; its presence here does not establish a planet,
 scientific priority or an official TESS designation.
 
-**Local review staging:** [Phase 4 b005](docs/phase4-b005-local-review-2026-10-16.md)
-adds 49 unpublished, unclassified dossiers and the complete 80-signal ledger, with
-148 diagnostic images. The staged catalogue contains 368 dossiers. Twenty-three
-new dossiers carry descriptive warnings; these records await owner review. The
-survey-wide conditional null comparison is about 36.7% of initial survivors before
-binaries, with uncertainty unable to rule out most or all; it is not an individual
-planet probability or a measured contamination fraction among the 49 selected records.
-
-**Earlier local review staging:** [Phase 4 b004](docs/phase4-b004-local-review-2026-10-15.md)
-adds 73 unpublished, unclassified evidence dossiers and the complete 107-signal
-ledger. That checkpoint contained 319 dossiers, with 230 diagnostic images.
-These drafts have no public disclosure date and await owner review.
+**Phase 4 b004 and b005:** 122 new unclassified evidence dossiers, the complete
+187-signal outcome ledger and 378 diagnostic images bring the catalogue to **368 dossiers**.
+Fifty-three new dossiers carry descriptive warnings; all retain unresolved source,
+timing and reliability limits. See the [b004 review](docs/phase4-b004-local-review-2026-10-15.md)
+and [b005 review](docs/phase4-b005-local-review-2026-10-16.md).
+Immutable evidence releases: [b004 (73 dossiers)](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b004-v0.1.0),
+[b005 (49)](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b005-v0.1.0).
+The dated survey-wide conditional null comparison is roughly one third (36.7% at
+the b005 frontier) of initial survivors before binaries, with uncertainty unable to
+rule out most or all. This is not an individual planet probability or a measured
+contamination fraction among the 122 selected records.
 
 **[Phase 4 batches b001–b003](docs/phase4-local-review-2026-10-14.md):** 60 new evidence
 dossiers and the complete outcome ledger for 111 registered survivors bring this catalogue
-to **246 dossiers**. All remain scientifically unclassified. Publication receipts record
+to **246 dossiers** at that checkpoint. All remain scientifically unclassified. Publication receipts record
 actual public disclosure and immutable release dates; reproduction covers evidence inspection.
 The survey-wide null comparison suggests roughly **one third of initial survivors could be
 noise or stellar-variability false alarms before eclipsing binaries**, if the controls

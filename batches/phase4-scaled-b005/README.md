@@ -1,6 +1,6 @@
 # Phase 4 scaled survey: b005
 
-Local unpublished evidence records, prepared 16 October 2026. All 80 signals remain scientifically unclassified. No planet, physical host, timing qualification or discovery priority is established.
+Provisional evidence records, prepared and authorized for public disclosure 16 October 2026. All 80 signals remain scientifically unclassified. No planet, physical host, timing qualification or discovery priority is established.
 
 All 80 completed installed verifier stages on their first attempt, with zero execution failures. The complete [outcome ledger](outcomes.json), [attributed reviews](reviews.json), [dated catalogue responses](catalogue-snapshots.json) and [follow-up findings](followup-findings.json) preserve every row. A ledger-only outcome is not an adjudicated rejection.
 
@@ -90,9 +90,9 @@ The table uses adopted diagnostic periods when available; unadopted rows show th
 | tic-95719302-s01 | 1.31364247 | no | no adopted ephemeris | no adopted ephemeris, scanned secondary uncorrected |
 
 
-## Local owner-review context
+## Review and publication context
 
-The 49 locally staged dossiers include 148 diagnostic images and 2,048 signed
+The 49 disclosed dossiers include 148 diagnostic images and 2,048 signed
 event profiles. Twenty-three carry descriptive warnings; 26 have none in the current
 subset. All 80 signals remain unclassified; source, timing and reliability are open.
 See the [review and limitations](../../docs/phase4-b005-local-review-2026-10-16.md).
@@ -108,5 +108,16 @@ frontiers are asynchronous, not a complete final population.
 All 49 original-grid search reconstructions pass their required input hashes and
 recorded scalar comparisons. All intermediate prepared-array hashes also match. Complete event-page coverage and vector
 hashes were checked programmatically, with actual image inspection documented in
-the review. This is evidence inspection only. The prior 319 dossier files are unchanged,
-and new disclosure/release/DOI dates remain null. These are local unpublished drafts.
+the review. This is evidence inspection only. The previous 246 public dossier files are unchanged; b004 publication metadata is
+recorded alongside this batch. Actual public dates are retained in the publication
+receipt. No DOI or stronger scientific classification is claimed.
+
+## Public disclosure and release
+
+[Publication receipt](publication-receipt.json) · [Immutable evidence release](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b005-v0.1.0) ·
+[Release-time catalogue comparison](release-preflight.json) · [Exact MCP responses](release-catalogue-checks.jsonl).
+
+All 49 selected dossier catalogue results are unchanged. Two existing ledger-only
+neighbor matches have updated external labels/scores, retained in the new dated
+receipt. Original assessments and responses remain intact. This is evidence inspection
+only, with the complete outcome ledger and descriptive warnings preserved.

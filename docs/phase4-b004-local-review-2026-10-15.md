@@ -1,7 +1,8 @@
-# Phase 4 b004: local evidence review
+# Phase 4 b004: evidence review and public disclosure
 
-Prepared 15 October 2026. These are local drafts for owner review, with no public
-disclosure date, release or DOI. All 107 registered signals completed the installed
+Prepared 15 October 2026. Owner authorized public disclosure on 16 October 2026. These are provisional
+evidence records; actual Git disclosure and immutable release times are recorded
+separately in the batch publication receipt. No DOI has been assigned. All 107 registered signals completed the installed
 verifier stages on their first attempt. All remain scientifically unclassified.
 All 73 selected dossiers now include reconstructed search spectra and diagnostic
 figures: 230 PNGs retaining 3226 signed numerical event profiles.
@@ -17,10 +18,20 @@ figures: 230 PNGs retaining 3226 signed numerical event profiles.
 The [complete batch ledger](../batches/phase4-scaled-b004/outcomes.json) retains every
 signal. There are 95 adopted conditional diagnostic ephemerides and 12 unadopted
 fits overall; four of those unadopted fits are already counted in the catalogue
-hypothesis route. A ledger-only outcome is not an adjudicated rejection. The local
-catalogue contains 319 dossiers, including the previous 246 public dossiers.
+hypothesis route. A ledger-only outcome is not an adjudicated rejection. The b004 staging checkpoint contained 319 dossiers. The combined b004/b005
+publication contains 368, preserving the previous 246 public dossiers unchanged.
 
 ## Catalogue and host context
+
+A release-time configured-MCP recheck on 16 October 2026 conserved every query and
+status. All 73 selected dossier results remain unchanged. Two ledger-only neighbour
+matches have updated external catalogue labels or heuristic scores; match identities,
+periods and outcome routes are unchanged. These external labels do not adjudicate
+the physical source. Updated coverage and exact responses are appended in the
+[comparison receipt](../batches/phase4-scaled-b004/release-preflight.json) and
+[new snapshot](../batches/phase4-scaled-b004/release-catalogue-checks.jsonl);
+original assessment responses are preserved.
+
 
 The configured Exoplanet MCP was queried at the adopted diagnostic periods, with
 explicit unadopted discovery seeds where refinement failed, using 120 arcsec.
@@ -122,5 +133,6 @@ and saved-vector inspection is **evidence inspection**, not a fresh numerical
 rerun from public inputs or a scientific validity certificate.
 
 The previous 246 public dossier files and their disclosure/release histories are
-unchanged. New first-publication dates remain null until
-a separate owner-authorized public disclosure.
+unchanged. See the [batch publication receipt](../batches/phase4-scaled-b004/publication-receipt.json)
+for observed Git disclosure and actual release times. Scientific assessments remain
+unclassified; evidence inspection does not qualify these as planets.

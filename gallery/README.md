@@ -1,6 +1,6 @@
 # Candidate diagnostic gallery
 
-368 dossiers: 246 previously disclosed and 122 local drafts awaiting owner review. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
+368 disclosed dossiers, including 122 added in the b004/b005 publication. Five-panel overviews and complete chronological event pages use saved evidence. Signals remain unclassified.
 
 - [Page 1: candidates 1–24](page-01.md)
 - [Page 2: candidates 25–48](page-02.md)

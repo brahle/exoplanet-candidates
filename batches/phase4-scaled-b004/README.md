@@ -1,6 +1,7 @@
-# Phase 4 provisional batch b004 — local review staging
+# Phase 4 provisional batch b004
 
-Local drafts only; no public disclosure, release or scientific promotion.
+Owner-authorized provisional evidence disclosure, 16 October 2026.
+Scientific assessments remain unclassified.
 All 107 registered signals are conserved in [outcomes.json](outcomes.json).
 All remain scientifically unclassified. A catalogue hypothesis is not a resolved
 physical source; a ledger-only outcome is not an adjudicated rejection.
@@ -153,3 +154,13 @@ is also checked programmatically.
 Visual review additionally records pronounced shoulders around the folded dip of
 TIC 292125277 in [visual-review.json](visual-review.json). Its physical explanation
 and significance remain unresolved; no automatic flag or classification was changed.
+
+## Public disclosure and release
+
+[Publication receipt](publication-receipt.json) · [Immutable evidence release](https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b004-v0.1.0) ·
+[Release-time catalogue comparison](release-preflight.json) · [Exact MCP responses](release-catalogue-checks.jsonl).
+
+All 73 selected dossier catalogue results are unchanged. Two existing ledger-only
+neighbor matches have updated external labels/scores, retained in the new dated
+receipt. Original assessments and responses remain intact. This is evidence inspection
+only, with the complete outcome ledger and descriptive warnings preserved.
