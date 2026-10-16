@@ -1,6 +1,6 @@
 # Phase 4 scaled survey: b006
 
-Local unpublished evidence records prepared 2026-10-16. All 109 signals remain scientifically unclassified. Physical source, timing qualification and calibrated reliability remain unresolved.
+Provisional evidence records prepared and authorized for public disclosure 16 October 2026. All 109 signals remain scientifically unclassified. Physical source, timing qualification and calibrated reliability remain unresolved.
 
 77 provisional dossiers, 213 diagnostic images and 2,895 signed numerical event profiles. The complete [ledger](outcomes.json) and [exact assessment-bound reviews](reviews.json) retain every row. A ledger-only outcome is not an adjudicated rejection.
 
@@ -132,8 +132,12 @@ All 77 reconstructed BLS searches match their required raw-realization and final
 
 77 overviews inspected on 5 contact sheets; 11 overviews and 4 event pages inspected individually. Not every PNG was individually inspected. All event-page counts and vector hashes were checked programmatically.
 
-The previous 368 public dossier files are unchanged. New records remain drafts with public dates, release URL and DOI null. Reproduction tier is evidence inspection; no fresh public-input numerical rerun or scientific-validity certificate is claimed.
+The previous 368 public dossier files are unchanged. Actual public Git and immutable release times are recorded separately in the [publication receipt](publication-receipt.json). No DOI has been assigned. Reproduction tier is evidence inspection; no fresh public-input numerical rerun or scientific-validity certificate is claimed.
 
 ## Additional published-source check
 
 A pinned 10,001-row TESS Ten Thousand EB screen found no matches among the selected dossiers. One same-period neighbour is retained for ledger-only TIC 463186783; related context for the older public TIC 463186778 is recorded separately. Static positions and period agreement do not identify the eclipsed source. [Exact supplementary check](additional-ffi-eb-screen.json).
+
+## Release-time catalogue check
+
+All 109 configured-MCP query arguments and result objects are unchanged in the release-time recheck. [Comparison receipt](release-preflight.json) · [Exact dated responses](release-catalogue-checks.jsonl). Original assessments and dated evidence remain intact.

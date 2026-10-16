@@ -55,13 +55,14 @@ class BatchRelease(unittest.TestCase):
     def test_prepared_archive_binds_records_reviews_and_conservation(self):
         with tempfile.TemporaryDirectory() as temporary:
             base = Path(temporary); root = base / 'repo'; fixture(root)
-            manifest = release.prepare(root, 'fixture', 'fixture-v1', base / 'assets')
+            manifest = release.prepare(root, 'fixture', 'fixture-v1', base / 'assets', package_format='whole-repository-v1')
+            manifest.pop('package_format')  # Immutable earlier releases predate this field.
             extracted = base / 'extracted'; extracted.mkdir()
             _, count = release.inspect_archive(base / 'assets/fixture-v1-evidence.tar.gz', manifest, manifest['asset']['sha256'], extracted)
             self.assertEqual(count, 1)
             self.assertEqual(manifest['new_signal_count'], 1)
             with self.assertRaisesRegex(ValueError, 'replace a prepared'):
-                release.prepare(root, 'fixture', 'fixture-v1', base / 'assets')
+                release.prepare(root, 'fixture', 'fixture-v1', base / 'assets', package_format='whole-repository-v1')
 
     def test_stale_review_and_empty_selection_cannot_prepare_release(self):
         with tempfile.TemporaryDirectory() as temporary:
@@ -103,7 +104,7 @@ class BatchRelease(unittest.TestCase):
                 self.assertEqual(release.record_disclosure(root, 'fixture', 'fixture/repo', commit, 'none')['updated_records'], 1)
                 self.assertEqual(release.record_disclosure(root, 'fixture', 'fixture/repo', commit, 'none')['updated_records'], 0)
             git(root, 'add', '.'); git(root, 'commit', '-qm', 'Disclosure receipt')
-            manifest = release.prepare(root, 'fixture', 'fixture-v1', base / 'assets')
+            manifest = release.prepare(root, 'fixture', 'fixture-v1', base / 'assets', package_format='whole-repository-v1')
             url = 'https://github.com/fixture/repo/releases/tag/fixture-v1'
             metadata = {'draft': False, 'immutable': True, 'published_at': '2026-10-12T02:00:00Z',
                         'html_url': url, 'target_commitish': manifest['source_commit'], 'id': 1}

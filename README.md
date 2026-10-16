@@ -6,7 +6,14 @@ Progressive survey batches use [terminal ledgers and deliberate signal amendment
 An entry is an attributable research record; its presence here does not establish a planet,
 scientific priority or an official TESS designation.
 
-**Local review staging:** [Phase 4 b006](docs/phase4-b006-local-review-2026-10-16.md) adds 77 unpublished, unclassified dossiers and the complete 109-signal ledger, with 213 diagnostic images. The local catalogue contains 445 dossiers. 31 new dossiers carry descriptive warnings. The conditional survey-wide null comparison is 36.0% of initial survivors before binaries; its uncertainty cannot rule out most or all. This is not a planet probability or a measured fraction among the selected dossiers.
+**Phase 4 b006:** 77 new unclassified evidence dossiers, the complete 109-signal ledger
+and 213 diagnostic images bring the catalogue to **445 dossiers**. Thirty-one new dossiers
+carry automated descriptive warnings; individual numerical/visual concerns remain explicit.
+See the [b006 review](docs/phase4-b006-local-review-2026-10-16.md). The dated conditional
+survey-wide null comparison is 36.0% of initial survivors before binaries, with uncertainty
+unable to exclude most or all. This is not an individual planet probability or a measured
+fraction among the selected dossiers. The immutable evidence release is being prepared;
+actual public times are recorded in the batch publication receipt.
 
 **Phase 4 b004 and b005:** 122 new unclassified evidence dossiers, the complete
 187-signal outcome ledger and 378 diagnostic images bring the catalogue to **368 dossiers**.

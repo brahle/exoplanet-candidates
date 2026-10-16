@@ -15,6 +15,7 @@ import urllib.parse
 import urllib.request
 
 import catalogue
+import batch_package
 from export_batch import load, seal, sha, write
 
 
@@ -54,6 +55,8 @@ def batch_records(root, batch):
         if digest != review['review_id'] or review['signal_id'] in reviews:
             raise ValueError('Invalid or duplicate review')
         reviews[review['signal_id']] = review
+    if set(reviews) - {row['signal_id'] for row in rows}:
+        raise ValueError('Review enumeration contains signals outside the batch ledger')
     chosen = []
     for row in rows:
         if row['route'] in {'identity_hold', 'intake_hold', 'execution_failed'}:
@@ -86,7 +89,7 @@ def batch_records(root, batch):
     return chosen, len(records), folder
 
 
-def prepare(root, batch, tag, output):
+def prepare(root, batch, tag, output, package_format=batch_package.FORMAT):
     root = root.resolve(); tag = safe_name(tag)
     if subprocess.check_output(['git', 'status', '--porcelain'], cwd=root, text=True):
         raise ValueError('Release packaging requires a clean committed source')
@@ -97,8 +100,24 @@ def prepare(root, batch, tag, output):
     manifest_path = output / 'release-manifest.json'
     if archive.exists() or manifest_path.exists():
         raise ValueError('Refusing to replace a prepared release asset')
-    subprocess.run(['git', 'archive', '--format=tar.gz', '--prefix=' + tag + '/',
-                    '--output=' + str(archive.resolve()), commit], cwd=root, check=True)
+    if package_format == batch_package.FORMAT:
+        package = batch_package.build(root, batch, tag, records, total, commit, archive)
+    elif package_format == 'whole-repository-v1':
+        subprocess.run(['git', 'archive', '--format=tar.gz', '--prefix=' + tag + '/',
+                        '--output=' + str(archive.resolve()), commit], cwd=root, check=True)
+        size = count = 0
+        with tarfile.open(archive) as stream:
+            for member in stream:
+                size += member.size; count += 1
+                if size > batch_package.MAX_BYTES or count > batch_package.MAX_MEMBERS:
+                    archive.unlink()
+                    raise ValueError('Release archive exceeds declared inspection limits')
+        if archive.stat().st_size >= batch_package.MAX_BYTES:
+            archive.unlink()
+            raise ValueError('Release asset exceeds the per-asset size limit')
+        package = {'package_format': package_format}
+    else:
+        raise ValueError('Unsupported release package format')
     manifest = {
         'batch': batch, 'release_tag': tag, 'source_commit': commit,
         'new_signal_count': len(records), 'total_dossiers': total,
@@ -112,6 +131,7 @@ def prepare(root, batch, tag, output):
         'reproducibility_level': 'evidence_inspection',
         'limits': ['Exported evidence integrity only; no numerical rerun or scientific validity certificate.',
                    'Catalogue nonmatches do not establish discovery priority.'],
+        **package,
     }
     write(manifest_path, manifest)
     return manifest
@@ -124,17 +144,21 @@ def inspect_archive(archive, manifest, expected_sha256, destination):
         raise ValueError('Release archive checksum mismatch')
     if archive.stat().st_size != manifest['asset']['bytes']:
         raise ValueError('Release archive size mismatch')
+    if archive.stat().st_size >= batch_package.MAX_BYTES:
+        raise ValueError('Release asset exceeds the per-asset size limit')
+    package_format = manifest.get('package_format', 'whole-repository-v1')
+    if package_format not in {batch_package.FORMAT, 'whole-repository-v1'}:
+        raise ValueError('Unsupported release package format')
     with tarfile.open(archive) as stream:
-        members = stream.getmembers()
-        if any(m.issym() or m.islnk() or not (m.isfile() or m.isdir()) for m in members):
-            raise ValueError('Release archive may only contain regular files and directories')
-        if len(members) > 100_000 or sum(m.size for m in members) > 2 * 1024**3:
-            raise ValueError('Release archive exceeds declared inspection limits')
-        stream.extractall(destination, filter='data')
+        batch_package.extract(stream, destination)
     roots = list(destination.iterdir())
     if len(roots) != 1 or not roots[0].is_dir():
         raise ValueError('Release archive needs one source directory')
     root = roots[0]
+    if package_format == batch_package.FORMAT:
+        if root.name != manifest['release_tag']:
+            raise ValueError('Package root differs from release tag')
+        batch_package.verify(root, manifest)
     records = {r['id']: r for r in validate_records(root)}
     rows = manifest['records']
     if len(rows) != manifest['new_signal_count'] or len({r['id'] for r in rows}) != len(rows):
@@ -157,7 +181,11 @@ def inspect_archive(archive, manifest, expected_sha256, destination):
 def fetch(url, path):
     request = urllib.request.Request(url, headers={'User-Agent': 'exoplanet-candidates-evidence-verifier'})
     with urllib.request.urlopen(request, timeout=90) as response, path.open('wb') as out:
+        size = 0
         while chunk := response.read(1024 * 1024):
+            size += len(chunk)
+            if size >= batch_package.MAX_BYTES:
+                raise ValueError('Download exceeds the per-asset size limit')
             out.write(chunk)
     return path
 
@@ -169,7 +197,10 @@ def inspect_assets(archive, manifest_path, expected_sha256, certificate):
     result = {'status': 'passed', 'verification_kind': 'local_evidence_asset_inspection',
               'checked_utc': datetime.now(timezone.utc).isoformat(),
               'archive_sha256': expected_sha256, 'selected_records_verified': manifest['new_signal_count'],
-              'total_dossiers_validated': count, 'limits': manifest['limits']}
+              'total_dossiers_validated': count,
+              'package_format': manifest.get('package_format', 'whole-repository-v1'),
+              'source_catalogue_count': manifest.get('source_catalogue_count', count),
+              'limits': manifest['limits']}
     write(certificate, result)
     return result
 
@@ -208,6 +239,8 @@ def verify_public(repo, tag, expected_sha256, certificate, run_checks=True):
                   'release_url': metadata['html_url'], 'release_published_utc': metadata['published_at'],
                   'source_commit': manifest['source_commit'], 'archive_sha256': expected_sha256,
                   'selected_records_verified': manifest['new_signal_count'], 'total_dossiers_validated': count,
+                  'package_format': manifest.get('package_format', 'whole-repository-v1'),
+                  'source_catalogue_count': manifest.get('source_catalogue_count', count),
                   'public_input_urls': [metadata_url, base + 'release-manifest.json', base + name],
                   'checks': checks, 'limits': manifest['limits']}
         write(certificate, result)
@@ -350,6 +383,8 @@ def main():
     package.add_argument('--batch', required=True)
     package.add_argument('--tag', required=True)
     package.add_argument('--output', type=Path, required=True)
+    package.add_argument('--format', choices=[batch_package.FORMAT, 'whole-repository-v1'],
+                         default=batch_package.FORMAT, dest='package_format')
     verify = commands.add_parser('verify-public')
     verify.add_argument('--repo', required=True)
     verify.add_argument('--tag', required=True)
@@ -374,7 +409,7 @@ def main():
     local.add_argument('--certificate', type=Path, required=True)
     args = parser.parse_args()
     if args.command == 'prepare':
-        result = prepare(args.root, args.batch, args.tag, args.output)
+        result = prepare(args.root, args.batch, args.tag, args.output, args.package_format)
     elif args.command == 'verify-public':
         result = verify_public(args.repo, args.tag, args.expected_sha256, args.certificate)
     elif args.command == 'record-release':

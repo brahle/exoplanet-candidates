@@ -1,6 +1,6 @@
-# Phase 4 b006: local evidence review
+# Phase 4 b006: evidence review and public disclosure
 
-Prepared 2026-10-16. These are local drafts for owner review; first-public dates, release URL and DOI remain null. No public push is authorized by this intake request.
+Prepared 2026-10-16. Owner authorized provisional evidence disclosure on 16 October 2026. Actual first Git disclosure and immutable release times are recorded separately in the batch publication receipt. No DOI has been assigned.
 
 All 109 registered signals reached a terminal verifier outcome; all remain scientifically unclassified. 105 have an adopted conditional diagnostic ephemeris; 4 retain explicitly unadopted discovery seeds. A ledger-only outcome is not an adjudicated false positive.
 
@@ -12,9 +12,12 @@ All 109 registered signals reached a terminal verifier outcome; all remain scien
 | insufficient multisector evidence | 3 |
 | Total | 109 |
 
-The [complete ledger](../batches/phase4-scaled-b006/outcomes.json) conserves every signal. The local catalogue now has 445 dossiers, preserving the earlier 368 public dossier files and histories unchanged.
+The [complete ledger](../batches/phase4-scaled-b006/outcomes.json) conserves every signal. The catalogue now has 445 dossiers, preserving the earlier 368 public dossier files and histories unchanged.
 
 ## Catalogue and stellar context
+
+Release-time configured Exoplanet MCP checks on 16 October 2026 exactly preserved all 109 query arguments and result objects, including all 77 selected dossiers. The [comparison receipt](../batches/phase4-scaled-b006/release-preflight.json) and [new dated responses](../batches/phase4-scaled-b006/release-catalogue-checks.jsonl) supplement the original assessment without replacing it.
+
 
 Fresh configured Exoplanet MCP checks used adopted diagnostic periods, or explicit unadopted seeds, and 120 arcsec. Results: 83 no match in checked sources, 20 variable star match, 6 near matches found. Queries compare coordinates, periods and harmonics; epoch and depth comparisons were not performed. Nonmatches are not exhaustive novelty; nearby matches do not identify the physical source. Exact original catalogue responses remain in each selected dossier's `evidence/catalogue-check.json`.
 
@@ -76,4 +79,4 @@ All 77 full-grid reconstructions use recorded launch source 917b726, native kern
 
 All 77 overviews were inspected on 5 contact sheets; 11 overviews and 4 event pages were inspected individually. Every event count and plotting-vector hash was checked programmatically; not every PNG was individually viewed.
 
-Schema, artifact and saved-vector checks are evidence inspection, not a fresh numerical rerun from public raw inputs or a scientific-validity certificate. Public release and any stronger classification remain separate decisions.
+Schema, artifact and saved-vector checks are evidence inspection, not a fresh numerical rerun from public raw inputs or a scientific-validity certificate. This owner-authorized evidence release leaves stronger scientific classification as a separate decision. See the [publication receipt](../batches/phase4-scaled-b006/publication-receipt.json) for actual public times.

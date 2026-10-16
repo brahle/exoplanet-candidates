@@ -93,3 +93,38 @@ inspection**, not a numerical rerun. Receipt recording checks current science ag
 release, preserves first-disclosure time and appends the actual release time separately.
 Repeated delivery does not create extra versions. Updated scientific inference needs a new
 assessment/review/export/release; this metadata helper cannot silently attach it to an old release.
+
+## Bounded batch packages (format v2)
+
+`prepare` now defaults to `--format batch-evidence-v2`. It packages the selected dossiers,
+the complete batch ledger and exact reviews, all batch snapshots, validation scripts/schemas,
+frozen dependencies and tests. Explicit repository-file references in scientific JSON close
+over shared snapshots, including snapshots stored in another batch. Missing, uncommitted or
+hash-mismatched dependencies fail preparation. Scientific dossier bytes are copied from the
+pinned Git commit.
+
+The tests currently use three earlier dossiers, declared in `tests/fixture-dossiers.json`.
+These unchanged test dependencies are listed separately as `support_records` with role
+`validation_test_fixture`; they are not additional scientific selections. The manifest
+separates `new_signal_count`, `packaged_dossier_count` (also `total_dossiers`) and
+`source_catalogue_count`. Undeclared extra dossier identities are rejected.
+
+`source_files` binds each copied file to its original repository path and SHA256. Original
+source catalogue/README metadata is retained under `package-provenance/`. `derived_files`
+separately binds the package README, subset catalogue/browse/gallery and scope metadata.
+The extracted catalogue describes the packaged subset, not the entire source repository.
+Scientific files cannot be relabelled as derived views. Unlisted files, stale hashes,
+changed selections or inconsistent source/packaged counts fail inspection.
+
+Both compressed assets and extraction retain the existing 2 GiB bounds, and extraction
+retains the 100,000-member bound. Preparation checks the uncompressed size before compression;
+inspection rejects traversal, duplicate members, links and special files before extraction.
+A batch that exceeds these limits requires a separately designed multipart format; these
+limits are not silently enlarged.
+
+Earlier unversioned whole-repository releases remain readable as format v1.
+`--format whole-repository-v1` is available for compatibility and obeys the same size bounds.
+The release helpers still never publish automatically. Draft inspection, immutable publication,
+anonymous public download/frozen-environment checks and timestamp receipts remain separate
+steps. A passed package certificate establishes evidence integrity, not a numerical rerun,
+physical host attribution or planetary validation.
