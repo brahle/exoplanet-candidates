@@ -164,3 +164,8 @@ All 73 selected dossier catalogue results are unchanged. Two existing ledger-onl
 neighbor matches have updated external labels/scores, retained in the new dated
 receipt. Original assessments and responses remain intact. This is evidence inspection
 only, with the complete outcome ledger and descriptive warnings preserved.
+
+First Git disclosure: **2026-10-16 09:31:13 UTC**. Immutable release: **2026-10-16T09:39:16Z**.
+The [public evidence certificate](public-evidence-certificate.json) records an unauthenticated
+download, full 368-dossier validation and fresh frozen-environment inspection/tests.
+This verifies exported evidence integrity, not planetary status.

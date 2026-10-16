@@ -139,3 +139,11 @@ are preserved; only b004 publication metadata changes alongside this release. Th
 previous 246 public dossier files and histories remain unchanged. See the [batch publication
 receipt](../batches/phase4-scaled-b005/publication-receipt.json) for actual public times. No DOI
 or production database update is claimed.
+
+## Publication receipt
+
+First Git disclosure was observed at **2026-10-16 09:31:13 UTC**; the immutable
+release was published at **2026-10-16T09:40:07Z**. The [public inspection
+certificate](../batches/phase4-scaled-b005/public-evidence-certificate.json) verifies
+anonymous downloads, hashes, all 368 dossiers and fresh frozen-environment tests.
+These are evidence-integrity checks; scientific classifications remain unchanged.

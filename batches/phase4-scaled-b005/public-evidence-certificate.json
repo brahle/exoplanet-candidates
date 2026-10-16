@@ -1,0 +1,57 @@
+{
+  "status": "passed",
+  "verification_kind": "public_evidence_inspection",
+  "checked_utc": "2026-10-16T09:41:54.780287+00:00",
+  "http_authentication": "none",
+  "release_url": "https://github.com/brahle/exoplanet-candidates/releases/tag/phase4-scaled-b005-v0.1.0",
+  "release_published_utc": "2026-10-16T09:40:07Z",
+  "source_commit": "e1888d10fc7bb83610f3b36daf6a17793a54e85e",
+  "archive_sha256": "a1d14fd86a613d696aca2b61cb36f0191b6eb96440a3b3b51ea9706bcb29e759",
+  "selected_records_verified": 49,
+  "total_dossiers_validated": 368,
+  "public_input_urls": [
+    "https://api.github.com/repos/brahle/exoplanet-candidates/releases/tags/phase4-scaled-b005-v0.1.0",
+    "https://github.com/brahle/exoplanet-candidates/releases/download/phase4-scaled-b005-v0.1.0/release-manifest.json",
+    "https://github.com/brahle/exoplanet-candidates/releases/download/phase4-scaled-b005-v0.1.0/phase4-scaled-b005-v0.1.0-evidence.tar.gz"
+  ],
+  "checks": [
+    {
+      "command": [
+        "uv",
+        "sync",
+        "--frozen",
+        "--offline"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "python",
+        "scripts/catalogue.py",
+        "check"
+      ],
+      "exit_code": 0
+    },
+    {
+      "command": [
+        "uv",
+        "run",
+        "--offline",
+        "python",
+        "-m",
+        "unittest",
+        "discover",
+        "-s",
+        "tests"
+      ],
+      "exit_code": 0
+    }
+  ],
+  "limits": [
+    "Exported evidence integrity only; no numerical rerun or scientific validity certificate.",
+    "Catalogue nonmatches do not establish discovery priority."
+  ]
+}

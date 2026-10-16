@@ -136,3 +136,11 @@ The previous 246 public dossier files and their disclosure/release histories are
 unchanged. See the [batch publication receipt](../batches/phase4-scaled-b004/publication-receipt.json)
 for observed Git disclosure and actual release times. Scientific assessments remain
 unclassified; evidence inspection does not qualify these as planets.
+
+## Publication receipt
+
+First Git disclosure was observed at **2026-10-16 09:31:13 UTC**; the immutable
+release was published at **2026-10-16T09:39:16Z**. The [public inspection
+certificate](../batches/phase4-scaled-b004/public-evidence-certificate.json) verifies
+anonymous downloads, hashes, all 368 dossiers and fresh frozen-environment tests.
+These are evidence-integrity checks; scientific classifications remain unchanged.
